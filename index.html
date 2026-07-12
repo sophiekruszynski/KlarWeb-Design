@@ -599,9 +599,57 @@
       display:flex;
       justify-content:space-between;
       gap:20px;
-      flex-wrap:wrap;
-    }
+      flex-.formSection{
+  padding-bottom:24px;
+  margin-bottom:24px;
+  border-bottom:1px solid var(--line);
+}
 
+.formSection:last-of-type{
+  border-bottom:0;
+}
+
+.formSection h3{
+  margin-bottom:16px;
+}
+
+.checkGrid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:10px;
+  margin-bottom:16px;
+}
+
+.checkItem{
+  display:flex;
+  grid-template-columns:auto 1fr;
+  align-items:flex-start;
+  gap:9px;
+  padding:12px;
+  border:1px solid var(--line);
+  border-radius:12px;
+  background:var(--bg);
+  font-weight:700;
+}
+
+.checkItem input{
+  width:auto;
+  margin-top:4px;
+}
+
+.privacyCheck{
+  display:flex;
+  grid-template-columns:auto 1fr;
+  align-items:flex-start;
+  gap:10px;
+  font-weight:normal;
+}
+
+.privacyCheck input{
+  width:auto;
+  margin-top:5px;
+}
+      
     @media(max-width:980px){
       .heroGrid,
       .aboutGrid,
@@ -638,6 +686,9 @@
       .fieldGrid,
       .processGrid{
         grid-template-columns:1fr;
+       .checkGrid{
+  grid-template-columns:1fr;
+} 
       }
 
       .industryList{
@@ -1101,105 +1152,481 @@
     </div>
   </section>
 
-  <section id="anfrage">
-    <div class="wrap contactGrid">
+<section id="anfrage">
+  <div class="wrap">
+
+    <div class="sectionIntro">
+      <span class="eyebrow">Projektanfrage</span>
+      <h2>Alle wichtigen Angaben für Ihre neue Website</h2>
+      <p>
+        Füllen Sie das Formular möglichst vollständig aus.
+        So kann ich Ihr Projekt besser einschätzen und die erste Version
+        Ihrer Website schneller vorbereiten.
+      </p>
+    </div>
+
+    <div class="contactGrid">
 
       <div class="card">
-        <span class="eyebrow">Projektanfrage</span>
+        <span class="eyebrow">Kontakt</span>
         <h2>Erzählen Sie mir von Ihrem Unternehmen.</h2>
 
         <p>
-          Sie erhalten eine unverbindliche Einschätzung,
-          welches Paket und Design zu Ihrem Vorhaben passen könnte.
+          Nach Ihrer Anfrage erhalten Sie eine unverbindliche Einschätzung
+          zu Paket, Design, Umfang und möglichen Zusatzleistungen.
         </p>
 
         <p>
           <strong>KlarWeb Design</strong><br>
           Sophie Kruszynski<br>
-          <a href="mailto:Sophie.kzn01@gmail.com">Sophie.kzn01@gmail.com</a><br>
+          <a href="mailto:Sophie.kzn01@gmail.com">
+            Sophie.kzn01@gmail.com
+          </a><br>
           Deutschlandweit online
+        </p>
+
+        <p class="small">
+          Bitte senden Sie Logo, Bilder und vorhandene Texte später
+          separat per E-Mail.
         </p>
       </div>
 
       <div class="card">
+
         <form id="projectForm">
 
-          <div class="fieldGrid">
-            <label>
-              Name *
-              <input name="name" required>
-            </label>
+          <div class="formSection">
+            <h3>1. Kontaktdaten</h3>
+
+            <div class="fieldGrid">
+              <label>
+                Name *
+                <input name="name" required>
+              </label>
+
+              <label>
+                Unternehmen
+                <input name="company">
+              </label>
+            </div>
+
+            <div class="fieldGrid">
+              <label>
+                E-Mail *
+                <input name="email" type="email" required>
+              </label>
+
+              <label>
+                Telefonnummer
+                <input name="phone" type="tel">
+              </label>
+            </div>
 
             <label>
-              Unternehmen
-              <input name="company">
+              Firmenanschrift
+              <input
+                name="address"
+                placeholder="Straße, Hausnummer, PLZ und Ort"
+              >
             </label>
           </div>
 
-          <div class="fieldGrid">
+          <div class="formSection">
+            <h3>2. Unternehmen und Branche</h3>
+
+            <div class="fieldGrid">
+              <label>
+                Branche *
+                <input
+                  name="industry"
+                  required
+                  placeholder="z. B. Gartenpflege, Elektriker oder Fotografie"
+                >
+              </label>
+
+              <label>
+                Einsatzgebiet
+                <input
+                  name="serviceArea"
+                  placeholder="z. B. Rostock und 30 km Umgebung"
+                >
+              </label>
+            </div>
+
             <label>
-              E-Mail *
-              <input name="email" type="email" required>
+              Beschreiben Sie Ihr Unternehmen *
+              <textarea
+                name="companyDescription"
+                required
+                placeholder="Was macht Ihr Unternehmen, seit wann besteht es und was ist Ihnen besonders wichtig?"
+              ></textarea>
             </label>
 
             <label>
-              Branche
-              <input name="industry" placeholder="z. B. Gartenpflege">
+              Warum sollten Kunden Sie wählen?
+              <textarea
+                name="advantages"
+                placeholder="z. B. langjährige Erfahrung, schnelle Termine, faire Preise, persönliche Beratung"
+              ></textarea>
             </label>
           </div>
 
-          <label>
-            Gewünschtes Paket
-            <select name="package">
-              <option>Noch unsicher</option>
-              <option>Starter – 549 €</option>
-              <option>Business – 899 €</option>
-              <option>Pflegepaket</option>
-            </select>
-          </label>
+          <div class="formSection">
+            <h3>3. Leistungen</h3>
 
-          <label>
-            Gewünschtes Design
-            <select name="design">
-              <option>Noch unsicher</option>
-              <option>A1 – Modern asymmetrisch</option>
-              <option>A2 – Modern editorial</option>
-              <option>B1 – Premium Architektur</option>
-              <option>B2 – Premium Galerie</option>
-              <option>C1 – Natürlich organisch</option>
-              <option>C2 – Natürlich Magazin</option>
-            </select>
-          </label>
+            <label>
+              Welche Leistungen sollen auf der Website erscheinen? *
+              <textarea
+                name="services"
+                required
+                placeholder="Bitte alle Leistungen möglichst einzeln aufführen."
+              ></textarea>
+            </label>
 
-          <label>
-            Nachricht *
-            <textarea
-              name="message"
-              required
-              placeholder="Was soll Ihre Website zeigen oder ermöglichen?"
-            ></textarea>
-          </label>
+            <label>
+              Gibt es besondere Angebote, Notdienst oder Aktionen?
+              <textarea
+                name="specialOffers"
+                placeholder="z. B. kostenloses Erstgespräch, 24-Stunden-Notdienst oder saisonale Angebote"
+              ></textarea>
+            </label>
+          </div>
 
-          <label style="display:flex;grid-template-columns:auto 1fr;align-items:start;font-weight:normal">
-            <input type="checkbox" required style="width:auto;margin-top:5px">
+          <div class="formSection">
+            <h3>4. Bestehende Website und Domain</h3>
+
+            <div class="fieldGrid">
+              <label>
+                Bestehende Website
+                <input
+                  name="existingWebsite"
+                  placeholder="https://..."
+                >
+              </label>
+
+              <label>
+                Vorhandene Domain
+                <input
+                  name="existingDomain"
+                  placeholder="z. B. musterbetrieb.de"
+                >
+              </label>
+            </div>
+
+            <label>
+              Gewünschte Domain
+              <input
+                name="desiredDomain"
+                placeholder="Welche Internetadresse wünschen Sie?"
+              >
+            </label>
+          </div>
+
+          <div class="formSection">
+            <h3>5. Gewünschtes Paket</h3>
+
+            <label>
+              Paket
+              <select name="package">
+                <option>Noch unsicher</option>
+                <option>Starter – 549 € einmalig</option>
+                <option>Business – 899 € einmalig</option>
+                <option>Pflegepaket ab 39 € monatlich</option>
+                <option>Individuelles Angebot</option>
+              </select>
+            </label>
+
+            <label>
+              Gewünschter Umfang
+              <select name="websiteScope">
+                <option>Noch unsicher</option>
+                <option>Onepage mit bis zu 5 Inhaltsbereichen</option>
+                <option>Website mit bis zu 5 einzelnen Seiten</option>
+                <option>Mehr als 5 Seiten</option>
+              </select>
+            </label>
+          </div>
+
+          <div class="formSection">
+            <h3>6. Designwünsche</h3>
+
+            <label>
+              Gewünschtes Design
+              <select name="design">
+                <option>Noch unsicher</option>
+                <option>A1 – Modern asymmetrisch</option>
+                <option>A2 – Modern editorial</option>
+                <option>B1 – Premium Architektur</option>
+                <option>B2 – Premium Galerie</option>
+                <option>C1 – Natürlich organisch</option>
+                <option>C2 – Natürlich Magazin</option>
+              </select>
+            </label>
+
+            <label>
+              Gewünschte Farben
+              <input
+                name="colors"
+                placeholder="z. B. Dunkelblau, Beige und Gold"
+              >
+            </label>
+
+            <label>
+              Websites, die Ihnen gefallen
+              <textarea
+                name="inspiration"
+                placeholder="Bitte Links oder kurze Beschreibungen eintragen."
+              ></textarea>
+            </label>
+          </div>
+
+          <div class="formSection">
+            <h3>7. Inhalte und Dateien</h3>
+
+            <div class="checkGrid">
+              <label class="checkItem">
+                <input type="checkbox" name="materials" value="Logo vorhanden">
+                Logo vorhanden
+              </label>
+
+              <label class="checkItem">
+                <input type="checkbox" name="materials" value="Eigene Bilder vorhanden">
+                Eigene Bilder vorhanden
+              </label>
+
+              <label class="checkItem">
+                <input type="checkbox" name="materials" value="Projektbilder vorhanden">
+                Projektbilder vorhanden
+              </label>
+
+              <label class="checkItem">
+                <input type="checkbox" name="materials" value="Texte vorhanden">
+                Texte vorhanden
+              </label>
+
+              <label class="checkItem">
+                <input type="checkbox" name="materials" value="Bewertungen vorhanden">
+                Bewertungen vorhanden
+              </label>
+
+              <label class="checkItem">
+                <input type="checkbox" name="materials" value="Noch keine Inhalte vorhanden">
+                Noch keine Inhalte vorhanden
+              </label>
+            </div>
+
+            <label>
+              Welche Texte müssen unbedingt auf die Website?
+              <textarea
+                name="requiredTexts"
+                placeholder="z. B. Firmenvorstellung, Leistungen, Geschichte, besondere Hinweise"
+              ></textarea>
+            </label>
+          </div>
+
+          <div class="formSection">
+            <h3>8. Kontaktmöglichkeiten auf der Website</h3>
+
+            <div class="checkGrid">
+              <label class="checkItem">
+                <input type="checkbox" name="contactOptions" value="Telefon">
+                Telefon
+              </label>
+
+              <label class="checkItem">
+                <input type="checkbox" name="contactOptions" value="E-Mail">
+                E-Mail
+              </label>
+
+              <label class="checkItem">
+                <input type="checkbox" name="contactOptions" value="WhatsApp">
+                WhatsApp
+              </label>
+
+              <label class="checkItem">
+                <input type="checkbox" name="contactOptions" value="Kontaktformular">
+                Kontaktformular
+              </label>
+
+              <label class="checkItem">
+                <input type="checkbox" name="contactOptions" value="Terminbuchung">
+                Terminbuchung
+              </label>
+
+              <label class="checkItem">
+                <input type="checkbox" name="contactOptions" value="Google Maps">
+                Google Maps
+              </label>
+            </div>
+          </div>
+
+          <div class="formSection">
+            <h3>9. Gewünschte Bereiche</h3>
+
+            <div class="checkGrid">
+              <label class="checkItem">
+                <input type="checkbox" name="sections" value="Startseite">
+                Startseite
+              </label>
+
+              <label class="checkItem">
+                <input type="checkbox" name="sections" value="Leistungen">
+                Leistungen
+              </label>
+
+              <label class="checkItem">
+                <input type="checkbox" name="sections" value="Über uns">
+                Über uns
+              </label>
+
+              <label class="checkItem">
+                <input type="checkbox" name="sections" value="Referenzen">
+                Referenzen
+              </label>
+
+              <label class="checkItem">
+                <input type="checkbox" name="sections" value="Galerie">
+                Galerie
+              </label>
+
+              <label class="checkItem">
+                <input type="checkbox" name="sections" value="Bewertungen">
+                Bewertungen
+              </label>
+
+              <label class="checkItem">
+                <input type="checkbox" name="sections" value="FAQ">
+                Häufige Fragen
+              </label>
+
+              <label class="checkItem">
+                <input type="checkbox" name="sections" value="Kontakt">
+                Kontakt
+              </label>
+            </div>
+          </div>
+
+          <div class="formSection">
+            <h3>10. Öffnungszeiten</h3>
+
+            <label>
+              Öffnungszeiten
+              <textarea
+                name="openingHours"
+                placeholder="Montag bis Freitag: 08:00–17:00 Uhr&#10;Samstag: nach Vereinbarung"
+              ></textarea>
+            </label>
+          </div>
+
+          <div class="formSection">
+            <h3>11. Referenzen und Bewertungen</h3>
+
+            <label>
+              Welche Projekte oder Referenzen sollen gezeigt werden?
+              <textarea
+                name="references"
+                placeholder="Bitte Projekte, Kunden oder Arbeitsbeispiele nennen."
+              ></textarea>
+            </label>
+
+            <label>
+              Kundenbewertungen
+              <textarea
+                name="reviews"
+                placeholder="Bitte vorhandene Bewertungen oder Links eintragen."
+              ></textarea>
+            </label>
+          </div>
+
+          <div class="formSection">
+            <h3>12. Zusatzleistungen</h3>
+
+            <div class="checkGrid">
+              <label class="checkItem">
+                <input type="checkbox" name="extras" value="Zusätzliche Unterseite">
+                Zusätzliche Unterseite
+              </label>
+
+              <label class="checkItem">
+                <input type="checkbox" name="extras" value="Bildergalerie">
+                Bildergalerie
+              </label>
+
+              <label class="checkItem">
+                <input type="checkbox" name="extras" value="FAQ-Bereich">
+                FAQ-Bereich
+              </label>
+
+              <label class="checkItem">
+                <input type="checkbox" name="extras" value="Google Bewertungen">
+                Google-Bewertungen
+              </label>
+
+              <label class="checkItem">
+                <input type="checkbox" name="extras" value="Terminbuchung">
+                Terminbuchung
+              </label>
+
+              <label class="checkItem">
+                <input type="checkbox" name="extras" value="Express-Fertigstellung">
+                Express-Fertigstellung
+              </label>
+            </div>
+          </div>
+
+          <div class="formSection">
+            <h3>13. Zeitplan und weitere Wünsche</h3>
+
+            <div class="fieldGrid">
+              <label>
+                Gewünschter Fertigstellungstermin
+                <input name="deadline" type="date">
+              </label>
+
+              <label>
+                Wie wurden Sie auf KlarWeb aufmerksam?
+                <select name="source">
+                  <option>Bitte auswählen</option>
+                  <option>Google</option>
+                  <option>Empfehlung</option>
+                  <option>Direkte Kontaktaufnahme</option>
+                  <option>Social Media</option>
+                  <option>Sonstiges</option>
+                </select>
+              </label>
+            </div>
+
+            <label>
+              Weitere Wünsche oder Hinweise
+              <textarea
+                name="message"
+                placeholder="Hier können Sie alles ergänzen, was für Ihr Projekt wichtig ist."
+              ></textarea>
+            </label>
+          </div>
+
+          <label class="privacyCheck">
+            <input type="checkbox" required>
             <span>
-              Ich stimme der Verarbeitung meiner Angaben zur Bearbeitung der Anfrage zu. *
+              Ich stimme der Verarbeitung meiner Angaben zur Bearbeitung
+              meiner Anfrage zu. *
             </span>
           </label>
 
           <button class="btn primary" type="submit">
-            Anfrage per E-Mail senden
+            Vollständige Projektanfrage per E-Mail senden
           </button>
 
           <p class="small">
             Das Formular öffnet das E-Mail-Programm des Besuchers.
+            Bilder und Dateien können anschließend separat angehängt werden.
           </p>
 
         </form>
-      </div>
 
     </div>
-  </section>
+  </div>
+</section>
 
 </main>
 
@@ -1217,38 +1644,115 @@
 </footer>
 
 <script>
-  document.getElementById("year").textContent = new Date().getFullYear();
+  document.getElementById("year").textContent =
+    new Date().getFullYear();
 
-  document.getElementById("projectForm").addEventListener("submit", function(event){
-    event.preventDefault();
+  document
+    .getElementById("projectForm")
+    .addEventListener("submit", function(event){
 
-    const data = new FormData(event.currentTarget);
+      event.preventDefault();
 
-    const subject = encodeURIComponent(
-      "Website-Anfrage von " + (data.get("company") || data.get("name"))
-    );
+      const data = new FormData(event.currentTarget);
 
-    const body = encodeURIComponent(
+      function getCheckedValues(name){
+        return data.getAll(name).length
+          ? data.getAll(name).join(", ")
+          : "Keine Auswahl";
+      }
+
+      const subject = encodeURIComponent(
+        "Website-Anfrage von " +
+        (data.get("company") || data.get("name"))
+      );
+
+      const body = encodeURIComponent(
 `Hallo Sophie,
 
 ich interessiere mich für eine Website von KlarWeb Design.
 
+KONTAKTDATEN
 Name: ${data.get("name")}
 Unternehmen: ${data.get("company") || "-"}
 E-Mail: ${data.get("email")}
-Branche: ${data.get("industry") || "-"}
-Paket: ${data.get("package")}
-Design: ${data.get("design")}
+Telefon: ${data.get("phone") || "-"}
+Anschrift: ${data.get("address") || "-"}
 
-Nachricht:
-${data.get("message")}
+UNTERNEHMEN
+Branche: ${data.get("industry")}
+Einsatzgebiet: ${data.get("serviceArea") || "-"}
+
+Unternehmensbeschreibung:
+${data.get("companyDescription")}
+
+Vorteile:
+${data.get("advantages") || "-"}
+
+LEISTUNGEN
+${data.get("services")}
+
+Besondere Angebote:
+${data.get("specialOffers") || "-"}
+
+WEBSITE UND DOMAIN
+Bestehende Website: ${data.get("existingWebsite") || "-"}
+Vorhandene Domain: ${data.get("existingDomain") || "-"}
+Gewünschte Domain: ${data.get("desiredDomain") || "-"}
+
+PAKET UND UMFANG
+Paket: ${data.get("package")}
+Umfang: ${data.get("websiteScope")}
+
+DESIGN
+Design: ${data.get("design")}
+Farben: ${data.get("colors") || "-"}
+Inspiration:
+${data.get("inspiration") || "-"}
+
+INHALTE
+Vorhandene Materialien:
+${getCheckedValues("materials")}
+
+Pflichttexte:
+${data.get("requiredTexts") || "-"}
+
+KONTAKTMÖGLICHKEITEN
+${getCheckedValues("contactOptions")}
+
+GEWÜNSCHTE BEREICHE
+${getCheckedValues("sections")}
+
+ÖFFNUNGSZEITEN
+${data.get("openingHours") || "-"}
+
+REFERENZEN
+${data.get("references") || "-"}
+
+BEWERTUNGEN
+${data.get("reviews") || "-"}
+
+ZUSATZLEISTUNGEN
+${getCheckedValues("extras")}
+
+ZEITPLAN
+Gewünschter Termin: ${data.get("deadline") || "-"}
+Gefunden über: ${data.get("source")}
+
+WEITERE WÜNSCHE
+${data.get("message") || "-"}
 
 Viele Grüße
 ${data.get("name")}`
-    );
+      );
 
-    window.location.href =
-      "mailto:Sophie.kzn01@gmail.com?subject=" + subject + "&body=" + body;
+      window.location.href =
+        "mailto:Sophie.kzn01@gmail.com?subject=" +
+        subject +
+        "&body=" +
+        body;
+    });
+</script>
+
   });
 </script>
 
