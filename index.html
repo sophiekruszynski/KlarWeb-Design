@@ -2,14 +2,10 @@
 <html lang="de">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <title>KlarWeb Design – Websites für kleine Unternehmen</title>
-
-  <meta
-    name="description"
-    content="Moderne, mobil optimierte Websites für Handwerksbetriebe, Dienstleister, Ferienwohnungen und kreative Berufe."
-  >
+  <meta name="description" content="Moderne, mobil optimierte Websites für Handwerksbetriebe, Dienstleister, Ferienwohnungen und kreative Berufe.">
 
   <style>
     :root{
@@ -42,6 +38,7 @@
       color:var(--text);
       font-family:Arial,Helvetica,sans-serif;
       line-height:1.65;
+      overflow-x:hidden;
     }
 
     a{
@@ -65,7 +62,7 @@
       position:sticky;
       top:0;
       z-index:50;
-      background:rgba(255,255,255,.92);
+      background:rgba(255,255,255,.94);
       backdrop-filter:blur(14px);
       border-bottom:1px solid var(--line);
     }
@@ -104,6 +101,7 @@
       border:1px solid var(--line);
       background:#fff;
       font-weight:900;
+      cursor:pointer;
       transition:.2s ease;
     }
 
@@ -180,16 +178,8 @@
       min-height:510px;
       border-radius:34px;
       background:
-        radial-gradient(
-          circle at 80% 16%,
-          rgba(223,183,95,.8),
-          transparent 24%
-        ),
-        linear-gradient(
-          145deg,
-          #7ea187,
-          #294533
-        );
+        radial-gradient(circle at 80% 16%,rgba(223,183,95,.8),transparent 24%),
+        linear-gradient(145deg,#7ea187,#294533);
       box-shadow:var(--shadow);
       padding:28px;
       display:grid;
@@ -223,11 +213,7 @@
     .mockbody{
       padding:30px;
       min-height:310px;
-      background:linear-gradient(
-        135deg,
-        #faf8f2,
-        #e2ece0
-      );
+      background:linear-gradient(135deg,#faf8f2,#e2ece0);
     }
 
     .mockbody small{
@@ -256,12 +242,13 @@
 
     .trust{
       display:grid;
-      grid-template-columns:repeat(3,1fr);
+      grid-template-columns:repeat(3,minmax(0,1fr));
       gap:14px;
       margin-top:28px;
     }
 
     .trust div{
+      min-width:0;
       background:#fff;
       border:1px solid var(--line);
       border-radius:18px;
@@ -284,11 +271,12 @@
 
     .grid3{
       display:grid;
-      grid-template-columns:repeat(3,1fr);
+      grid-template-columns:repeat(3,minmax(0,1fr));
       gap:18px;
     }
 
     .card{
+      min-width:0;
       background:#fff;
       border:1px solid var(--line);
       border-radius:var(--radius);
@@ -310,6 +298,7 @@
       font-size:1.5rem;
       margin-bottom:18px;
     }
+
     .industries{
       background:var(--dark);
       color:#fff;
@@ -321,60 +310,338 @@
 
     .industryGroups{
       display:grid;
-      grid-template-columns:repeat(3,1fr);
+      grid-template-columns:repeat(3,minmax(0,1fr));
       gap:18px;
     }
 
     .industryGroup{
+      min-width:0;
       background:rgba(255,255,255,.07);
       border:1px solid rgba(255,255,255,.12);
       border-radius:24px;
       padding:22px;
-        
-     .grid3,.industryGroups{ 
-        grid-template-columns:repeat(2,1fr); }
-    }
-
-    .industryGroup h3{
-      color:#fff;
     }
 
     .industryList{
       display:grid;
-      grid-template-columns:1fr 1fr;
+      grid-template-columns:repeat(2,minmax(0,1fr));
       gap:12px;
     }
 
     .industryItem{
+      min-width:0;
+      overflow-wrap:anywhere;
       background:rgba(255,255,255,.08);
       padding:14px;
       border-radius:16px;
       font-weight:800;
     }
 
+    .designGrid{
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:18px;
+    }
+
+    .designCard{
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:24px;
+      overflow:hidden;
+      box-shadow:var(--shadow);
+    }
+
+    .designPreview{
+      min-height:260px;
+      padding:22px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+
+    .designA1{background:linear-gradient(145deg,#e7efff,#5b86f3)}
+    .designA2{background:linear-gradient(145deg,#0f172a,#c8f35b)}
+    .designB1{background:linear-gradient(145deg,#151515,#c5a15b)}
+    .designB2{background:linear-gradient(145deg,#101a2a,#c57a4a)}
+    .designC1{background:linear-gradient(145deg,#f1e9da,#6c8b61)}
+    .designC2{background:linear-gradient(145deg,#ece6d7,#66734b)}
+
+    .miniSite{
+      width:88%;
+      background:#fff;
+      border-radius:12px;
+      overflow:hidden;
+      box-shadow:0 20px 44px rgba(0,0,0,.22);
+    }
+
+    .miniNav{
+      height:26px;
+      background:#ecefea;
+    }
+
+    .miniHero{
+      height:125px;
+      padding:20px;
+    }
+
+    .miniHero b{
+      display:block;
+      width:68%;
+      height:12px;
+      background:#26352b;
+      border-radius:3px;
+      margin-bottom:10px;
+    }
+
+    .miniHero span{
+      display:block;
+      width:46%;
+      height:7px;
+      background:#9ba59d;
+      border-radius:3px;
+      margin-bottom:14px;
+    }
+
+    .miniHero i{
+      display:block;
+      width:34%;
+      height:24px;
+      background:var(--primary);
+      border-radius:6px;
+    }
+
+    .designContent{
+      padding:22px;
+    }
+
+    .pricing{
+      display:grid;
+      grid-template-columns:repeat(3,minmax(0,1fr));
+      gap:18px;
+      align-items:stretch;
+    }
+
+    .priceCard{
+      display:flex;
+      flex-direction:column;
+    }
+
+    .priceCard.featured{
+      border:2px solid var(--primary);
+      transform:translateY(-8px);
+    }
+
+    .price{
+      font-size:2.5rem;
+      font-weight:950;
+      margin:8px 0;
+    }
+
+    .monthly{
+      color:var(--muted);
+      font-weight:850;
+    }
+
+    .features{
+      padding:0;
+      margin:22px 0;
+      list-style:none;
+      display:grid;
+      gap:10px;
+    }
+
+    .features li::before{
+      content:"✓";
+      color:var(--primary);
+      font-weight:950;
+      margin-right:8px;
+    }
+
+    .priceCard .btn{
+      margin-top:auto;
+    }
+
+    .notice{
+      margin-top:18px;
+      background:#fff7dc;
+      border:1px solid #ead797;
+      padding:16px 18px;
+      border-radius:16px;
+      color:#665424;
+    }
+
+    .extras{
+      background:var(--soft);
+    }
+
+    .extrasGrid{
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:14px;
+    }
+
+    .extra{
+      display:flex;
+      justify-content:space-between;
+      gap:18px;
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:16px;
+      padding:16px 18px;
+    }
+
+    .extra strong:last-child{
+      white-space:nowrap;
+    }
+
+    .processGrid{
+      display:grid;
+      grid-template-columns:repeat(4,minmax(0,1fr));
+      gap:18px;
+    }
+
+    .step{
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:22px;
+      padding:24px;
+    }
+
+    .stepNo{
+      width:42px;
+      height:42px;
+      border-radius:50%;
+      display:grid;
+      place-items:center;
+      background:var(--primary);
+      color:#fff;
+      font-weight:950;
+      margin-bottom:16px;
+    }
+
+    .about{
+      background:#fff;
+    }
+
+    .aboutGrid{
+      display:grid;
+      grid-template-columns:.75fr 1.25fr;
+      gap:24px;
+      align-items:center;
+    }
+
+    .aboutVisual{
+      min-height:420px;
+      border-radius:30px;
+      background:
+        radial-gradient(circle at 72% 26%,rgba(223,183,95,.85),transparent 23%),
+        linear-gradient(145deg,#7ea187,#294533);
+      display:grid;
+      place-items:center;
+      color:#fff;
+      font-size:4rem;
+      font-weight:950;
+      box-shadow:var(--shadow);
+    }
+
+    .contactGrid{
+      display:grid;
+      grid-template-columns:.8fr 1.2fr;
+      gap:24px;
+      align-items:start;
+    }
+
+    form{
+      display:grid;
+      gap:14px;
+    }
+
+    .fieldGrid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:14px;
+    }
+
+    label{
+      display:grid;
+      gap:7px;
+      font-weight:800;
+    }
+
+    input,
+    select,
+    textarea{
+      width:100%;
+      padding:13px 14px;
+      border:1px solid var(--line);
+      border-radius:13px;
+      background:#fff;
+      color:var(--text);
+    }
+
+    textarea{
+      min-height:145px;
+      resize:vertical;
+    }
+
+    .small{
+      font-size:.84rem;
+      color:var(--muted);
+    }
+
+    footer{
+      padding:36px 0;
+      background:var(--dark);
+      color:rgba(255,255,255,.82);
+    }
+
+    .foot{
+      display:flex;
+      justify-content:space-between;
+      gap:20px;
+      flex-wrap:wrap;
+    }
+
     @media(max-width:980px){
-      .heroGrid{
+      .heroGrid,
+      .aboutGrid,
+      .contactGrid{
         grid-template-columns:1fr;
       }
 
-      .grid3{
-        grid-template-columns:repeat(2,1fr);
+      .grid3,
+      .pricing,
+      .industryGroups{
+        grid-template-columns:repeat(2,minmax(0,1fr));
+      }
+
+      .processGrid{
+        grid-template-columns:repeat(2,minmax(0,1fr));
+      }
+
+      .priceCard.featured{
+        transform:none;
+      }
     }
 
     @media(max-width:700px){
       nav a:not(.headerCta){
         display:none;
-         .industryGroups{
+      }
+
+      .grid3,
+      .pricing,
+      .industryGroups,
+      .designGrid,
+      .extrasGrid,
+      .trust,
+      .fieldGrid,
+      .processGrid{
         grid-template-columns:1fr;
       }
 
       .industryList{
-        grid-template-columns:1fr 1fr;       
-      }
-
-      .grid3,
-      .trust{
-        grid-template-columns:1fr;
+        grid-template-columns:repeat(2,minmax(0,1fr));
       }
 
       .hero{
@@ -389,6 +656,16 @@
         padding:54px 0;
       }
     }
+
+    @media(max-width:430px){
+      .industryList{
+        grid-template-columns:1fr;
+      }
+
+      .extra{
+        flex-direction:column;
+      }
+    }
   </style>
 </head>
 
@@ -396,22 +673,15 @@
 
 <header>
   <div class="wrap head">
-
-    <a class="brand" href="#start">
-      KlarWeb Design
-    </a>
+    <a class="brand" href="#start">KlarWeb Design</a>
 
     <nav>
       <a href="#leistungen">Leistungen</a>
       <a href="#branchen">Branchen</a>
       <a href="#designs">Designs</a>
       <a href="#preise">Preise</a>
-
-      <a class="btn primary headerCta" href="#anfrage">
-        Projekt anfragen
-      </a>
+      <a class="btn primary headerCta" href="#anfrage">Projekt anfragen</a>
     </nav>
-
   </div>
 </header>
 
@@ -421,33 +691,23 @@
     <div class="wrap heroGrid">
 
       <div>
-        <span class="eyebrow">
-          Websites für kleine Unternehmen
-        </span>
+        <span class="eyebrow">Websites für kleine Unternehmen</span>
 
         <h1>
-          Klarer Auftritt.
-          Moderne Website.
+          Klarer Auftritt.<br>
+          Moderne Website.<br>
           Einfachere Anfragen.
         </h1>
 
         <p class="lead">
           KlarWeb Design erstellt moderne, mobil optimierte Websites
           für Handwerksbetriebe, Dienstleister, Ferienwohnungen und
-          kreative Berufe.
-          Persönlich angepasst und verständlich umgesetzt.
+          kreative Berufe. Persönlich angepasst und verständlich umgesetzt.
         </p>
 
         <div class="actions">
-
-          <a class="btn primary" href="#anfrage">
-            Kostenlos anfragen
-          </a>
-
-          <a class="btn" href="#designs">
-            Designs ansehen
-          </a>
-
+          <a class="btn primary" href="#anfrage">Kostenlos anfragen</a>
+          <a class="btn" href="#designs">Designs ansehen</a>
         </div>
 
         <div class="trust">
@@ -458,9 +718,7 @@
       </div>
 
       <div class="heroVisual">
-
         <div class="mock">
-
           <div class="mockbar">
             <i></i>
             <i></i>
@@ -468,37 +726,22 @@
           </div>
 
           <div class="mockbody">
-
-            <small>
-              Ihr Unternehmen
-            </small>
-
-            <strong>
-              Eine Website, die Vertrauen schafft.
-            </strong>
-
-            <span class="mockbutton">
-              Anfrage senden
-            </span>
+            <small>Ihr Unternehmen</small>
+            <strong>Eine Website, die Vertrauen schafft.</strong>
+            <span class="mockbutton">Anfrage senden</span>
           </div>
         </div>
       </div>
+
     </div>
   </section>
 
-    </section>
-      <section id="leistungen">
+  <section id="leistungen">
     <div class="wrap">
 
       <div class="sectionIntro">
-        <span class="eyebrow">
-          Grundleistung
-        </span>
-
-        <h2>
-          Was Ihre neue Website enthalten kann
-        </h2>
-
+        <span class="eyebrow">Grundleistung</span>
+        <h2>Was Ihre neue Website enthalten kann</h2>
         <p>
           Farben, Texte, Bilder, Leistungen und Kontaktmöglichkeiten
           werden passend zu Ihrem Unternehmen angepasst.
@@ -510,69 +753,49 @@
         <article class="card">
           <div class="icon">📱</div>
           <h3>Mobil optimiert</h3>
-          <p>
-            Ihre Website funktioniert auf Smartphone, Tablet und Laptop.
-          </p>
+          <p>Ihre Website funktioniert auf Smartphone, Tablet und Laptop.</p>
         </article>
 
         <article class="card">
           <div class="icon">🎨</div>
           <h3>Individuelles Design</h3>
-          <p>
-            Farben, Schrift und Aufbau werden an Ihr Unternehmen angepasst.
-          </p>
+          <p>Farben, Schrift und Aufbau werden an Ihr Unternehmen angepasst.</p>
         </article>
 
         <article class="card">
           <div class="icon">💬</div>
           <h3>Kontaktmöglichkeiten</h3>
-          <p>
-            E-Mail, Telefon, WhatsApp oder Kontaktformular.
-          </p>
+          <p>E-Mail, Telefon, WhatsApp oder Kontaktformular.</p>
         </article>
 
         <article class="card">
           <div class="icon">🖼️</div>
           <h3>Galerie und Referenzen</h3>
-          <p>
-            Arbeitsbeispiele, Projekte und Vorher-Nachher-Bilder
-            können übersichtlich gezeigt werden.
-          </p>
+          <p>Arbeitsbeispiele, Projekte und Vorher-Nachher-Bilder können gezeigt werden.</p>
         </article>
 
         <article class="card">
           <div class="icon">🔎</div>
           <h3>SEO-Grundlagen</h3>
-          <p>
-            Klare Seitentitel, Beschreibungen und eine übersichtliche Struktur.
-          </p>
+          <p>Klare Seitentitel, Beschreibungen und eine übersichtliche Struktur.</p>
         </article>
 
         <article class="card">
           <div class="icon">🛠️</div>
           <h3>Optionale Pflege</h3>
-          <p>
-            Kleine Änderungen und Aktualisierungen nach der Veröffentlichung.
-          </p>
+          <p>Kleine Änderungen und Aktualisierungen nach der Veröffentlichung.</p>
         </article>
 
       </div>
     </div>
   </section>
 
-
   <section class="industries" id="branchen">
     <div class="wrap">
 
       <div class="sectionIntro">
-        <span class="eyebrow">
-          Branchen
-        </span>
-
-        <h2>
-          Websites für unterschiedliche Unternehmen
-        </h2>
-
+        <span class="eyebrow">Branchen</span>
+        <h2>Websites für unterschiedliche Unternehmen</h2>
         <p>
           Die Struktur wird passend zur Branche, Zielgruppe
           und gewünschten Kontaktmöglichkeit aufgebaut.
@@ -583,7 +806,6 @@
 
         <div class="industryGroup">
           <h3>Handwerk</h3>
-
           <div class="industryList">
             <div class="industryItem">Malerbetriebe</div>
             <div class="industryItem">Dachdecker</div>
@@ -594,7 +816,6 @@
 
         <div class="industryGroup">
           <h3>Dienstleistungen</h3>
-
           <div class="industryList">
             <div class="industryItem">Gartenpflege</div>
             <div class="industryItem">Gebäudereinigung</div>
@@ -605,7 +826,6 @@
 
         <div class="industryGroup">
           <h3>Kreativ & Freizeit</h3>
-
           <div class="industryList">
             <div class="industryItem">Künstler</div>
             <div class="industryItem">Fotografie</div>
@@ -617,4 +837,421 @@
       </div>
     </div>
   </section>
-    
+
+  <section id="designs">
+    <div class="wrap">
+
+      <div class="sectionIntro">
+        <span class="eyebrow">Designauswahl</span>
+        <h2>Sechs Stilrichtungen zur Auswahl</h2>
+        <p>
+          Sie wählen eine Grundrichtung. Anschließend werden Farben,
+          Inhalte und Bilder individuell angepasst.
+        </p>
+      </div>
+
+      <div class="designGrid">
+
+        <article class="designCard">
+          <div class="designPreview designA1">
+            <div class="miniSite">
+              <div class="miniNav"></div>
+              <div class="miniHero"><b></b><span></span><i></i></div>
+            </div>
+          </div>
+          <div class="designContent">
+            <h3>A1 – Modern asymmetrisch</h3>
+            <p>Modernes Unternehmensdesign mit klaren Karten und Flächen.</p>
+          </div>
+        </article>
+
+        <article class="designCard">
+          <div class="designPreview designA2">
+            <div class="miniSite">
+              <div class="miniNav"></div>
+              <div class="miniHero"><b></b><span></span><i></i></div>
+            </div>
+          </div>
+          <div class="designContent">
+            <h3>A2 – Modern editorial</h3>
+            <p>Große Typografie und auffällige moderne Kontraste.</p>
+          </div>
+        </article>
+
+        <article class="designCard">
+          <div class="designPreview designB1">
+            <div class="miniSite">
+              <div class="miniNav"></div>
+              <div class="miniHero"><b></b><span></span><i></i></div>
+            </div>
+          </div>
+          <div class="designContent">
+            <h3>B1 – Premium Architektur</h3>
+            <p>Dunkel, elegant und hochwertig.</p>
+          </div>
+        </article>
+
+        <article class="designCard">
+          <div class="designPreview designB2">
+            <div class="miniSite">
+              <div class="miniNav"></div>
+              <div class="miniHero"><b></b><span></span><i></i></div>
+            </div>
+          </div>
+          <div class="designContent">
+            <h3>B2 – Premium Galerie</h3>
+            <p>Große Flächen, elegante Kontraste und luxuriöse Wirkung.</p>
+          </div>
+        </article>
+
+        <article class="designCard">
+          <div class="designPreview designC1">
+            <div class="miniSite">
+              <div class="miniNav"></div>
+              <div class="miniHero"><b></b><span></span><i></i></div>
+            </div>
+          </div>
+          <div class="designContent">
+            <h3>C1 – Natürlich organisch</h3>
+            <p>Warme Farben, weiche Formen und persönliche Wirkung.</p>
+          </div>
+        </article>
+
+        <article class="designCard">
+          <div class="designPreview designC2">
+            <div class="miniSite">
+              <div class="miniNav"></div>
+              <div class="miniHero"><b></b><span></span><i></i></div>
+            </div>
+          </div>
+          <div class="designContent">
+            <h3>C2 – Natürlich Magazin</h3>
+            <p>Ruhiger, redaktioneller Stil mit natürlichen Farben.</p>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="preise">
+    <div class="wrap">
+
+      <div class="sectionIntro">
+        <span class="eyebrow">Preise</span>
+        <h2>Transparente Pakete</h2>
+        <p>Die genauen Leistungen und Termine werden vor Projektbeginn schriftlich festgehalten.</p>
+      </div>
+
+      <div class="pricing">
+
+        <article class="card priceCard">
+          <h3>Starter</h3>
+          <div class="price">449 €</div>
+          <div class="monthly">einmalig</div>
+
+          <ul class="features">
+            <li>Onepage-Website</li>
+            <li>Bis zu 5 Inhaltsbereiche</li>
+            <li>Mobil optimiert</li>
+            <li>Kontaktformular</li>
+            <li>1 Korrekturrunde</li>
+          </ul>
+
+          <a class="btn" href="#anfrage">Starter anfragen</a>
+        </article>
+
+        <article class="card priceCard featured">
+          <span class="eyebrow">Beliebt</span>
+          <h3>Business</h3>
+          <div class="price">799 €</div>
+          <div class="monthly">einmalig</div>
+
+          <ul class="features">
+            <li>Bis zu 5 einzelne Seiten</li>
+            <li>Individuelle Designanpassung</li>
+            <li>Galerie und Referenzen</li>
+            <li>SEO-Grundlagen</li>
+            <li>2 Korrekturrunden</li>
+          </ul>
+
+          <a class="btn primary" href="#anfrage">Business anfragen</a>
+        </article>
+
+        <article class="card priceCard">
+          <h3>Pflegepaket</h3>
+          <div class="price">ab 39 €</div>
+          <div class="monthly">monatlich · optional</div>
+
+          <ul class="features">
+            <li>Bis zu 30 Minuten kleine Änderungen</li>
+            <li>Texte und Bilder aktualisieren</li>
+            <li>Technische Kontrolle</li>
+            <li>Monatlich kündbar</li>
+            <li>Website bleibt online</li>
+          </ul>
+
+          <a class="btn" href="#anfrage">Pflege anfragen</a>
+        </article>
+
+      </div>
+
+      <div class="notice">
+        <strong>Hinweis:</strong>
+        GitHub Pages wird als kostenfreies Hosting genutzt.
+        Eine eigene Domain kann vom Kunden separat gebucht werden.
+      </div>
+
+    </div>
+  </section>
+
+  <section class="extras">
+    <div class="wrap">
+
+      <div class="sectionIntro">
+        <span class="eyebrow">Zusatzleistungen</span>
+        <h2>Erweiterungen nach Bedarf</h2>
+      </div>
+
+      <div class="extrasGrid">
+        <div class="extra"><strong>Zusätzliche Unterseite</strong><strong>149 €</strong></div>
+        <div class="extra"><strong>Weitere Korrekturrunde</strong><strong>49 €</strong></div>
+        <div class="extra"><strong>Bildergalerie</strong><strong>49 €</strong></div>
+        <div class="extra"><strong>FAQ-Bereich</strong><strong>39 €</strong></div>
+        <div class="extra"><strong>Google-Maps-Link oder Einbindung</strong><strong>ab 29 €</strong></div>
+        <div class="extra"><strong>Google-Bewertungen-Bereich</strong><strong>49 €</strong></div>
+        <div class="extra"><strong>Terminbuchung</strong><strong>ab 79 €</strong></div>
+        <div class="extra"><strong>Mehrsprachigkeit</strong><strong>ab 199 €</strong></div>
+        <div class="extra"><strong>Express-Fertigstellung</strong><strong>99 €</strong></div>
+        <div class="extra"><strong>Änderungen ohne Pflegepaket</strong><strong>40 €/Std.</strong></div>
+      </div>
+
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+
+      <div class="sectionIntro">
+        <span class="eyebrow">Ablauf</span>
+        <h2>So entsteht Ihre Website</h2>
+      </div>
+
+      <div class="processGrid">
+
+        <article class="step">
+          <div class="stepNo">1</div>
+          <h3>Anfrage</h3>
+          <p>Sie beschreiben Ihr Unternehmen und Ihre Wünsche.</p>
+        </article>
+
+        <article class="step">
+          <div class="stepNo">2</div>
+          <h3>Designauswahl</h3>
+          <p>Sie wählen eine passende Grundrichtung.</p>
+        </article>
+
+        <article class="step">
+          <div class="stepNo">3</div>
+          <h3>Anpassung</h3>
+          <p>Texte, Bilder, Farben und Inhalte werden eingebaut.</p>
+        </article>
+
+        <article class="step">
+          <div class="stepNo">4</div>
+          <h3>Veröffentlichung</h3>
+          <p>Nach Freigabe wird Ihre Website online gestellt.</p>
+        </article>
+
+      </div>
+
+    </div>
+  </section>
+
+  <section class="about" id="ueber">
+    <div class="wrap aboutGrid">
+
+      <div class="aboutVisual">SK</div>
+
+      <div class="card">
+        <span class="eyebrow">Über KlarWeb Design</span>
+        <h2>Persönlich, verständlich und ohne unnötige Technik.</h2>
+
+        <p>
+          Hallo, ich bin Sophie Kruszynski.
+        </p>
+
+        <p>
+          Mit KlarWeb Design unterstütze ich kleine Unternehmen und
+          Selbstständige dabei, einen modernen und professionellen
+          Online-Auftritt zu erhalten.
+        </p>
+
+        <p>
+          Mein Fokus liegt auf übersichtlichen Websites, die Vertrauen
+          schaffen, Leistungen verständlich präsentieren und eine
+          einfache Kontaktaufnahme ermöglichen.
+        </p>
+
+        <p>
+          Jede Website wird passend zum jeweiligen Unternehmen angepasst
+          und persönlich abgestimmt.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="anfrage">
+    <div class="wrap contactGrid">
+
+      <div class="card">
+        <span class="eyebrow">Projektanfrage</span>
+        <h2>Erzählen Sie mir von Ihrem Unternehmen.</h2>
+
+        <p>
+          Sie erhalten eine unverbindliche Einschätzung,
+          welches Paket und Design zu Ihrem Vorhaben passen könnte.
+        </p>
+
+        <p>
+          <strong>KlarWeb Design</strong><br>
+          Sophie Kruszynski<br>
+          <a href="mailto:Sophie.kzn01@gmail.com">Sophie.kzn01@gmail.com</a><br>
+          Deutschlandweit online
+        </p>
+      </div>
+
+      <div class="card">
+        <form id="projectForm">
+
+          <div class="fieldGrid">
+            <label>
+              Name *
+              <input name="name" required>
+            </label>
+
+            <label>
+              Unternehmen
+              <input name="company">
+            </label>
+          </div>
+
+          <div class="fieldGrid">
+            <label>
+              E-Mail *
+              <input name="email" type="email" required>
+            </label>
+
+            <label>
+              Branche
+              <input name="industry" placeholder="z. B. Gartenpflege">
+            </label>
+          </div>
+
+          <label>
+            Gewünschtes Paket
+            <select name="package">
+              <option>Noch unsicher</option>
+              <option>Starter – 449 €</option>
+              <option>Business – 799 €</option>
+              <option>Pflegepaket</option>
+            </select>
+          </label>
+
+          <label>
+            Gewünschtes Design
+            <select name="design">
+              <option>Noch unsicher</option>
+              <option>A1 – Modern asymmetrisch</option>
+              <option>A2 – Modern editorial</option>
+              <option>B1 – Premium Architektur</option>
+              <option>B2 – Premium Galerie</option>
+              <option>C1 – Natürlich organisch</option>
+              <option>C2 – Natürlich Magazin</option>
+            </select>
+          </label>
+
+          <label>
+            Nachricht *
+            <textarea
+              name="message"
+              required
+              placeholder="Was soll Ihre Website zeigen oder ermöglichen?"
+            ></textarea>
+          </label>
+
+          <label style="display:flex;grid-template-columns:auto 1fr;align-items:start;font-weight:normal">
+            <input type="checkbox" required style="width:auto;margin-top:5px">
+            <span>
+              Ich stimme der Verarbeitung meiner Angaben zur Bearbeitung der Anfrage zu. *
+            </span>
+          </label>
+
+          <button class="btn primary" type="submit">
+            Anfrage per E-Mail senden
+          </button>
+
+          <p class="small">
+            Das Formular öffnet das E-Mail-Programm des Besuchers.
+          </p>
+
+        </form>
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <div>
+      <strong>KlarWeb Design</strong><br>
+      © <span id="year"></span> Sophie Kruszynski
+    </div>
+
+    <div>
+      Impressum · Datenschutz
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+
+  document.getElementById("projectForm").addEventListener("submit", function(event){
+    event.preventDefault();
+
+    const data = new FormData(event.currentTarget);
+
+    const subject = encodeURIComponent(
+      "Website-Anfrage von " + (data.get("company") || data.get("name"))
+    );
+
+    const body = encodeURIComponent(
+`Hallo Sophie,
+
+ich interessiere mich für eine Website von KlarWeb Design.
+
+Name: ${data.get("name")}
+Unternehmen: ${data.get("company") || "-"}
+E-Mail: ${data.get("email")}
+Branche: ${data.get("industry") || "-"}
+Paket: ${data.get("package")}
+Design: ${data.get("design")}
+
+Nachricht:
+${data.get("message")}
+
+Viele Grüße
+${data.get("name")}`
+    );
+
+    window.location.href =
+      "mailto:Sophie.kzn01@gmail.com?subject=" + subject + "&body=" + body;
+  });
+</script>
+
+</body>
+</html>
