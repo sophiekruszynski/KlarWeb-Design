@@ -1,157 +1,620 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="de">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
 
-<title>KlarWeb Design</title>
+  <title>KlarWeb Design – Websites für kleine Unternehmen</title>
 
-<style>
+  <meta
+    name="description"
+    content="Moderne, mobil optimierte Websites für Handwerksbetriebe, Dienstleister, Ferienwohnungen und kreative Berufe."
+  >
 
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
+  <style>
+    :root{
+      --bg:#f3f5f1;
+      --surface:#ffffff;
+      --dark:#16211a;
+      --text:#1e2b22;
+      --muted:#687269;
+      --primary:#4f7759;
+      --primary-dark:#36563e;
+      --accent:#dfb75f;
+      --soft:#e7eee6;
+      --line:rgba(30,43,34,.12);
+      --shadow:0 24px 65px rgba(30,43,34,.12);
+      --radius:26px;
+      --max:1180px;
+    }
 
-body{
-    font-family:Arial, sans-serif;
-    background:#f5f5f5;
-    color:#222;
-}
+    *{
+      box-sizing:border-box;
+    }
 
-header{
-    background:#4f7759;
-    color:white;
-    padding:20px;
-}
+    html{
+      scroll-behavior:smooth;
+    }
 
-nav{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    max-width:1200px;
-    margin:auto;
-}
+    body{
+      margin:0;
+      background:var(--bg);
+      color:var(--text);
+      font-family:Arial,Helvetica,sans-serif;
+      line-height:1.65;
+    }
 
-.logo{
-    font-size:28px;
-    font-weight:bold;
-}
+    a{
+      color:inherit;
+      text-decoration:none;
+    }
 
-.hero{
-    text-align:center;
-    padding:100px 20px;
-    background:white;
-}
+    button,
+    input,
+    select,
+    textarea{
+      font:inherit;
+    }
 
-.hero h1{
-    font-size:50px;
-    margin-bottom:20px;
-}
+    .wrap{
+      width:min(var(--max),calc(100% - 32px));
+      margin:auto;
+    }
 
-.hero p{
-    font-size:20px;
-    max-width:700px;
-    margin:auto;
-}
+    header{
+      position:sticky;
+      top:0;
+      z-index:50;
+      background:rgba(255,255,255,.92);
+      backdrop-filter:blur(14px);
+      border-bottom:1px solid var(--line);
+    }
 
-.button{
-    display:inline-block;
-    margin-top:30px;
-    background:#4f7759;
-    color:white;
-    text-decoration:none;
-    padding:15px 30px;
-    border-radius:10px;
-}
+    .head{
+      min-height:74px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:20px;
+    }
 
-.services{
-    max-width:1200px;
-    margin:auto;
-    padding:80px 20px;
-}
+    .brand{
+      font-weight:950;
+      letter-spacing:.02em;
+    }
 
-.services h2{
-    text-align:center;
-    margin-bottom:40px;
-}
+    nav{
+      display:flex;
+      gap:18px;
+      align-items:center;
+      flex-wrap:wrap;
+    }
 
-.grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    gap:20px;
-}
+    nav a{
+      font-weight:800;
+    }
 
-.card{
-    background:white;
-    padding:25px;
-    border-radius:15px;
-    box-shadow:0 5px 15px rgba(0,0,0,0.1);
-}
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-height:48px;
+      padding:12px 18px;
+      border-radius:14px;
+      border:1px solid var(--line);
+      background:#fff;
+      font-weight:900;
+      transition:.2s ease;
+    }
 
-footer{
-    background:#222;
-    color:white;
-    text-align:center;
-    padding:30px;
-}
+    .btn:hover{
+      transform:translateY(-2px);
+    }
 
-</style>
+    .btn.primary{
+      background:var(--primary);
+      color:#fff;
+      border-color:var(--primary);
+    }
+
+    .btn.primary:hover{
+      background:var(--primary-dark);
+    }
+
+    .hero{
+      padding:84px 0 58px;
+    }
+
+    .heroGrid{
+      display:grid;
+      grid-template-columns:1.05fr .95fr;
+      gap:34px;
+      align-items:center;
+    }
+
+    .eyebrow{
+      display:inline-flex;
+      padding:8px 13px;
+      border-radius:999px;
+      background:var(--soft);
+      color:var(--primary-dark);
+      font-weight:900;
+      margin-bottom:18px;
+    }
+
+    h1,
+    h2,
+    h3{
+      margin:0 0 14px;
+      line-height:1.12;
+    }
+
+    h1{
+      font-size:clamp(2.9rem,6.8vw,5.5rem);
+      letter-spacing:-.05em;
+    }
+
+    h2{
+      font-size:clamp(2rem,4.4vw,3.35rem);
+      letter-spacing:-.03em;
+    }
+
+    h3{
+      font-size:1.22rem;
+    }
+
+    .lead{
+      font-size:1.17rem;
+      color:var(--muted);
+      max-width:720px;
+    }
+
+    .actions{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+      margin-top:26px;
+    }
+
+    .heroVisual{
+      min-height:510px;
+      border-radius:34px;
+      background:
+        radial-gradient(
+          circle at 80% 16%,
+          rgba(223,183,95,.8),
+          transparent 24%
+        ),
+        linear-gradient(
+          145deg,
+          #7ea187,
+          #294533
+        );
+      box-shadow:var(--shadow);
+      padding:28px;
+      display:grid;
+      align-content:center;
+    }
+
+    .mock{
+      background:#fff;
+      border-radius:20px;
+      overflow:hidden;
+      box-shadow:0 26px 70px rgba(0,0,0,.25);
+      transform:rotate(-2deg);
+    }
+
+    .mockbar{
+      height:42px;
+      background:#edf0eb;
+      display:flex;
+      align-items:center;
+      gap:7px;
+      padding:0 14px;
+    }
+
+    .mockbar i{
+      width:9px;
+      height:9px;
+      border-radius:50%;
+      background:#98a19a;
+    }
+
+    .mockbody{
+      padding:30px;
+      min-height:310px;
+      background:linear-gradient(
+        135deg,
+        #faf8f2,
+        #e2ece0
+      );
+    }
+
+    .mockbody small{
+      font-weight:900;
+      color:var(--primary);
+      letter-spacing:.12em;
+      text-transform:uppercase;
+    }
+
+    .mockbody strong{
+      display:block;
+      font-size:2.35rem;
+      line-height:1.04;
+      margin:16px 0;
+      max-width:390px;
+    }
+
+    .mockbutton{
+      display:inline-block;
+      background:var(--primary);
+      color:#fff;
+      padding:10px 14px;
+      border-radius:10px;
+      font-weight:900;
+    }
+
+    .trust{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:14px;
+      margin-top:28px;
+    }
+
+    .trust div{
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:18px;
+      padding:17px;
+      font-weight:850;
+    }
+
+    section{
+      padding:70px 0;
+    }
+
+    .sectionIntro{
+      max-width:780px;
+      margin-bottom:30px;
+    }
+
+    .sectionIntro p{
+      color:var(--muted);
+    }
+
+    .grid3{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:18px;
+    }
+
+    .card{
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      padding:25px;
+      box-shadow:var(--shadow);
+    }
+
+    .card p{
+      color:var(--muted);
+    }
+
+    .icon{
+      width:52px;
+      height:52px;
+      display:grid;
+      place-items:center;
+      border-radius:16px;
+      background:var(--soft);
+      font-size:1.5rem;
+      margin-bottom:18px;
+    }
+    .industries{
+      background:var(--dark);
+      color:#fff;
+    }
+
+    .industries .sectionIntro p{
+      color:rgba(255,255,255,.68);
+    }
+
+    .industryGroups{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:18px;
+    }
+
+    .industryGroup{
+      background:rgba(255,255,255,.07);
+      border:1px solid rgba(255,255,255,.12);
+      border-radius:24px;
+      padding:22px;
+        
+     .grid3,.industryGroups{ 
+        grid-template-columns:repeat(2,1fr); }
+    }
+
+    .industryGroup h3{
+      color:#fff;
+    }
+
+    .industryList{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:12px;
+    }
+
+    .industryItem{
+      background:rgba(255,255,255,.08);
+      padding:14px;
+      border-radius:16px;
+      font-weight:800;
+    }
+
+    @media(max-width:980px){
+      .heroGrid{
+        grid-template-columns:1fr;
+      }
+
+      .grid3{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    @media(max-width:700px){
+      nav a:not(.headerCta){
+        display:none;
+         .industryGroups{
+        grid-template-columns:1fr;
+      }
+
+      .industryList{
+        grid-template-columns:1fr 1fr;       
+      }
+
+      .grid3,
+      .trust{
+        grid-template-columns:1fr;
+      }
+
+      .hero{
+        padding-top:54px;
+      }
+
+      .heroVisual{
+        min-height:400px;
+      }
+
+      section{
+        padding:54px 0;
+      }
+    }
+  </style>
 </head>
+
 <body>
 
 <header>
+  <div class="wrap head">
+
+    <a class="brand" href="#start">
+      KlarWeb Design
+    </a>
+
     <nav>
-        <div class="logo">KlarWeb Design</div>
+      <a href="#leistungen">Leistungen</a>
+      <a href="#branchen">Branchen</a>
+      <a href="#designs">Designs</a>
+      <a href="#preise">Preise</a>
+
+      <a class="btn primary headerCta" href="#anfrage">
+        Projekt anfragen
+      </a>
     </nav>
+
+  </div>
 </header>
 
-<section class="hero">
-    <h1>Moderne Websites für kleine Unternehmen</h1>
+<main>
 
-    <p>
-        Professionelle Websites für Handwerker,
-        Dienstleister, Ferienwohnungen und kreative Berufe.
-    </p>
+  <section class="hero" id="start">
+    <div class="wrap heroGrid">
 
-    <a href="#kontakt" class="button">
-        Kostenlos anfragen
-    </a>
-</section>
+      <div>
+        <span class="eyebrow">
+          Websites für kleine Unternehmen
+        </span>
 
-<section class="services">
+        <h1>
+          Klarer Auftritt.
+          Moderne Website.
+          Einfachere Anfragen.
+        </h1>
 
-    <h2>Branchen</h2>
+        <p class="lead">
+          KlarWeb Design erstellt moderne, mobil optimierte Websites
+          für Handwerksbetriebe, Dienstleister, Ferienwohnungen und
+          kreative Berufe.
+          Persönlich angepasst und verständlich umgesetzt.
+        </p>
 
-    <div class="grid">
+        <div class="actions">
 
-        <div class="card">
-            <h3>Malerbetriebe</h3>
-            <p>Moderne Websites für Maler.</p>
+          <a class="btn primary" href="#anfrage">
+            Kostenlos anfragen
+          </a>
+
+          <a class="btn" href="#designs">
+            Designs ansehen
+          </a>
+
         </div>
 
-        <div class="card">
-            <h3>Dachdecker</h3>
-            <p>Professioneller Online-Auftritt.</p>
+        <div class="trust">
+          <div>✓ Mobil optimiert</div>
+          <div>✓ Individuell angepasst</div>
+          <div>✓ Transparente Preise</div>
         </div>
+      </div>
 
-        <div class="card">
-            <h3>Gartenpflege</h3>
-            <p>Leistungen und Referenzen präsentieren.</p>
-        </div>
+      <div class="heroVisual">
 
-        <div class="card">
-            <h3>Gebäudereinigung</h3>
-            <p>Mehr Anfragen über die Website.</p>
+        <div class="mock">
+
+          <div class="mockbar">
+            <i></i>
+            <i></i>
+            <i></i>
+          </div>
+
+          <div class="mockbody">
+
+            <small>
+              Ihr Unternehmen
+            </small>
+
+            <strong>
+              Eine Website, die Vertrauen schafft.
+            </strong>
+
+            <span class="mockbutton">
+              Anfrage senden
+            </span>
+          </div>
         </div>
+      </div>
     </div>
+  </section>
 
-</section>
-<footer id="kontakt">
-    <h3>KlarWeb Design</h3>
-    <p>Sophie Kruszynski</p>
-    <p>Sophie.kzn01@gmail.com</p>
-</footer>
-</body>
-</html>
+    </section>
+      <section id="leistungen">
+    <div class="wrap">
+
+      <div class="sectionIntro">
+        <span class="eyebrow">
+          Grundleistung
+        </span>
+
+        <h2>
+          Was Ihre neue Website enthalten kann
+        </h2>
+
+        <p>
+          Farben, Texte, Bilder, Leistungen und Kontaktmöglichkeiten
+          werden passend zu Ihrem Unternehmen angepasst.
+        </p>
+      </div>
+
+      <div class="grid3">
+
+        <article class="card">
+          <div class="icon">📱</div>
+          <h3>Mobil optimiert</h3>
+          <p>
+            Ihre Website funktioniert auf Smartphone, Tablet und Laptop.
+          </p>
+        </article>
+
+        <article class="card">
+          <div class="icon">🎨</div>
+          <h3>Individuelles Design</h3>
+          <p>
+            Farben, Schrift und Aufbau werden an Ihr Unternehmen angepasst.
+          </p>
+        </article>
+
+        <article class="card">
+          <div class="icon">💬</div>
+          <h3>Kontaktmöglichkeiten</h3>
+          <p>
+            E-Mail, Telefon, WhatsApp oder Kontaktformular.
+          </p>
+        </article>
+
+        <article class="card">
+          <div class="icon">🖼️</div>
+          <h3>Galerie und Referenzen</h3>
+          <p>
+            Arbeitsbeispiele, Projekte und Vorher-Nachher-Bilder
+            können übersichtlich gezeigt werden.
+          </p>
+        </article>
+
+        <article class="card">
+          <div class="icon">🔎</div>
+          <h3>SEO-Grundlagen</h3>
+          <p>
+            Klare Seitentitel, Beschreibungen und eine übersichtliche Struktur.
+          </p>
+        </article>
+
+        <article class="card">
+          <div class="icon">🛠️</div>
+          <h3>Optionale Pflege</h3>
+          <p>
+            Kleine Änderungen und Aktualisierungen nach der Veröffentlichung.
+          </p>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+
+  <section class="industries" id="branchen">
+    <div class="wrap">
+
+      <div class="sectionIntro">
+        <span class="eyebrow">
+          Branchen
+        </span>
+
+        <h2>
+          Websites für unterschiedliche Unternehmen
+        </h2>
+
+        <p>
+          Die Struktur wird passend zur Branche, Zielgruppe
+          und gewünschten Kontaktmöglichkeit aufgebaut.
+        </p>
+      </div>
+
+      <div class="industryGroups">
+
+        <div class="industryGroup">
+          <h3>Handwerk</h3>
+
+          <div class="industryList">
+            <div class="industryItem">Malerbetriebe</div>
+            <div class="industryItem">Dachdecker</div>
+            <div class="industryItem">Elektriker</div>
+            <div class="industryItem">Sanitär & Heizung</div>
+          </div>
+        </div>
+
+        <div class="industryGroup">
+          <h3>Dienstleistungen</h3>
+
+          <div class="industryList">
+            <div class="industryItem">Gartenpflege</div>
+            <div class="industryItem">Gebäudereinigung</div>
+            <div class="industryItem">Hausmeisterservice</div>
+            <div class="industryItem">Umzugsunternehmen</div>
+          </div>
+        </div>
+
+        <div class="industryGroup">
+          <h3>Kreativ & Freizeit</h3>
+
+          <div class="industryList">
+            <div class="industryItem">Künstler</div>
+            <div class="industryItem">Fotografie</div>
+            <div class="industryItem">Kosmetik & Nagelstudios</div>
+            <div class="industryItem">Ferienwohnungen</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+    
