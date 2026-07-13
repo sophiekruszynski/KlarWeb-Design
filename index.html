@@ -587,6 +587,15 @@
     .small{
       font-size:.84rem;
       color:var(--muted);
+      .pdfActions{
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+  margin-top:20px;
+}
+
+.pdfActions .btn{
+  width:100%;
     }
 
     footer{
@@ -1395,17 +1404,25 @@ nav .headerCta{
 
         </div>
 
-        <div class="pdfActions">
+    <div class="pdfActions">
 
-          <a
-            class="btn primary"
-            href="KlarWeb_Projektformular_ausfuellbar.pdf"
-            download
-          >
-            Projektformular herunterladen
-          </a>
+  <a
+    class="btn primary"
+    href="KlarWeb_Projektformular_ausfuellbar.pdf"
+    download
+  >
+    Projektformular herunterladen
+  </a>
 
-        </div>
+  <a
+    class="btn"
+    href="KlarWeb_Auftragsbedingungen_Optimiert_A4.pdf"
+    download
+  >
+    Auftragsbedingungen herunterladen
+  </a>
+
+</div>
 
         <div class="notice projectNotice">
           <strong>Wie geht es danach weiter?</strong>
