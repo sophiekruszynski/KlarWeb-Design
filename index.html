@@ -650,7 +650,82 @@
   width:auto;
   margin-top:5px;
 }
-      
+
+
+    .menuToggle{
+  display:none;
+  width:48px;
+  height:48px;
+  padding:0;
+  border:1px solid var(--line);
+  border-radius:14px;
+  background:#fff;
+  cursor:pointer;
+}
+
+.menuToggle span{
+  display:block;
+  width:22px;
+  height:2px;
+  margin:5px auto;
+  background:var(--dark);
+  transition:.2s ease;
+}
+
+.menuToggle.active span:nth-child(1){
+  transform:translateY(7px) rotate(45deg);
+}
+
+.menuToggle.active span:nth-child(2){
+  opacity:0;
+}
+
+.menuToggle.active span:nth-child(3){
+  transform:translateY(-7px) rotate(-45deg);
+}
+
+.pdfSteps{
+  display:grid;
+  gap:14px;
+  margin:26px 0;
+}
+
+.pdfStep{
+  display:grid;
+  grid-template-columns:48px 1fr;
+  gap:15px;
+  align-items:start;
+  padding:16px;
+  background:var(--bg);
+  border:1px solid var(--line);
+  border-radius:16px;
+}
+
+.pdfStep .stepNo{
+  width:42px;
+  height:42px;
+  margin:0;
+}
+
+.pdfStep h3{
+  margin-bottom:6px;
+}
+
+.pdfStep p{
+  margin:0;
+  color:var(--muted);
+}
+
+.pdfActions{
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+  margin-top:24px;
+}
+
+.projectNotice{
+  margin-top:24px;
+}
     @media(max-width:980px){
       .heroGrid,
       .aboutGrid,
@@ -674,9 +749,54 @@
     }
 
 @media(max-width:700px){
-  nav a:not(.headerCta){
-    display:none;
-  }
+  .head{
+  position:relative;
+}
+
+.menuToggle{
+  display:block;
+}
+
+nav{
+  display:none;
+  position:absolute;
+  top:calc(100% + 10px);
+  left:0;
+  right:0;
+  padding:14px;
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:18px;
+  box-shadow:var(--shadow);
+}
+
+nav.open{
+  display:grid;
+  gap:8px;
+}
+
+nav a{
+  display:block;
+  padding:12px 14px;
+  border-radius:12px;
+}
+
+nav a:not(.headerCta):hover{
+  background:var(--soft);
+}
+
+nav .headerCta{
+  width:100%;
+  margin-top:4px;
+}
+
+.pdfActions{
+  display:grid;
+}
+
+.pdfActions .btn{
+  width:100%;
+}
 
   .grid3,
   .pricing,
@@ -723,15 +843,32 @@
 
 <header>
   <div class="wrap head">
+
     <a class="brand" href="#start">KlarWeb Design</a>
 
-    <nav>
+    <button
+      class="menuToggle"
+      type="button"
+      aria-label="Menü öffnen"
+      aria-expanded="false"
+      aria-controls="mainNav"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <nav id="mainNav">
       <a href="#leistungen">Leistungen</a>
       <a href="#branchen">Branchen</a>
       <a href="#designs">Designs</a>
       <a href="#preise">Preise</a>
-      <a class="btn primary headerCta" href="#anfrage">Projekt anfragen</a>
+      <a href="#ueber">Über mich</a>
+      <a class="btn primary headerCta" href="#anfrage">
+        Projekt anfragen
+      </a>
     </nav>
+
   </div>
 </header>
 
@@ -1146,6 +1283,7 @@
       </div>
 
     </div>
+      </section>
 <section id="anfrage">
   <div class="wrap">
 
@@ -1295,13 +1433,37 @@
     </div>
 
   </div>
-</footer>
-
+  
 <script>
   const yearElement = document.getElementById("year");
 
   if (yearElement) {
     yearElement.textContent = new Date().getFullYear();
+  }
+
+  const menuToggle = document.querySelector(".menuToggle");
+  const mainNav = document.getElementById("mainNav");
+
+  if (menuToggle && mainNav) {
+    menuToggle.addEventListener("click", function () {
+      const isOpen = mainNav.classList.toggle("open");
+
+      menuToggle.classList.toggle("active", isOpen);
+      menuToggle.setAttribute("aria-expanded", String(isOpen));
+      menuToggle.setAttribute(
+        "aria-label",
+        isOpen ? "Menü schließen" : "Menü öffnen"
+      );
+    });
+
+    mainNav.querySelectorAll("a").forEach(function (link) {
+      link.addEventListener("click", function () {
+        mainNav.classList.remove("open");
+        menuToggle.classList.remove("active");
+        menuToggle.setAttribute("aria-expanded", "false");
+        menuToggle.setAttribute("aria-label", "Menü öffnen");
+      });
+    });
   }
 </script>
 
