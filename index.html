@@ -1163,363 +1163,459 @@
       </p>
     </div>
 
-    <div class="contactGrid">
+ <div class="contactGrid">
 
-      <div class="card">
-        <span class="eyebrow">Kontakt</span>
-        <h2>Erzählen Sie mir von Ihrem Unternehmen.</h2>
+  <div class="card">
+    <span class="eyebrow">Kontakt</span>
 
-        <p>
-          Nach Ihrer Anfrage erhalten Sie eine unverbindliche Einschätzung
-          zu Paket, Design, Umfang und möglichen Zusatzleistungen.
-        </p>
+    <h2>Erzählen Sie mir von Ihrem Unternehmen.</h2>
 
-        <p>
-          <strong>KlarWeb Design</strong><br>
-          Sophie Kruszynski<br>
-          <a href="mailto:Sophie.kzn01@gmail.com">
-            Sophie.kzn01@gmail.com
-          </a><br>
-          Deutschlandweit online
-        </p>
+    <p>
+      Nach Ihrer Anfrage erhalten Sie eine unverbindliche Einschätzung
+      zum passenden Paket, Design und zu möglichen Zusatzleistungen.
+    </p>
+
+    <p>
+      <strong>KlarWeb Design</strong><br>
+      Sophie Kruszynski<br>
+
+      <a href="mailto:Sophie.kzn01@gmail.com">
+        Sophie.kzn01@gmail.com
+      </a><br>
+
+      Deutschlandweit online
+    </p>
+
+    <p class="small">
+      Logo, Bilder und vorhandene Texte können Sie anschließend
+      separat per E-Mail senden.
+    </p>
+  </div>
+
+  <div class="card">
+
+    <form id="projectForm">
+
+      <!-- 1. Kontaktdaten -->
+      <div class="formSection">
+        <h3>1. Kontaktdaten</h3>
+
+        <div class="fieldGrid">
+          <label>
+            Name *
+            <input name="name" required>
+          </label>
+
+          <label>
+            Unternehmen
+            <input name="company">
+          </label>
+        </div>
+
+        <div class="fieldGrid">
+          <label>
+            E-Mail *
+            <input name="email" type="email" required>
+          </label>
+
+          <label>
+            Telefonnummer
+            <input name="phone" type="tel">
+          </label>
+        </div>
+
+        <label>
+          Firmenanschrift
+          <input
+            name="address"
+            placeholder="Straße, Hausnummer, PLZ und Ort"
+          >
+        </label>
+      </div>
+
+      <!-- 2. Unternehmen -->
+      <div class="formSection">
+        <h3>2. Unternehmen und Branche</h3>
+
+        <div class="fieldGrid">
+          <label>
+            Branche *
+            <input
+              name="industry"
+              required
+              placeholder="z. B. Gartenpflege, Elektriker oder Fotografie"
+            >
+          </label>
+
+          <label>
+            Einsatzgebiet
+            <input
+              name="serviceArea"
+              placeholder="z. B. Rostock und 30 km Umgebung"
+            >
+          </label>
+        </div>
+
+        <label>
+          Beschreiben Sie Ihr Unternehmen *
+          <textarea
+            name="companyDescription"
+            required
+            placeholder="Was macht Ihr Unternehmen, seit wann besteht es und was ist Ihnen besonders wichtig?"
+          ></textarea>
+        </label>
+
+        <label>
+          Warum sollten Kunden Sie wählen?
+          <textarea
+            name="advantages"
+            placeholder="z. B. Erfahrung, schnelle Termine, faire Preise oder persönliche Beratung"
+          ></textarea>
+        </label>
+      </div>
+
+      <!-- 3. Leistungen -->
+      <div class="formSection">
+        <h3>3. Leistungen und wichtige Informationen</h3>
+
+        <label>
+          Welche Leistungen sollen auf der Website erscheinen? *
+          <textarea
+            name="services"
+            required
+            placeholder="Bitte führen Sie Ihre Leistungen möglichst einzeln auf."
+          ></textarea>
+        </label>
+
+        <label>
+          Besondere Hinweise, Angebote oder Aktionen
+          <textarea
+            name="specialOffers"
+            placeholder="z. B. kostenloses Erstgespräch, Notdienst, saisonale Angebote oder wichtige Hinweise"
+          ></textarea>
+        </label>
+      </div>
+
+      <!-- 4. Paket -->
+      <div class="formSection">
+        <h3>4. Gewünschtes Paket</h3>
+
+        <label>
+          Paket
+          <select name="package">
+            <option value="Noch unsicher">
+              Noch unsicher
+            </option>
+
+            <option value="Starter – 549 € einmalig">
+              Starter – Onepage, bis zu 5 Bereiche, mobil optimiert und Kontaktformular – 549 €
+            </option>
+
+            <option value="Business – 899 € einmalig">
+              Business – bis zu 5 Seiten, Galerie, Referenzen und SEO-Grundlagen – 899 €
+            </option>
+
+            <option value="Pflegepaket – ab 49 € monatlich">
+              Pflegepaket – kleine Änderungen und technische Kontrolle – ab 49 € monatlich
+            </option>
+          </select>
+        </label>
+      </div>
+
+      <!-- 5. Design -->
+      <div class="formSection">
+        <h3>5. Designwünsche</h3>
+
+        <label>
+          Gewünschtes Design
+          <select name="design">
+            <option>Noch unsicher</option>
+            <option>A1 – Modern asymmetrisch</option>
+            <option>A2 – Modern editorial</option>
+            <option>B1 – Premium Architektur</option>
+            <option>B2 – Premium Galerie</option>
+            <option>C1 – Natürlich organisch</option>
+            <option>C2 – Natürlich Magazin</option>
+          </select>
+        </label>
+
+        <label>
+          Gewünschte Farben
+          <input
+            name="colors"
+            placeholder="z. B. Dunkelblau, Beige und Gold"
+          >
+        </label>
+      </div>
+
+      <!-- 6. Inhalte -->
+      <div class="formSection">
+        <h3>6. Inhalte und Dateien</h3>
+
+        <div class="checkGrid">
+
+          <label class="checkItem">
+            <input
+              type="checkbox"
+              name="materials"
+              value="Logo vorhanden"
+            >
+            Logo vorhanden
+          </label>
+
+          <label class="checkItem">
+            <input
+              type="checkbox"
+              name="materials"
+              value="Eigene Bilder vorhanden"
+            >
+            Eigene Bilder vorhanden
+          </label>
+
+          <label class="checkItem">
+            <input
+              type="checkbox"
+              name="materials"
+              value="Projektbilder vorhanden"
+            >
+            Projektbilder vorhanden
+          </label>
+
+          <label class="checkItem">
+            <input
+              type="checkbox"
+              name="materials"
+              value="Texte vorhanden"
+            >
+            Texte vorhanden
+          </label>
+
+          <label class="checkItem">
+            <input
+              type="checkbox"
+              name="materials"
+              value="Google-Bewertungen zum Verlinken vorhanden"
+            >
+            Google-Bewertungen zum Verlinken vorhanden
+          </label>
+
+          <label class="checkItem">
+            <input
+              type="checkbox"
+              name="materials"
+              value="Noch keine Inhalte vorhanden"
+            >
+            Noch keine Inhalte vorhanden
+          </label>
+
+        </div>
+
+        <label>
+          Welche Texte müssen unbedingt auf die Website?
+          <textarea
+            name="requiredTexts"
+            placeholder="z. B. Firmenvorstellung, Leistungen, Geschichte oder besondere Hinweise"
+          ></textarea>
+        </label>
+      </div>
+
+      <!-- 7. Kontaktmöglichkeiten -->
+      <div class="formSection">
+        <h3>7. Kontaktmöglichkeiten auf der Website</h3>
+
+        <div class="checkGrid">
+
+          <label class="checkItem">
+            <input
+              type="checkbox"
+              name="contactOptions"
+              value="Telefon"
+            >
+            Telefon
+          </label>
+
+          <label class="checkItem">
+            <input
+              type="checkbox"
+              name="contactOptions"
+              value="E-Mail"
+            >
+            E-Mail
+          </label>
+
+          <label class="checkItem">
+            <input
+              type="checkbox"
+              name="contactOptions"
+              value="WhatsApp"
+            >
+            WhatsApp
+          </label>
+
+          <label class="checkItem">
+            <input
+              type="checkbox"
+              name="contactOptions"
+              value="Kontaktformular"
+            >
+            Kontaktformular
+          </label>
+
+        </div>
+      </div>
+
+      <!-- 8. Öffnungszeiten -->
+      <div class="formSection">
+        <h3>8. Öffnungszeiten</h3>
+
+        <label>
+          Öffnungszeiten
+          <textarea
+            name="openingHours"
+            placeholder="Montag bis Freitag: 08:00–17:00 Uhr&#10;Samstag: nach Vereinbarung"
+          ></textarea>
+        </label>
 
         <p class="small">
-          Bitte senden Sie Logo, Bilder und vorhandene Texte später
-          separat per E-Mail.
+          Lassen Sie das Feld frei, wenn keine Öffnungszeiten angezeigt
+          werden sollen.
         </p>
       </div>
 
-      <div class="card">
+      <!-- 9. Referenzen -->
+      <div class="formSection">
+        <h3>9. Referenzen und Arbeitsbeispiele</h3>
 
-        <form id="projectForm">
+        <label>
+          Welche Projekte oder Referenzen sollen gezeigt werden?
+          <textarea
+            name="references"
+            placeholder="Bitte nennen Sie Projekte, Kunden, Arbeitsbeispiele oder Vorher-Nachher-Bilder."
+          ></textarea>
+        </label>
+      </div>
 
-          <div class="formSection">
-            <h3>1. Kontaktdaten</h3>
+      <!-- 10. Zusatzleistungen -->
+      <div class="formSection">
+        <h3>10. Kostenpflichtige Zusatzleistungen</h3>
 
-            <div class="fieldGrid">
-              <label>
-                Name *
-                <input name="name" required>
-              </label>
+        <p class="small">
+          Diese Leistungen werden zusätzlich zum gewählten Paket berechnet.
+        </p>
 
-              <label>
-                Unternehmen
-                <input name="company">
-              </label>
-            </div>
+        <div class="checkGrid">
 
-            <div class="fieldGrid">
-              <label>
-                E-Mail *
-                <input name="email" type="email" required>
-              </label>
-
-              <label>
-                Telefonnummer
-                <input name="phone" type="tel">
-              </label>
-            </div>
-
-            <label>
-              Firmenanschrift
-              <input
-                name="address"
-                placeholder="Straße, Hausnummer, PLZ und Ort"
-              >
-            </label>
-          </div>
-
-          <div class="formSection">
-            <h3>2. Unternehmen und Branche</h3>
-
-            <div class="fieldGrid">
-              <label>
-                Branche *
-                <input
-                  name="industry"
-                  required
-                  placeholder="z. B. Gartenpflege, Elektriker oder Fotografie"
-                >
-              </label>
-
-              <label>
-                Einsatzgebiet
-                <input
-                  name="serviceArea"
-                  placeholder="z. B. Rostock und 30 km Umgebung"
-                >
-              </label>
-            </div>
-
-            <label>
-              Beschreiben Sie Ihr Unternehmen *
-              <textarea
-                name="companyDescription"
-                required
-                placeholder="Was macht Ihr Unternehmen, seit wann besteht es und was ist Ihnen besonders wichtig?"
-              ></textarea>
-            </label>
-
-            <label>
-              Warum sollten Kunden Sie wählen?
-              <textarea
-                name="advantages"
-                placeholder="z. B. langjährige Erfahrung, schnelle Termine, faire Preise, persönliche Beratung"
-              ></textarea>
-            </label>
-          </div>
-
-          <div class="formSection">
-            <h3>3. Leistungen</h3>
-
-            <label>
-              Welche Leistungen sollen auf der Website erscheinen? *
-              <textarea
-                name="services"
-                required
-                placeholder="Bitte alle Leistungen möglichst einzeln aufführen."
-              ></textarea>
-            </label>
-
-            <label>
-              Gibt es besondere Angebote, Notdienst oder Aktionen?
-              <textarea
-                name="specialOffers"
-                placeholder="z. B. kostenloses Erstgespräch, 24-Stunden-Notdienst oder saisonale Angebote"
-              ></textarea>
-            </label>
-          </div>
-
-          </div>
-
-          <div class="formSection">
-            <h3>4. Gewünschtes Paket</h3>
-
-            <label>
-              Paket
-              <select name="package">
-                <option>Starter – 549 € einmalig</option>
-                <option>Business – 899 € einmalig</option>
-                <option>Pflegepaket ab 49 € monatlich</option>
-              </select>
-            </label>
-
-          </div>
-
-          <div class="formSection">
-            <h3>5. Designwünsche</h3>
-
-            <label>
-              Gewünschtes Design
-              <select name="design">
-                <option>Noch unsicher</option>
-                <option>A1 – Modern asymmetrisch</option>
-                <option>A2 – Modern editorial</option>
-                <option>B1 – Premium Architektur</option>
-                <option>B2 – Premium Galerie</option>
-                <option>C1 – Natürlich organisch</option>
-                <option>C2 – Natürlich Magazin</option>
-              </select>
-            </label>
-
-            <label>
-              Gewünschte Farben
-              <input
-                name="colors"
-                placeholder="z. B. Dunkelblau, Beige und Gold"
-              >
-            </label>
-
-          <div class="formSection">
-            <h3>6. Inhalte und Dateien</h3>
-
-            <div class="checkGrid">
-              <label class="checkItem">
-                <input type="checkbox" name="materials" value="Logo vorhanden">
-                Logo vorhanden
-              </label>
-
-              <label class="checkItem">
-                <input type="checkbox" name="materials" value="Eigene Bilder vorhanden">
-                Eigene Bilder vorhanden
-              </label>
-
-              <label class="checkItem">
-                <input type="checkbox" name="materials" value="Projektbilder vorhanden">
-                Projektbilder vorhanden
-              </label>
-
-              <label class="checkItem">
-                <input type="checkbox" name="materials" value="Texte vorhanden">
-                Texte vorhanden
-              </label>
-
-              <label class="checkItem">
-                <input type="checkbox" name="materials" value="Bewertungen vorhanden">
-               Google Bewertungen zum verlinken vorhanden
-              </label>
-
-              <label class="checkItem">
-                <input type="checkbox" name="materials" value="Noch keine Inhalte vorhanden">
-                Noch keine Inhalte vorhanden
-              </label>
-            </div>
-
-            <label>
-              Welche Texte müssen unbedingt auf die Website?
-              <textarea
-                name="requiredTexts"
-                placeholder="z. B. Firmenvorstellung, Leistungen, Geschichte, besondere Hinweise"
-              ></textarea>
-            </label>
-          </div>
-
-          <div class="formSection">
-            <h3>7. Kontaktmöglichkeiten auf der Website</h3>
-
-            <div class="checkGrid">
-              <label class="checkItem">
-                <input type="checkbox" name="contactOptions" value="Telefon">
-                Telefon
-              </label>
-
-              <label class="checkItem">
-                <input type="checkbox" name="contactOptions" value="E-Mail">
-                E-Mail
-              </label>
-
-              <label class="checkItem">
-                <input type="checkbox" name="contactOptions" value="WhatsApp">
-                WhatsApp
-              </label>
-
-              <label class="checkItem">
-                <input type="checkbox" name="contactOptions" value="Kontaktformular">
-                Kontaktformular
-              </label>
-
-              <label class="checkItem">
-                <input type="checkbox" name="contactOptions" value="Terminbuchung">
-                Terminbuchung
-              </label>
-
-            </div>
-          </div>
-
-          <div class="formSection">
-            <h3>8. Öffnungszeiten</h3>
-
-            <label>
-              Öffnungszeiten
-              <textarea
-                name="openingHours"
-                placeholder="Montag bis Freitag: 08:00–17:00 Uhr&#10;Samstag: nach Vereinbarung"
-              ></textarea>
-            </label>
-          </div>
-
-          <div class="formSection">
-            <h3>9. Referenzen</h3>
-
-            <label>
-              Welche Projekte oder Referenzen sollen gezeigt werden?
-              <textarea
-                name="references"
-                placeholder="Bitte Projekte, Kunden oder Arbeitsbeispiele nennen."
-              ></textarea>
-            </label>
-
-          </div>
-
-          <div class="formSection">
-            <h3>10. Zusatzleistungen</h3>
-
-            <div class="checkGrid">
-              <label class="checkItem">
-                <input type="checkbox" name="extras" value="Zusätzliche Unterseite">
-                Zusätzliche Unterseite
-              </label>
-
-              <label class="checkItem">
-                <input type="checkbox" name="extras" value="Bildergalerie">
-                Bildergalerie
-              </label>
-
-              <label class="checkItem">
-                <input type="checkbox" name="extras" value="FAQ-Bereich">
-                FAQ-Bereich
-              </label>
-
-              <label class="checkItem">
-                <input type="checkbox" name="extras" value="Google Bewertungen">
-                Google-Bewertungen
-              </label>
-
-              <label class="checkItem">
-                <input type="checkbox" name="extras" value="Terminbuchung">
-                Terminbuchung
-              </label>
-
-            </div>
-          </div>
-
-          <div class="formSection">
-            <h3>12. Zeitplan und weitere Wünsche</h3>
-
-            <div class="fieldGrid">
-              <label>
-                Gewünschter Fertigstellungstermin
-                <input name="deadline" type="date">
-              </label>
-
-              <label>
-                Wie wurden Sie auf KlarWeb aufmerksam?
-                <select name="source">
-                  <option>Bitte auswählen</option>
-                  <option>Google</option>
-                  <option>Empfehlung</option>
-                  <option>Direkte Kontaktaufnahme</option>
-                  <option>Social Media</option>
-                  <option>Sonstiges</option>
-                </select>
-              </label>
-            </div>
-
-            <label>
-              Weitere Wünsche oder Hinweise
-              <textarea
-                name="message"
-                placeholder="Hier können Sie alles ergänzen, was für Ihr Projekt wichtig ist."
-              ></textarea>
-            </label>
-          </div>
-
-          <label class="privacyCheck">
-            <input type="checkbox" required>
-            <span>
-              Ich stimme der Verarbeitung meiner Angaben zur Bearbeitung
-              meiner Anfrage zu. *
-            </span>
+          <label class="checkItem">
+            <input
+              type="checkbox"
+              name="extras"
+              value="Zusätzliche Unterseite – 149 €"
+            >
+            Zusätzliche Unterseite (+149 €)
           </label>
 
-          <button class="btn primary" type="submit">
-            Vollständige Projektanfrage per E-Mail senden
-          </button>
+          <label class="checkItem">
+            <input
+              type="checkbox"
+              name="extras"
+              value="Bildergalerie – 49 €"
+            >
+            Bildergalerie (+49 €)
+          </label>
 
-          <p class="small">
-            Das Formular öffnet das E-Mail-Programm des Besuchers.
-            Bilder und Dateien können anschließend separat angehängt werden.
-          </p>
+          <label class="checkItem">
+            <input
+              type="checkbox"
+              name="extras"
+              value="FAQ-Bereich – 39 €"
+            >
+            FAQ-Bereich (+39 €)
+          </label>
 
-   </form>
+          <label class="checkItem">
+            <input
+              type="checkbox"
+              name="extras"
+              value="Google-Bewertungen verlinken – 29 €"
+            >
+            Google-Bewertungen verlinken (+29 €)
+          </label>
+
+          <label class="checkItem">
+            <input
+              type="checkbox"
+              name="extras"
+              value="Terminbuchung – ab 79 €"
+            >
+            Terminbuchung (ab +79 €)
+          </label>
+
+        </div>
+      </div>
+
+      <!-- 11. Zeitplan -->
+      <div class="formSection">
+        <h3>11. Zeitplan und weitere Wünsche</h3>
+
+        <div class="fieldGrid">
+          <label>
+            Gewünschter Fertigstellungstermin
+            <input name="deadline" type="date">
+          </label>
+
+          <label>
+            Wie wurden Sie auf KlarWeb aufmerksam?
+            <select name="source">
+              <option>Bitte auswählen</option>
+              <option>Google</option>
+              <option>Empfehlung</option>
+              <option>Direkte Kontaktaufnahme</option>
+              <option>Social Media</option>
+              <option>Sonstiges</option>
+            </select>
+          </label>
+        </div>
+
+        <label>
+          Weitere Wünsche oder Hinweise
+          <textarea
+            name="message"
+            placeholder="Hier können Sie alles ergänzen, was für Ihr Projekt wichtig ist."
+          ></textarea>
+        </label>
+      </div>
+
+      <label class="privacyCheck">
+        <input type="checkbox" required>
+
+        <span>
+          Ich habe die
+          <a href="datenschutz.html" target="_blank">
+            Datenschutzerklärung
+          </a>
+          gelesen und bestätige, dass meine Angaben zur Bearbeitung
+          meiner Anfrage verwendet werden dürfen. *
+        </span>
+      </label>
+
+      <button class="btn primary" type="submit">
+        Vollständige Projektanfrage per E-Mail senden
+      </button>
+
+      <p class="small">
+        Das Formular öffnet das E-Mail-Programm des Besuchers.
+        Bilder und Dateien können anschließend separat angehängt werden.
+      </p>
+
+    </form>
 
 </div>
 </div>
 </div>
-</section> 
+</section>
 
+</section>
 </main>
-
 <footer>
   <div class="wrap foot">
 
