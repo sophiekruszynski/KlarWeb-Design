@@ -595,11 +595,14 @@
       color:rgba(255,255,255,.82);
     }
 
-    .foot{
-      display:flex;
-      justify-content:space-between;
-      gap:20px;
-      flex-.formSection{
+ .foot{
+  display:flex;
+  justify-content:space-between;
+  gap:20px;
+  flex-wrap:wrap;
+}
+
+.formSection{
   padding-bottom:24px;
   margin-bottom:24px;
   border-bottom:1px solid var(--line);
@@ -622,7 +625,6 @@
 
 .checkItem{
   display:flex;
-  grid-template-columns:auto 1fr;
   align-items:flex-start;
   gap:9px;
   padding:12px;
@@ -639,7 +641,6 @@
 
 .privacyCheck{
   display:flex;
-  grid-template-columns:auto 1fr;
   align-items:flex-start;
   gap:10px;
   font-weight:normal;
@@ -672,42 +673,40 @@
       }
     }
 
-    @media(max-width:700px){
-      nav a:not(.headerCta){
-        display:none;
-      }
+@media(max-width:700px){
+  nav a:not(.headerCta){
+    display:none;
+  }
 
-      .grid3,
-      .pricing,
-      .industryGroups,
-      .designGrid,
-      .extrasGrid,
-      .trust,
-      .fieldGrid,
-      .processGrid{
-        grid-template-columns:1fr;
-       .checkGrid{
-  grid-template-columns:1fr;
-} 
-      }
+  .grid3,
+  .pricing,
+  .industryGroups,
+  .designGrid,
+  .extrasGrid,
+  .trust,
+  .fieldGrid,
+  .processGrid,
+  .checkGrid{
+    grid-template-columns:1fr;
+  }
 
-      .industryList{
-        grid-template-columns:repeat(2,minmax(0,1fr));
-      }
+  .industryList{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+  }
 
-      .hero{
-        padding-top:54px;
-      }
+  .hero{
+    padding-top:54px;
+  }
 
-      .heroVisual{
-        min-height:400px;
-      }
+  .heroVisual{
+    min-height:400px;
+  }
 
-      section{
-        padding:54px 0;
-      }
-    }
-
+  section{
+    padding:54px 0;
+  }
+}
+    
     @media(max-width:430px){
       .industryList{
         grid-template-columns:1fr;
@@ -1622,11 +1621,12 @@
             Bilder und Dateien können anschließend separat angehängt werden.
           </p>
 
-        </form>
+   </form>
 
-    </div>
-  </div>
-</section>
+</div>
+</div>
+</div>
+</section> 
 
 </main>
 
