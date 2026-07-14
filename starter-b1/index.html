@@ -1,0 +1,608 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta
+  name="description"
+  content="Musterbetrieb Nord – persönliche Beratung, präzise Planung und hochwertige Umsetzung."
+>
+<title>Musterbetrieb Nord – B1 Premium</title>
+
+<style>
+:root{
+  --bg:#0b0b0a;
+  --surface:#151513;
+  --text:#f5f1e7;
+  --muted:#aaa397;
+  --gold:#c5a15b;
+  --line:rgba(255,255,255,.13);
+  --radius:24px;
+}
+
+*{box-sizing:border-box}
+
+html{scroll-behavior:smooth}
+
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--text);
+  font-family:Georgia,serif;
+  line-height:1.7;
+}
+
+.wrap{
+  width:min(1120px,calc(100% - 32px));
+  margin:auto;
+}
+
+header{
+  position:sticky;
+  top:0;
+  z-index:20;
+  background:rgba(11,11,10,.92);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--line);
+}
+
+.head{
+  min-height:86px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:24px;
+}
+
+.brand{
+  font-family:Arial,sans-serif;
+  font-weight:900;
+}
+
+nav{
+  display:flex;
+  gap:24px;
+  align-items:center;
+}
+
+a{
+  color:inherit;
+  text-decoration:none;
+}
+
+a:focus-visible{
+  outline:3px solid var(--gold);
+  outline-offset:4px;
+}
+
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:13px 20px;
+  border:1px solid var(--gold);
+  color:var(--gold);
+  font-family:Arial,sans-serif;
+  font-weight:900;
+  transition:transform .2s ease,background-color .2s ease,color .2s ease;
+}
+
+.btn:hover{
+  transform:translateY(-2px);
+}
+
+.primary{
+  background:var(--gold);
+  color:#111;
+}
+
+.primary:hover{
+  background:#d2b06c;
+}
+
+section{
+  padding:78px 0;
+  scroll-margin-top:96px;
+}
+
+.hero{
+  min-height:calc(100vh - 86px);
+  display:grid;
+  align-items:center;
+  background:
+    linear-gradient(90deg,rgba(0,0,0,.92),rgba(0,0,0,.4)),
+    linear-gradient(145deg,#2e2b24,#070706);
+}
+
+.heroGrid{
+  display:grid;
+  grid-template-columns:.9fr 1.1fr;
+  gap:50px;
+  align-items:center;
+}
+
+.eyebrow{
+  color:var(--gold);
+  text-transform:uppercase;
+  letter-spacing:.18em;
+  font-family:Arial,sans-serif;
+  font-weight:900;
+}
+
+h1{
+  font-size:clamp(3rem,6vw,5.8rem);
+  line-height:1;
+  font-weight:500;
+  margin:20px 0;
+}
+
+h2{
+  font-size:clamp(2rem,4vw,3.4rem);
+  line-height:1.12;
+  font-weight:500;
+  margin:0 0 18px;
+}
+
+h3{
+  font-size:1.35rem;
+  margin:0 0 10px;
+}
+
+.lead{
+  color:var(--muted);
+  font-size:1.18rem;
+}
+
+.heroActions{
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+  margin-top:26px;
+}
+
+.arch{
+  min-height:560px;
+  border:1px solid var(--line);
+  border-radius:260px 260px 0 0;
+  background:
+    radial-gradient(circle at 50% 25%,#6e5935,transparent 28%),
+    linear-gradient(180deg,#25221d,#0d0d0b);
+  position:relative;
+  overflow:hidden;
+}
+
+.arch::after{
+  content:"";
+  position:absolute;
+  left:25%;
+  right:25%;
+  bottom:0;
+  height:65%;
+  background:#0a0a09;
+  border-radius:160px 160px 0 0;
+  border:1px solid var(--line);
+}
+
+.split,
+.aboutGrid,
+.contact{
+  display:grid;
+  grid-template-columns:.75fr 1.25fr;
+  gap:50px;
+  align-items:start;
+}
+
+.serviceList{
+  display:grid;
+  gap:1px;
+  background:var(--line);
+}
+
+.service{
+  background:var(--surface);
+  padding:25px;
+  display:grid;
+  grid-template-columns:70px 1fr;
+  gap:18px;
+}
+
+.service strong{
+  color:var(--gold);
+  font-family:Arial,sans-serif;
+}
+
+.aboutPanel,
+.trustPanel,
+.contactCard{
+  background:var(--surface);
+  border:1px solid var(--line);
+  padding:30px;
+  border-radius:var(--radius);
+}
+
+.trustList{
+  display:grid;
+  gap:14px;
+  margin:22px 0 0;
+  padding:0;
+  list-style:none;
+}
+
+.trustList li{
+  border-top:1px solid var(--line);
+  padding-top:14px;
+  color:var(--muted);
+}
+
+.benefitGrid{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:18px;
+}
+
+.benefitCard{
+  background:var(--surface);
+  border:1px solid var(--line);
+  padding:26px;
+  min-height:200px;
+}
+
+.benefitCard p{
+  color:var(--muted);
+}
+
+.downloadBox{
+  background:#111;
+  border:1px solid var(--line);
+  padding:22px;
+  margin-top:18px;
+}
+
+.contactLinks{
+  display:grid;
+  gap:0;
+  margin-top:20px;
+}
+
+.contactItem{
+  display:flex;
+  justify-content:space-between;
+  gap:18px;
+  flex-wrap:wrap;
+  padding:15px 0;
+  border-bottom:1px solid var(--line);
+}
+
+.contactItem:last-child{
+  border-bottom:0;
+}
+
+.contactItem span{
+  color:var(--muted);
+}
+
+.contactItem a{
+  overflow-wrap:anywhere;
+}
+
+footer{
+  padding:38px 0;
+  border-top:1px solid var(--line);
+  color:var(--muted);
+}
+
+.footerInner{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:20px;
+  flex-wrap:wrap;
+}
+
+.footerLinks{
+  display:flex;
+  gap:18px;
+  flex-wrap:wrap;
+}
+
+.footerLinks a{
+  color:var(--text);
+}
+
+@media(max-width:850px){
+  .heroGrid,
+  .split,
+  .aboutGrid,
+  .contact{
+    grid-template-columns:1fr;
+  }
+
+  .hero{
+    min-height:auto;
+    padding:72px 0;
+  }
+
+  .benefitGrid{
+    grid-template-columns:1fr 1fr;
+  }
+}
+
+@media(max-width:620px){
+  nav{
+    display:none;
+  }
+
+  .arch{
+    min-height:380px;
+  }
+
+  .benefitGrid{
+    grid-template-columns:1fr;
+  }
+
+  .service{
+    grid-template-columns:50px 1fr;
+  }
+
+  .footerInner{
+    align-items:flex-start;
+    flex-direction:column;
+  }
+}
+
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .btn{transition:none}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="wrap head">
+    <strong class="brand">Musterbetrieb Nord</strong>
+
+    <nav aria-label="Hauptnavigation">
+      <a href="#leistungen">Leistungen</a>
+      <a href="#ueber-uns">Über uns</a>
+      <a href="#vorteile">Vorteile</a>
+    </nav>
+
+    <a class="btn primary" href="#projektanfrage">
+      Projekt anfragen
+    </a>
+  </div>
+</header>
+
+<main>
+
+  <section class="hero" id="start">
+    <div class="wrap heroGrid">
+
+      <div>
+        <div class="eyebrow">Musterbetrieb Nord</div>
+
+        <h1>Qualität, die sichtbar bleibt.</h1>
+
+        <p class="lead">
+          Persönliche Beratung, präzise Planung und hochwertige Umsetzung
+          für Projekte mit Anspruch.
+        </p>
+
+        <div class="heroActions">
+          <a class="btn primary" href="#projektanfrage">
+            Projekt anfragen
+          </a>
+
+          <a class="btn" href="#leistungen">
+            Leistungen ansehen
+          </a>
+        </div>
+      </div>
+
+      <div class="arch" aria-hidden="true"></div>
+
+    </div>
+  </section>
+
+  <section id="leistungen">
+    <div class="wrap split">
+
+      <div>
+        <div class="eyebrow">Leistungen</div>
+        <h2>Präzision in jedem Detail.</h2>
+
+        <p class="lead">
+          Von der ersten Einschätzung bis zur professionellen Umsetzung
+          erhalten Sie alle wichtigen Schritte aus einer Hand.
+        </p>
+      </div>
+
+      <div class="serviceList">
+
+        <article class="service">
+          <strong>01</strong>
+          <div>
+            <h3>Beratung</h3>
+            <p class="lead">
+              Individuelle Lösungen und klare Empfehlungen,
+              abgestimmt auf Ihr Vorhaben.
+            </p>
+          </div>
+        </article>
+
+        <article class="service">
+          <strong>02</strong>
+          <div>
+            <h3>Planung</h3>
+            <p class="lead">
+              Sorgfältige Vorbereitung für transparente Abläufe,
+              sichere Entscheidungen und hochwertige Ergebnisse.
+            </p>
+          </div>
+        </article>
+
+        <article class="service">
+          <strong>03</strong>
+          <div>
+            <h3>Umsetzung</h3>
+            <p class="lead">
+              Professionelle Ausführung mit hohem Qualitätsanspruch
+              und klarer Kommunikation.
+            </p>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="ueber-uns">
+    <div class="wrap aboutGrid">
+
+      <div class="aboutPanel">
+        <div class="eyebrow">Über uns</div>
+        <h2>Persönlich. Präzise. Verlässlich.</h2>
+
+        <p class="lead">
+          Musterbetrieb Nord steht für persönliche Beratung,
+          professionelle Umsetzung und langfristige Zusammenarbeit.
+        </p>
+
+        <p class="lead">
+          Qualität, Transparenz und Zuverlässigkeit bilden die Grundlage
+          unserer Arbeit – vom ersten Gespräch bis zum fertigen Ergebnis.
+        </p>
+      </div>
+
+      <div class="trustPanel">
+        <h2>Vertrauen durch klare Zusammenarbeit.</h2>
+
+        <p class="lead">
+          Sie wissen jederzeit, wie der aktuelle Stand ist,
+          wer Ihr Ansprechpartner ist und welche nächsten Schritte folgen.
+        </p>
+
+        <ul class="trustList">
+          <li>Fester Ansprechpartner während des gesamten Projekts</li>
+          <li>Transparente Absprachen und nachvollziehbare Abläufe</li>
+          <li>Verbindliche Termine und sorgfältige Umsetzung</li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="vorteile">
+    <div class="wrap">
+
+      <div class="eyebrow">Ihre Vorteile</div>
+      <h2>Darauf können Sie sich verlassen.</h2>
+
+      <div class="benefitGrid">
+
+        <article class="benefitCard">
+          <h3>Zuverlässig</h3>
+          <p>
+            Verbindliche Abläufe, klare Absprachen und eine sorgfältige Umsetzung.
+          </p>
+        </article>
+
+        <article class="benefitCard">
+          <h3>Schnell</h3>
+          <p>
+            Kurze Reaktionszeiten und eine direkte, verständliche Kommunikation.
+          </p>
+        </article>
+
+        <article class="benefitCard">
+          <h3>Persönlich</h3>
+          <p>
+            Individuelle Betreuung mit einem festen Ansprechpartner.
+          </p>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="projektanfrage">
+    <div class="wrap contact">
+
+      <div>
+        <div class="eyebrow">Projektanfrage</div>
+        <h2>Ihr Projekt beginnt mit einem Gespräch.</h2>
+
+        <p class="lead">
+          Laden Sie das Projektformular herunter, füllen Sie es aus
+          und senden Sie es uns per E-Mail zurück.
+        </p>
+      </div>
+
+      <div class="contactCard">
+
+        <h3>Ihre Kontaktmöglichkeiten</h3>
+
+        <div class="downloadBox">
+          <h3>Projektformular als PDF</h3>
+
+          <p class="lead">
+            Formular herunterladen, ausfüllen und bequem zurücksenden.
+          </p>
+
+          <a
+            class="btn primary"
+            href="../KlarWeb_Projektformular_ausfuellbar.pdf"
+            download
+          >
+            Projektformular herunterladen
+          </a>
+        </div>
+
+        <div class="contactLinks">
+
+          <div class="contactItem">
+            <span>E-Mail</span>
+            <a href="mailto:info@firma.de">info@firma.de</a>
+          </div>
+
+          <div class="contactItem">
+            <span>Telefon</span>
+            <a href="tel:+491234567890">01234 567890</a>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap footerInner">
+
+    <div>
+      © <span id="year"></span> Musterbetrieb Nord
+    </div>
+
+    <div class="footerLinks">
+      <a href="../index.html">Zurück zu KlarWeb Design</a>
+      <a href="../impressum.html">Impressum</a>
+      <a href="../datenschutz.html">Datenschutz</a>
+    </div>
+
+  </div>
+</footer>
+
+<script>
+const yearElement = document.getElementById("year");
+
+if (yearElement) {
+  yearElement.textContent = new Date().getFullYear();
+}
+</script>
+
+</body>
+</html>
