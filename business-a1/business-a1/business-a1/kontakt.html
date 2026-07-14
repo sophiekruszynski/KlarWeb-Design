@@ -1,1 +1,269 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Projektformular herunterladen und Musterbetrieb Nord per E-Mail oder Telefon kontaktieren.">
+<title>Projektanfrage und Kontakt – Musterbetrieb Nord</title>
+<style>
+:root{
+  --bg:#f5f8fc;
+  --white:#fff;
+  --dark:#11213a;
+  --blue:#2e6cf6;
+  --cyan:#6ee7f9;
+  --muted:#65738a;
+  --line:#dfe6f0;
+  --radius:26px;
+  --max:1180px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--dark);
+  font-family:Arial,sans-serif;
+  line-height:1.6;
+}
+img{max-width:100%;display:block}
+.wrap{width:min(var(--max),calc(100% - 32px));margin:auto}
+header{
+  position:sticky;top:0;z-index:20;
+  background:rgba(255,255,255,.95);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--line);
+}
+.head{
+  min-height:74px;display:flex;justify-content:space-between;
+  align-items:center;gap:24px;
+}
+.brand{font-size:1.08rem;font-weight:900}
+nav{display:flex;gap:18px;align-items:center;flex-wrap:wrap}
+a{color:inherit;text-decoration:none;font-weight:800}
+a:focus-visible{outline:3px solid var(--cyan);outline-offset:4px;border-radius:8px}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;
+  padding:12px 18px;border-radius:12px;border:1px solid var(--line);
+  background:#fff;font-weight:900;
+  transition:transform .2s ease,box-shadow .2s ease,background-color .2s ease;
+}
+.btn:hover{transform:translateY(-2px);box-shadow:0 10px 25px rgba(17,33,58,.15)}
+.primary{background:var(--blue);color:#fff;border-color:var(--blue)}
+.primary:hover{background:#245edb}
+main{min-height:65vh}
+section{padding:66px 0}
+.pageHero{padding:72px 0 48px}
+.pageHeroGrid{
+  display:grid;grid-template-columns:1.05fr .95fr;gap:28px;align-items:center;
+}
+.kicker{
+  display:inline-flex;padding:8px 12px;border-radius:999px;
+  background:#eaf0ff;color:var(--blue);font-weight:900;
+}
+h1{
+  font-size:clamp(2.8rem,6vw,5.4rem);line-height:1;
+  margin:20px 0;letter-spacing:-.05em;
+}
+h2{font-size:clamp(2rem,4vw,3.2rem);line-height:1.1;margin:16px 0}
+h3{font-size:1.3rem;margin-top:0}
+.lead{font-size:1.18rem;color:var(--muted)}
+.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:24px}
+.visual{
+  min-height:430px;border-radius:34px;
+  background:linear-gradient(145deg,#dce8ff,#7aa1ff);
+  position:relative;overflow:hidden;
+}
+.visual::before{
+  content:"";position:absolute;width:240px;height:240px;border-radius:50%;
+  background:#fff8;top:36px;right:28px;
+}
+.visual::after{
+  content:"";position:absolute;width:170px;height:320px;border-radius:90px;
+  background:#1c4bb8;left:58px;bottom:-70px;transform:rotate(-20deg);
+}
+.grid3{
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;
+}
+.grid2{
+  display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px;
+}
+.card{
+  background:#fff;border:1px solid var(--line);padding:26px;border-radius:var(--radius);
+}
+.card p{color:var(--muted)}
+.darkCard{
+  background:linear-gradient(160deg,#11213a,#2f5da9);color:#fff;
+}
+.darkCard p{color:#d6dfed}
+.checkList{list-style:none;padding:0;margin:22px 0 0;display:grid;gap:12px}
+.checkList li{
+  background:#fff;border:1px solid var(--line);border-radius:16px;padding:16px 18px;
+}
+.checkList li::before{content:"✓";color:var(--blue);font-weight:900;margin-right:10px}
+.refGrid{
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;
+}
+.refCard{
+  background:#fff;border:1px solid var(--line);border-radius:22px;overflow:hidden;
+}
+.refImage{min-height:230px;position:relative;overflow:hidden}
+.refImage.one{background:linear-gradient(145deg,#dce8ff,#6f96ef)}
+.refImage.two{background:linear-gradient(145deg,#d7f0ef,#4b8f9a)}
+.refImage.three{background:linear-gradient(145deg,#ede4d5,#91785f)}
+.refImage::after{
+  content:"";position:absolute;inset:18% 20%;border:2px solid rgba(255,255,255,.65);
+  border-radius:90px 20px 90px 20px;
+}
+.refContent{padding:22px}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:24px}
+.stat{background:#fff;border:1px solid var(--line);border-radius:18px;padding:20px}
+.stat strong{display:block;font-size:2rem}
+.contactGrid{
+  display:grid;grid-template-columns:.8fr 1.2fr;gap:24px;align-items:start;
+}
+.contactCard{
+  background:#fff;border:1px solid var(--line);padding:28px;border-radius:var(--radius);
+}
+.downloadBox{padding:20px;border-radius:18px;background:#eef3ff}
+.contactLinks{display:grid;gap:0;margin-top:18px}
+.contactItem{
+  display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap;
+  padding:16px 0;border-bottom:1px solid var(--line);
+}
+.contactItem:last-child{border-bottom:0}
+.contactItem span{color:var(--muted)}
+footer{padding:34px 0;background:var(--dark);color:#fff}
+.footerInner{
+  display:flex;justify-content:space-between;gap:24px;align-items:center;flex-wrap:wrap;
+}
+.footerLinks{display:flex;gap:18px;flex-wrap:wrap}
+.footerLinks a{color:#fff}
+.menuToggle{display:none}
+@media(max-width:900px){
+  .pageHeroGrid,.contactGrid,.grid2{grid-template-columns:1fr}
+  .grid3,.refGrid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:700px){
+  .head{position:relative}
+  .menuToggle{
+    display:block;width:46px;height:46px;border:1px solid var(--line);
+    border-radius:12px;background:#fff;font-size:1.3rem;
+  }
+  nav{
+    display:none;position:absolute;top:calc(100% + 10px);left:0;right:0;
+    padding:14px;background:#fff;border:1px solid var(--line);
+    border-radius:18px;box-shadow:0 20px 50px rgba(17,33,58,.14);
+  }
+  nav.open{display:grid}
+  nav a{padding:10px 12px}
+  .grid3,.refGrid,.stats{grid-template-columns:1fr}
+  .visual{min-height:340px}
+  section{padding:52px 0}
+  .footerInner{align-items:flex-start;flex-direction:column}
+}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .btn{transition:none}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap head">
+    <a class="brand" href="index.html">Musterbetrieb Nord</a>
+    <button class="menuToggle" type="button" aria-label="Menü öffnen" aria-expanded="false">☰</button>
+    <nav id="mainNav" aria-label="Hauptnavigation">
+      <a href="index.html">Startseite</a>
+      <a href="leistungen.html">Leistungen</a>
+      <a href="ueber-uns.html">Über uns</a>
+      <a href="referenzen.html">Referenzen</a>
+      <a class="btn primary" href="kontakt.html">Projekt anfragen</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<section class="pageHero">
+  <div class="wrap pageHeroGrid">
+    <div>
+      <span class="kicker">Projektanfrage</span>
+      <h1>Starten wir Ihr Projekt.</h1>
+      <p class="lead">
+        Laden Sie das Projektformular herunter und senden Sie es ausgefüllt per E-Mail
+        zurück. Alternativ erreichen Sie uns telefonisch.
+      </p>
+    </div>
+    <div class="visual" aria-hidden="true"></div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap contactGrid">
+    <div class="card">
+      <h2>Persönlich erreichbar</h2>
+      <p>
+        Wir melden uns nach Eingang Ihrer Anfrage und besprechen gemeinsam die nächsten Schritte.
+      </p>
+      <ul class="checkList">
+        <li>Unverbindliche erste Prüfung</li>
+        <li>Transparente Zusammenfassung</li>
+        <li>Klare nächste Schritte</li>
+      </ul>
+    </div>
+
+    <div class="contactCard">
+      <h3>Ihre Kontaktmöglichkeiten</h3>
+      <div class="downloadBox">
+        <strong>Projektformular als PDF</strong>
+        <p>Formular herunterladen, ausfüllen und bequem zurücksenden.</p>
+        <a class="btn primary" href="../KlarWeb_Projektformular_ausfuellbar.pdf" download>
+          Projektformular herunterladen
+        </a>
+      </div>
+      <div class="contactLinks">
+        <div class="contactItem">
+          <span>E-Mail</span>
+          <a href="mailto:info@firma.de">info@firma.de</a>
+        </div>
+        <div class="contactItem">
+          <span>Telefon</span>
+          <a href="tel:+491234567890">01234 567890</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap footerInner">
+    <div>© <span id="year"></span> Musterbetrieb Nord</div>
+    <div class="footerLinks">
+      <a href="../index.html">Zurück zu KlarWeb Design</a>
+      <a href="../impressum.html">Impressum</a>
+      <a href="../datenschutz.html">Datenschutz</a>
+    </div>
+  </div>
+</footer>
+<script>
+const yearElement = document.getElementById("year");
+if (yearElement) yearElement.textContent = new Date().getFullYear();
+
+const menuToggle = document.querySelector(".menuToggle");
+const mainNav = document.getElementById("mainNav");
+if (menuToggle && mainNav) {
+  menuToggle.addEventListener("click", () => {
+    const open = mainNav.classList.toggle("open");
+    menuToggle.setAttribute("aria-expanded", String(open));
+    menuToggle.textContent = open ? "✕" : "☰";
+  });
+}
+</script>
+
+</body>
+</html>
 
