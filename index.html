@@ -2,7 +2,7 @@
 <html lang="de">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
 
   <title>KlarWeb Design – Websites für kleine Unternehmen</title>
   <meta name="description" content="Moderne, mobil optimierte Websites für Handwerksbetriebe, Dienstleister, Ferienwohnungen und kreative Berufe.">
@@ -24,13 +24,9 @@
       --max:1180px;
     }
 
-    *{
-      box-sizing:border-box;
-    }
+    *{box-sizing:border-box}
 
-    html{
-      scroll-behavior:smooth;
-    }
+    html{scroll-behavior:smooth}
 
     body{
       margin:0;
@@ -46,17 +42,28 @@
       text-decoration:none;
     }
 
+    a:focus-visible,
+    button:focus-visible,
+    input:focus-visible,
+    select:focus-visible,
+    textarea:focus-visible{
+      outline:3px solid rgba(79,119,89,.35);
+      outline-offset:3px;
+    }
+
     button,
     input,
     select,
-    textarea{
-      font:inherit;
-    }
+    textarea{font:inherit}
+
+    img{max-width:100%;display:block}
 
     .wrap{
       width:min(var(--max),calc(100% - 32px));
       margin:auto;
     }
+
+    section{padding:70px 0;scroll-margin-top:92px}
 
     header{
       position:sticky;
@@ -73,6 +80,7 @@
       align-items:center;
       justify-content:space-between;
       gap:20px;
+      position:relative;
     }
 
     .brand{
@@ -87,9 +95,7 @@
       flex-wrap:wrap;
     }
 
-    nav a{
-      font-weight:800;
-    }
+    nav a{font-weight:800}
 
     .btn{
       display:inline-flex;
@@ -102,11 +108,13 @@
       background:#fff;
       font-weight:900;
       cursor:pointer;
-      transition:.2s ease;
+      transition:transform .2s ease,box-shadow .2s ease,background-color .2s ease;
+      text-align:center;
     }
 
     .btn:hover{
       transform:translateY(-2px);
+      box-shadow:0 12px 28px rgba(30,43,34,.12);
     }
 
     .btn.primary{
@@ -115,13 +123,9 @@
       border-color:var(--primary);
     }
 
-    .btn.primary:hover{
-      background:var(--primary-dark);
-    }
+    .btn.primary:hover{background:var(--primary-dark)}
 
-    .hero{
-      padding:84px 0 58px;
-    }
+    .hero{padding:84px 0 58px}
 
     .heroGrid{
       display:grid;
@@ -140,9 +144,7 @@
       margin-bottom:18px;
     }
 
-    h1,
-    h2,
-    h3{
+    h1,h2,h3{
       margin:0 0 14px;
       line-height:1.12;
     }
@@ -157,9 +159,7 @@
       letter-spacing:-.03em;
     }
 
-    h3{
-      font-size:1.22rem;
-    }
+    h3{font-size:1.22rem}
 
     .lead{
       font-size:1.17rem;
@@ -256,18 +256,13 @@
       font-weight:850;
     }
 
-    section{
-      padding:70px 0;
-    }
-
     .sectionIntro{
       max-width:780px;
       margin-bottom:30px;
     }
 
-    .sectionIntro p{
-      color:var(--muted);
-    }
+    .sectionIntro p,
+    .card p{color:var(--muted)}
 
     .grid3{
       display:grid;
@@ -282,10 +277,6 @@
       border-radius:var(--radius);
       padding:25px;
       box-shadow:var(--shadow);
-    }
-
-    .card p{
-      color:var(--muted);
     }
 
     .icon{
@@ -304,9 +295,7 @@
       color:#fff;
     }
 
-    .industries .sectionIntro p{
-      color:rgba(255,255,255,.68);
-    }
+    .industries .sectionIntro p{color:rgba(255,255,255,.68)}
 
     .industryGroups{
       display:grid;
@@ -337,13 +326,46 @@
       font-weight:800;
     }
 
+    .designTabs{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+      margin-bottom:28px;
+    }
+
+    .designTab{
+      min-height:48px;
+      padding:12px 22px;
+      border:1px solid var(--line);
+      border-radius:999px;
+      background:#fff;
+      color:var(--text);
+      font-weight:900;
+      cursor:pointer;
+      transition:.2s ease;
+    }
+
+    .designTab:hover{transform:translateY(-2px)}
+
+    .designTab.active{
+      background:var(--primary);
+      border-color:var(--primary);
+      color:#fff;
+    }
+
+    .designPanel{display:none}
+    .designPanel.active{display:block}
+
     .designGrid{
       display:grid;
-      grid-template-columns:repeat(2,minmax(0,1fr));
+      grid-template-columns:repeat(3,minmax(0,1fr));
       gap:18px;
     }
 
     .designCard{
+      display:flex;
+      flex-direction:column;
+      min-width:0;
       background:#fff;
       border:1px solid var(--line);
       border-radius:24px;
@@ -352,7 +374,7 @@
     }
 
     .designPreview{
-      min-height:260px;
+      min-height:240px;
       padding:22px;
       display:flex;
       align-items:center;
@@ -365,6 +387,12 @@
     .designB2{background:linear-gradient(145deg,#101a2a,#c57a4a)}
     .designC1{background:linear-gradient(145deg,#f1e9da,#6c8b61)}
     .designC2{background:linear-gradient(145deg,#ece6d7,#66734b)}
+    .businessA1{background:linear-gradient(145deg,#182536,#6a8fb5)}
+    .businessA2{background:linear-gradient(145deg,#202028,#d6a95f)}
+    .businessB1{background:linear-gradient(145deg,#090909,#806a3d)}
+    .businessB2{background:linear-gradient(145deg,#131d2c,#986143)}
+    .businessC1{background:linear-gradient(145deg,#d9d1bd,#435b3f)}
+    .businessC2{background:linear-gradient(145deg,#e1d8c4,#4f5d3e)}
 
     .miniSite{
       width:88%;
@@ -374,15 +402,9 @@
       box-shadow:0 20px 44px rgba(0,0,0,.22);
     }
 
-    .miniNav{
-      height:26px;
-      background:#ecefea;
-    }
+    .miniNav{height:26px;background:#ecefea}
 
-    .miniHero{
-      height:125px;
-      padding:20px;
-    }
+    .miniHero{height:125px;padding:20px}
 
     .miniHero b{
       display:block;
@@ -411,8 +433,37 @@
     }
 
     .designContent{
+      display:flex;
+      flex-direction:column;
+      flex:1;
       padding:22px;
     }
+
+    .designContent p{color:var(--muted)}
+
+    .designBadge{
+      display:inline-flex;
+      width:max-content;
+      margin-bottom:12px;
+      padding:6px 10px;
+      border-radius:999px;
+      background:var(--soft);
+      color:var(--primary-dark);
+      font-size:.78rem;
+      font-weight:900;
+      text-transform:uppercase;
+      letter-spacing:.06em;
+    }
+
+    .designActions{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:10px;
+      margin-top:auto;
+      padding-top:18px;
+    }
+
+    .designActions .btn{width:100%}
 
     .pricing{
       display:grid;
@@ -421,10 +472,7 @@
       align-items:stretch;
     }
 
-    .priceCard{
-      display:flex;
-      flex-direction:column;
-    }
+    .priceCard{display:flex;flex-direction:column}
 
     .priceCard.featured{
       border:2px solid var(--primary);
@@ -457,9 +505,7 @@
       margin-right:8px;
     }
 
-    .priceCard .btn{
-      margin-top:auto;
-    }
+    .priceCard .btn{margin-top:auto}
 
     .notice{
       margin-top:18px;
@@ -470,9 +516,7 @@
       color:#665424;
     }
 
-    .extras{
-      background:var(--soft);
-    }
+    .extras{background:var(--soft)}
 
     .extrasGrid{
       display:grid;
@@ -490,13 +534,11 @@
       padding:16px 18px;
     }
 
-    .extra strong:last-child{
-      white-space:nowrap;
-    }
+    .extra strong:last-child{white-space:nowrap}
 
     .processGrid{
       display:grid;
-      grid-template-columns:repeat(4,minmax(0,1fr));
+      grid-template-columns:repeat(3,minmax(0,1fr));
       gap:18px;
     }
 
@@ -519,29 +561,12 @@
       margin-bottom:16px;
     }
 
-    .about{
-      background:#fff;
-    }
+    .about{background:#fff}
 
     .aboutGrid{
       display:grid;
-      grid-template-columns:.75fr 1.25fr;
+      grid-template-columns:1fr;
       gap:24px;
-      align-items:center;
-    }
-
-    .aboutVisual{
-      min-height:420px;
-      border-radius:30px;
-      background:
-        radial-gradient(circle at 72% 26%,rgba(223,183,95,.85),transparent 23%),
-        linear-gradient(145deg,#7ea187,#294533);
-      display:grid;
-      place-items:center;
-      color:#fff;
-      font-size:4rem;
-      font-weight:950;
-      box-shadow:var(--shadow);
     }
 
     .contactGrid{
@@ -551,54 +576,40 @@
       align-items:start;
     }
 
-    form{
+    .small{
+      font-size:.84rem;
+      color:var(--muted);
+    }
+
+    .pdfSteps{
       display:grid;
       gap:14px;
+      margin:26px 0;
     }
 
-    .fieldGrid{
+    .pdfStep{
       display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:14px;
-    }
-
-    label{
-      display:grid;
-      gap:7px;
-      font-weight:800;
-    }
-
-    input,
-    select,
-    textarea{
-      width:100%;
-      padding:13px 14px;
+      grid-template-columns:48px 1fr;
+      gap:15px;
+      align-items:start;
+      padding:16px;
+      background:var(--bg);
       border:1px solid var(--line);
-      border-radius:13px;
-      background:#fff;
-      color:var(--text);
+      border-radius:16px;
     }
 
-    textarea{
-      min-height:145px;
-      resize:vertical;
+    .pdfStep .stepNo{margin:0}
+    .pdfStep h3{margin-bottom:6px}
+    .pdfStep p{margin:0;color:var(--muted)}
+
+    .pdfActions{
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+      margin-top:20px;
     }
 
-.small{
-  font-size:.84rem;
-  color:var(--muted);
-}
-
-.pdfActions{
-  display:flex;
-  flex-direction:column;
-  gap:12px;
-  margin-top:20px;
-}
-
-.pdfActions .btn{
-  width:100%;
-}
+    .pdfActions .btn{width:100%}
 
     footer{
       padding:36px 0;
@@ -606,141 +617,47 @@
       color:rgba(255,255,255,.82);
     }
 
- .foot{
-  display:flex;
-  justify-content:space-between;
-  gap:20px;
-  flex-wrap:wrap;
-}
-
-.formSection{
-  padding-bottom:24px;
-  margin-bottom:24px;
-  border-bottom:1px solid var(--line);
-}
-
-.formSection:last-of-type{
-  border-bottom:0;
-}
-
-.formSection h3{
-  margin-bottom:16px;
-}
-
-.checkGrid{
-  display:grid;
-  grid-template-columns:repeat(2,minmax(0,1fr));
-  gap:10px;
-  margin-bottom:16px;
-}
-
-.checkItem{
-  display:flex;
-  align-items:flex-start;
-  gap:9px;
-  padding:12px;
-  border:1px solid var(--line);
-  border-radius:12px;
-  background:var(--bg);
-  font-weight:700;
-}
-
-.checkItem input{
-  width:auto;
-  margin-top:4px;
-}
-
-.privacyCheck{
-  display:flex;
-  align-items:flex-start;
-  gap:10px;
-  font-weight:normal;
-}
-
-.privacyCheck input{
-  width:auto;
-  margin-top:5px;
-}
-
+    .foot{
+      display:flex;
+      justify-content:space-between;
+      gap:20px;
+      flex-wrap:wrap;
+    }
 
     .menuToggle{
-  display:none;
-  width:48px;
-  height:48px;
-  padding:0;
-  border:1px solid var(--line);
-  border-radius:14px;
-  background:#fff;
-  cursor:pointer;
-}
+      display:none;
+      width:48px;
+      height:48px;
+      padding:0;
+      border:1px solid var(--line);
+      border-radius:14px;
+      background:#fff;
+      cursor:pointer;
+    }
 
-.menuToggle span{
-  display:block;
-  width:22px;
-  height:2px;
-  margin:5px auto;
-  background:var(--dark);
-  transition:.2s ease;
-}
+    .menuToggle span{
+      display:block;
+      width:22px;
+      height:2px;
+      margin:5px auto;
+      background:var(--dark);
+      transition:.2s ease;
+    }
 
-.menuToggle.active span:nth-child(1){
-  transform:translateY(7px) rotate(45deg);
-}
+    .menuToggle.active span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+    .menuToggle.active span:nth-child(2){opacity:0}
+    .menuToggle.active span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
 
-.menuToggle.active span:nth-child(2){
-  opacity:0;
-}
-
-.menuToggle.active span:nth-child(3){
-  transform:translateY(-7px) rotate(-45deg);
-}
-
-.pdfSteps{
-  display:grid;
-  gap:14px;
-  margin:26px 0;
-}
-
-.pdfStep{
-  display:grid;
-  grid-template-columns:48px 1fr;
-  gap:15px;
-  align-items:start;
-  padding:16px;
-  background:var(--bg);
-  border:1px solid var(--line);
-  border-radius:16px;
-}
-
-.pdfStep .stepNo{
-  width:42px;
-  height:42px;
-  margin:0;
-}
-
-.pdfStep h3{
-  margin-bottom:6px;
-}
-
-.pdfStep p{
-  margin:0;
-  color:var(--muted);
-}
-
-
-.projectNotice{
-  margin-top:24px;
-}
     @media(max-width:980px){
       .heroGrid,
-      .aboutGrid,
       .contactGrid{
         grid-template-columns:1fr;
       }
 
       .grid3,
       .pricing,
-      .industryGroups{
+      .industryGroups,
+      .designGrid{
         grid-template-columns:repeat(2,minmax(0,1fr));
       }
 
@@ -748,98 +665,69 @@
         grid-template-columns:repeat(2,minmax(0,1fr));
       }
 
-      .priceCard.featured{
-        transform:none;
-      }
+      .priceCard.featured{transform:none}
     }
 
-@media(max-width:700px){
-  .head{
-  position:relative;
-}
+    @media(max-width:700px){
+      .menuToggle{display:block}
 
-.menuToggle{
-  display:block;
-}
+      nav{
+        display:none;
+        position:absolute;
+        top:calc(100% + 10px);
+        left:0;
+        right:0;
+        padding:14px;
+        background:#fff;
+        border:1px solid var(--line);
+        border-radius:18px;
+        box-shadow:var(--shadow);
+      }
 
-nav{
-  display:none;
-  position:absolute;
-  top:calc(100% + 10px);
-  left:0;
-  right:0;
-  padding:14px;
-  background:#fff;
-  border:1px solid var(--line);
-  border-radius:18px;
-  box-shadow:var(--shadow);
-}
+      nav.open{
+        display:grid;
+        gap:8px;
+      }
 
-nav.open{
-  display:grid;
-  gap:8px;
-}
+      nav a{
+        display:block;
+        padding:12px 14px;
+        border-radius:12px;
+      }
 
-nav a{
-  display:block;
-  padding:12px 14px;
-  border-radius:12px;
-}
+      nav a:not(.headerCta):hover{background:var(--soft)}
+      nav .headerCta{width:100%;margin-top:4px}
 
-nav a:not(.headerCta):hover{
-  background:var(--soft);
-}
-
-nav .headerCta{
-  width:100%;
-  margin-top:4px;
-}
-
-.pdfActions{
-  display:grid;
-}
-
-.pdfActions .btn{
-  width:100%;
-}
-
-  .grid3,
-  .pricing,
-  .industryGroups,
-  .designGrid,
-  .extrasGrid,
-  .trust,
-  .fieldGrid,
-  .processGrid,
-  .checkGrid{
-    grid-template-columns:1fr;
-  }
-
-  .industryList{
-    grid-template-columns:repeat(2,minmax(0,1fr));
-  }
-
-  .hero{
-    padding-top:54px;
-  }
-
-  .heroVisual{
-    min-height:400px;
-  }
-
-  section{
-    padding:54px 0;
-  }
-}
-    
-    @media(max-width:430px){
-      .industryList{
+      .grid3,
+      .pricing,
+      .industryGroups,
+      .designGrid,
+      .extrasGrid,
+      .trust,
+      .processGrid{
         grid-template-columns:1fr;
       }
 
-      .extra{
-        flex-direction:column;
+      .industryList{grid-template-columns:repeat(2,minmax(0,1fr))}
+      .designTabs{display:grid;grid-template-columns:1fr 1fr}
+      .hero{padding-top:54px}
+      .heroVisual{min-height:400px}
+      section{padding:54px 0}
+    }
+
+    @media(max-width:430px){
+      .industryList,
+      .designTabs,
+      .designActions{
+        grid-template-columns:1fr;
       }
+
+      .extra{flex-direction:column}
+    }
+
+    @media(prefers-reduced-motion:reduce){
+      html{scroll-behavior:auto}
+      *,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}
     }
   </style>
 </head>
@@ -848,7 +736,6 @@ nav .headerCta{
 
 <header>
   <div class="wrap head">
-
     <a class="brand" href="#start">KlarWeb Design</a>
 
     <button
@@ -858,9 +745,7 @@ nav .headerCta{
       aria-expanded="false"
       aria-controls="mainNav"
     >
-      <span></span>
-      <span></span>
-      <span></span>
+      <span></span><span></span><span></span>
     </button>
 
     <nav id="mainNav">
@@ -868,13 +753,10 @@ nav .headerCta{
       <a href="#branchen">Branchen</a>
       <a href="#designs">Designs</a>
       <a href="#preise">Preise</a>
-     <a href="#ablauf">Ablauf</a>
+      <a href="#ablauf">Ablauf</a>
       <a href="#ueber">Über mich</a>
-      <a class="btn primary headerCta" href="#anfrage">
-        Projekt anfragen
-      </a>
+      <a class="btn primary headerCta" href="#anfrage">Projekt anfragen</a>
     </nav>
-
   </div>
 </header>
 
@@ -882,16 +764,9 @@ nav .headerCta{
 
   <section class="hero" id="start">
     <div class="wrap heroGrid">
-
       <div>
         <span class="eyebrow">Websites für kleine Unternehmen</span>
-
-        <h1>
-          Klarer Auftritt.<br>
-          Moderne Website.<br>
-          Einfachere Anfragen.
-        </h1>
-
+        <h1>Klarer Auftritt.<br>Moderne Website.<br>Einfachere Anfragen.</h1>
         <p class="lead">
           KlarWeb Design erstellt moderne, mobil optimierte Websites
           für Handwerksbetriebe, Dienstleister, Ferienwohnungen und
@@ -910,14 +785,9 @@ nav .headerCta{
         </div>
       </div>
 
-      <div class="heroVisual">
+      <div class="heroVisual" aria-hidden="true">
         <div class="mock">
-          <div class="mockbar">
-            <i></i>
-            <i></i>
-            <i></i>
-          </div>
-
+          <div class="mockbar"><i></i><i></i><i></i></div>
           <div class="mockbody">
             <small>Ihr Unternehmen</small>
             <strong>Eine Website, die Vertrauen schafft.</strong>
@@ -925,85 +795,44 @@ nav .headerCta{
           </div>
         </div>
       </div>
-
     </div>
   </section>
 
   <section id="leistungen">
     <div class="wrap">
-
       <div class="sectionIntro">
         <span class="eyebrow">Grundleistung</span>
         <h2>Was Ihre neue Website enthalten kann</h2>
-        <p>
-          Farben, Texte, Bilder, Leistungen und Kontaktmöglichkeiten
-          werden passend zu Ihrem Unternehmen angepasst.
-        </p>
+        <p>Farben, Texte, Bilder, Leistungen und Kontaktmöglichkeiten werden passend zu Ihrem Unternehmen angepasst.</p>
       </div>
 
       <div class="grid3">
-
-        <article class="card">
-          <div class="icon">📱</div>
-          <h3>Mobil optimiert</h3>
-          <p>Ihre Website funktioniert auf Smartphone, Tablet und Laptop.</p>
-        </article>
-
-        <article class="card">
-          <div class="icon">🎨</div>
-          <h3>Individuelles Design</h3>
-          <p>Farben, Schrift und Aufbau werden an Ihr Unternehmen angepasst.</p>
-        </article>
-
-        <article class="card">
-          <div class="icon">💬</div>
-          <h3>Kontaktmöglichkeiten</h3>
-          <p>E-Mail, Telefon, WhatsApp oder Kontaktformular.</p>
-        </article>
-
-        <article class="card">
-          <div class="icon">🖼️</div>
-          <h3>Galerie und Referenzen</h3>
-          <p>Arbeitsbeispiele, Projekte und Vorher-Nachher-Bilder können gezeigt werden.</p>
-        </article>
-
-        <article class="card">
-          <div class="icon">🔎</div>
-          <h3>SEO-Grundlagen</h3>
-          <p>Klare Seitentitel, Beschreibungen und eine übersichtliche Struktur.</p>
-        </article>
-
-        <article class="card">
-          <div class="icon">🛠️</div>
-          <h3>Optionale Pflege</h3>
-          <p>Kleine Änderungen und Aktualisierungen nach der Veröffentlichung.</p>
-        </article>
-
+        <article class="card"><div class="icon">📱</div><h3>Mobil optimiert</h3><p>Ihre Website funktioniert auf Smartphone, Tablet und Laptop.</p></article>
+        <article class="card"><div class="icon">🎨</div><h3>Individuelles Design</h3><p>Farben, Schrift und Aufbau werden an Ihr Unternehmen angepasst.</p></article>
+        <article class="card"><div class="icon">💬</div><h3>Kontaktmöglichkeiten</h3><p>E-Mail, Telefon, WhatsApp oder Kontaktformular.</p></article>
+        <article class="card"><div class="icon">🖼️</div><h3>Galerie und Referenzen</h3><p>Arbeitsbeispiele, Projekte und Vorher-Nachher-Bilder können gezeigt werden.</p></article>
+        <article class="card"><div class="icon">🔎</div><h3>SEO-Grundlagen</h3><p>Klare Seitentitel, Beschreibungen und eine übersichtliche Struktur.</p></article>
+        <article class="card"><div class="icon">🛠️</div><h3>Optionale Pflege</h3><p>Kleine Änderungen und Aktualisierungen nach der Veröffentlichung.</p></article>
       </div>
     </div>
   </section>
 
   <section class="industries" id="branchen">
     <div class="wrap">
-
       <div class="sectionIntro">
         <span class="eyebrow">Branchen</span>
         <h2>Websites für unterschiedliche Unternehmen</h2>
-        <p>
-          Die Struktur wird passend zur Branche, Zielgruppe
-          und gewünschten Kontaktmöglichkeit aufgebaut.
-        </p>
+        <p>Die Struktur wird passend zur Branche, Zielgruppe und gewünschten Kontaktmöglichkeit aufgebaut.</p>
       </div>
 
       <div class="industryGroups">
-
         <div class="industryGroup">
           <h3>Handwerk</h3>
           <div class="industryList">
             <div class="industryItem">Malerbetriebe</div>
             <div class="industryItem">Dachdecker</div>
             <div class="industryItem">Elektriker</div>
-            <div class="industryItem">Sanitär & Heizung</div>
+            <div class="industryItem">Sanitär &amp; Heizung</div>
           </div>
         </div>
 
@@ -1018,118 +847,267 @@ nav .headerCta{
         </div>
 
         <div class="industryGroup">
-          <h3>Kreativ & Freizeit</h3>
+          <h3>Kreativ &amp; Freizeit</h3>
           <div class="industryList">
             <div class="industryItem">Künstler</div>
             <div class="industryItem">Fotografie</div>
-            <div class="industryItem">Kosmetik & Nagelstudios</div>
+            <div class="industryItem">Kosmetik &amp; Nagelstudios</div>
             <div class="industryItem">Ferienwohnungen</div>
           </div>
         </div>
-
       </div>
     </div>
   </section>
 
   <section id="designs">
     <div class="wrap">
-
       <div class="sectionIntro">
         <span class="eyebrow">Designauswahl</span>
-        <h2>Sechs Stilrichtungen zur Auswahl</h2>
+        <h2>Zwölf Designs für Starter und Business</h2>
         <p>
-          Sie wählen eine Grundrichtung. Anschließend werden Farben,
-          Inhalte und Bilder individuell angepasst.
+          Wählen Sie zunächst das gewünschte Website-Paket und anschließend
+          eine passende Stilrichtung. Farben, Texte, Bilder und Inhalte werden
+          an Ihr Unternehmen angepasst.
         </p>
       </div>
 
-      <div class="designGrid">
+      <div class="designTabs" role="tablist" aria-label="Website-Pakete">
+        <button class="designTab active" type="button" role="tab" id="starterTab" aria-controls="starterDesigns" aria-selected="true" data-panel="starterDesigns">Starter-Designs</button>
+        <button class="designTab" type="button" role="tab" id="businessTab" aria-controls="businessDesigns" aria-selected="false" data-panel="businessDesigns">Business-Designs</button>
+      </div>
 
-        <article class="designCard">
-          <div class="designPreview designA1">
-            <div class="miniSite">
-              <div class="miniNav"></div>
-              <div class="miniHero"><b></b><span></span><i></i></div>
+      <div class="designPanel active" id="starterDesigns" role="tabpanel" aria-labelledby="starterTab">
+        <div class="designGrid">
+
+          <article class="designCard">
+            <div class="designPreview designA1">
+              <div class="miniSite" aria-hidden="true">
+                <div class="miniNav"></div>
+                <div class="miniHero"><b></b><span></span><i></i></div>
+              </div>
             </div>
-          </div>
-          <div class="designContent">
-            <h3>A1 – Modern asymmetrisch</h3>
-            <p>Modernes Unternehmensdesign mit klaren Karten und Flächen.</p>
-          </div>
-        </article>
-
-        <article class="designCard">
-          <div class="designPreview designA2">
-            <div class="miniSite">
-              <div class="miniNav"></div>
-              <div class="miniHero"><b></b><span></span><i></i></div>
+            <div class="designContent">
+              <span class="designBadge">Starter</span>
+              <h3>A1 – Modern asymmetrisch</h3>
+              <p>Modernes Unternehmensdesign mit klaren Karten, Flächen und einer direkten Projektanfrage.</p>
+              <div class="designActions">
+                <a class="btn" href="/demos/starter/a1/" target="_blank" rel="noopener">Demo ansehen</a>
+                <a class="btn primary" href="#anfrage">Anfragen</a>
+              </div>
             </div>
-          </div>
-          <div class="designContent">
-            <h3>A2 – Modern editorial</h3>
-            <p>Große Typografie und auffällige moderne Kontraste.</p>
-          </div>
-        </article>
+          </article>
 
-        <article class="designCard">
-          <div class="designPreview designB1">
-            <div class="miniSite">
-              <div class="miniNav"></div>
-              <div class="miniHero"><b></b><span></span><i></i></div>
+          <article class="designCard">
+            <div class="designPreview designA2">
+              <div class="miniSite" aria-hidden="true">
+                <div class="miniNav"></div>
+                <div class="miniHero"><b></b><span></span><i></i></div>
+              </div>
             </div>
-          </div>
-          <div class="designContent">
-            <h3>B1 – Premium Architektur</h3>
-            <p>Dunkel, elegant und hochwertig.</p>
-          </div>
-        </article>
-
-        <article class="designCard">
-          <div class="designPreview designB2">
-            <div class="miniSite">
-              <div class="miniNav"></div>
-              <div class="miniHero"><b></b><span></span><i></i></div>
+            <div class="designContent">
+              <span class="designBadge">Starter</span>
+              <h3>A2 – Modern editorial</h3>
+              <p>Große Typografie, klare Raster und moderne, auffällige Kontraste.</p>
+              <div class="designActions">
+                <a class="btn" href="/demos/starter/a2/" target="_blank" rel="noopener">Demo ansehen</a>
+                <a class="btn primary" href="#anfrage">Anfragen</a>
+              </div>
             </div>
-          </div>
-          <div class="designContent">
-            <h3>B2 – Premium Galerie</h3>
-            <p>Große Flächen, elegante Kontraste und luxuriöse Wirkung.</p>
-          </div>
-        </article>
+          </article>
 
-        <article class="designCard">
-          <div class="designPreview designC1">
-            <div class="miniSite">
-              <div class="miniNav"></div>
-              <div class="miniHero"><b></b><span></span><i></i></div>
+          <article class="designCard">
+            <div class="designPreview designB1">
+              <div class="miniSite" aria-hidden="true">
+                <div class="miniNav"></div>
+                <div class="miniHero"><b></b><span></span><i></i></div>
+              </div>
             </div>
-          </div>
-          <div class="designContent">
-            <h3>C1 – Natürlich organisch</h3>
-            <p>Warme Farben, weiche Formen und persönliche Wirkung.</p>
-          </div>
-        </article>
-
-        <article class="designCard">
-          <div class="designPreview designC2">
-            <div class="miniSite">
-              <div class="miniNav"></div>
-              <div class="miniHero"><b></b><span></span><i></i></div>
+            <div class="designContent">
+              <span class="designBadge">Starter</span>
+              <h3>B1 – Premium Architektur</h3>
+              <p>Dunkler, eleganter Auftritt mit hochwertiger und architektonischer Wirkung.</p>
+              <div class="designActions">
+                <a class="btn" href="/demos/starter/b1/" target="_blank" rel="noopener">Demo ansehen</a>
+                <a class="btn primary" href="#anfrage">Anfragen</a>
+              </div>
             </div>
-          </div>
-          <div class="designContent">
-            <h3>C2 – Natürlich Magazin</h3>
-            <p>Ruhiger, redaktioneller Stil mit natürlichen Farben.</p>
-          </div>
-        </article>
+          </article>
 
+          <article class="designCard">
+            <div class="designPreview designB2">
+              <div class="miniSite" aria-hidden="true">
+                <div class="miniNav"></div>
+                <div class="miniHero"><b></b><span></span><i></i></div>
+              </div>
+            </div>
+            <div class="designContent">
+              <span class="designBadge">Starter</span>
+              <h3>B2 – Premium Galerie</h3>
+              <p>Großzügige Flächen, elegante Kontraste und eine luxuriöse Präsentation.</p>
+              <div class="designActions">
+                <a class="btn" href="/demos/starter/b2/" target="_blank" rel="noopener">Demo ansehen</a>
+                <a class="btn primary" href="#anfrage">Anfragen</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="designCard">
+            <div class="designPreview designC1">
+              <div class="miniSite" aria-hidden="true">
+                <div class="miniNav"></div>
+                <div class="miniHero"><b></b><span></span><i></i></div>
+              </div>
+            </div>
+            <div class="designContent">
+              <span class="designBadge">Starter</span>
+              <h3>C1 – Natürlich organisch</h3>
+              <p>Warme Farben, weiche Formen und eine persönliche, nahbare Wirkung.</p>
+              <div class="designActions">
+                <a class="btn" href="/demos/starter/c1/" target="_blank" rel="noopener">Demo ansehen</a>
+                <a class="btn primary" href="#anfrage">Anfragen</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="designCard">
+            <div class="designPreview designC2">
+              <div class="miniSite" aria-hidden="true">
+                <div class="miniNav"></div>
+                <div class="miniHero"><b></b><span></span><i></i></div>
+              </div>
+            </div>
+            <div class="designContent">
+              <span class="designBadge">Starter</span>
+              <h3>C2 – Natürlich Magazin</h3>
+              <p>Ruhiger redaktioneller Stil mit natürlichen Farben und klarer Typografie.</p>
+              <div class="designActions">
+                <a class="btn" href="/demos/starter/c2/" target="_blank" rel="noopener">Demo ansehen</a>
+                <a class="btn primary" href="#anfrage">Anfragen</a>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+
+      <div class="designPanel" id="businessDesigns" role="tabpanel" aria-labelledby="businessTab" hidden>
+        <div class="designGrid">
+
+          <article class="designCard">
+            <div class="designPreview businessA1">
+              <div class="miniSite" aria-hidden="true">
+                <div class="miniNav"></div>
+                <div class="miniHero"><b></b><span></span><i></i></div>
+              </div>
+            </div>
+            <div class="designContent">
+              <span class="designBadge">Business</span>
+              <h3>A1 – Business Modern</h3>
+              <p>Mehrseitige Business-Website mit klaren Bereichen für Leistungen, Referenzen und Kontakt.</p>
+              <div class="designActions">
+                <a class="btn" href="/demos/business/a1/" target="_blank" rel="noopener">Demo ansehen</a>
+                <a class="btn primary" href="#anfrage">Anfragen</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="designCard">
+            <div class="designPreview businessA2">
+              <div class="miniSite" aria-hidden="true">
+                <div class="miniNav"></div>
+                <div class="miniHero"><b></b><span></span><i></i></div>
+              </div>
+            </div>
+            <div class="designContent">
+              <span class="designBadge">Business</span>
+              <h3>A2 – Business Editorial</h3>
+              <p>Moderner Auftritt mit großzügiger Typografie, zusätzlichen Unterseiten und Referenzen.</p>
+              <div class="designActions">
+                <a class="btn" href="/demos/business/a2/" target="_blank" rel="noopener">Demo ansehen</a>
+                <a class="btn primary" href="#anfrage">Anfragen</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="designCard">
+            <div class="designPreview businessB1">
+              <div class="miniSite" aria-hidden="true">
+                <div class="miniNav"></div>
+                <div class="miniHero"><b></b><span></span><i></i></div>
+              </div>
+            </div>
+            <div class="designContent">
+              <span class="designBadge">Business</span>
+              <h3>B1 – Business Architektur</h3>
+              <p>Hochwertiger Premium-Auftritt mit Projekten, Referenzen und ausführlicher Leistungsdarstellung.</p>
+              <div class="designActions">
+                <a class="btn" href="/demos/business/b1/" target="_blank" rel="noopener">Demo ansehen</a>
+                <a class="btn primary" href="#anfrage">Anfragen</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="designCard">
+            <div class="designPreview businessB2">
+              <div class="miniSite" aria-hidden="true">
+                <div class="miniNav"></div>
+                <div class="miniHero"><b></b><span></span><i></i></div>
+              </div>
+            </div>
+            <div class="designContent">
+              <span class="designBadge">Business</span>
+              <h3>B2 – Business Galerie</h3>
+              <p>Bilderstarke Website für hochwertige Angebote, Referenzen und umfangreiche Projektgalerien.</p>
+              <div class="designActions">
+                <a class="btn" href="/demos/business/b2/" target="_blank" rel="noopener">Demo ansehen</a>
+                <a class="btn primary" href="#anfrage">Anfragen</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="designCard">
+            <div class="designPreview businessC1">
+              <div class="miniSite" aria-hidden="true">
+                <div class="miniNav"></div>
+                <div class="miniHero"><b></b><span></span><i></i></div>
+              </div>
+            </div>
+            <div class="designContent">
+              <span class="designBadge">Business</span>
+              <h3>C1 – Business Organisch</h3>
+              <p>Persönlicher Markenauftritt mit mehreren Unterseiten, Leistungen, Team und Referenzen.</p>
+              <div class="designActions">
+                <a class="btn" href="/demos/business/c1/" target="_blank" rel="noopener">Demo ansehen</a>
+                <a class="btn primary" href="#anfrage">Anfragen</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="designCard">
+            <div class="designPreview businessC2">
+              <div class="miniSite" aria-hidden="true">
+                <div class="miniNav"></div>
+                <div class="miniHero"><b></b><span></span><i></i></div>
+              </div>
+            </div>
+            <div class="designContent">
+              <span class="designBadge">Business</span>
+              <h3>C2 – Business Magazin</h3>
+              <p>Redaktionelles Business-Design mit übersichtlicher Navigation und ausführlichen Inhaltsseiten.</p>
+              <div class="designActions">
+                <a class="btn" href="/demos/business/c2/" target="_blank" rel="noopener">Demo ansehen</a>
+                <a class="btn primary" href="#anfrage">Anfragen</a>
+              </div>
+            </div>
+          </article>
+
+        </div>
       </div>
     </div>
   </section>
 
   <section id="preise">
     <div class="wrap">
-
       <div class="sectionIntro">
         <span class="eyebrow">Preise</span>
         <h2>Transparente Pakete</h2>
@@ -1137,20 +1115,17 @@ nav .headerCta{
       </div>
 
       <div class="pricing">
-
         <article class="card priceCard">
           <h3>Starter</h3>
           <div class="price">549 €</div>
           <div class="monthly">einmalig</div>
-
           <ul class="features">
             <li>Onepage-Website</li>
             <li>Bis zu 5 Inhaltsbereiche</li>
             <li>Mobil optimiert</li>
-            <li>Kontaktformular</li>
+            <li>Kontaktmöglichkeiten</li>
             <li>1 Korrekturrunde</li>
           </ul>
-
           <a class="btn" href="#anfrage">Starter anfragen</a>
         </article>
 
@@ -1159,7 +1134,6 @@ nav .headerCta{
           <h3>Business</h3>
           <div class="price">899 €</div>
           <div class="monthly">einmalig</div>
-
           <ul class="features">
             <li>Bis zu 5 einzelne Seiten</li>
             <li>Individuelle Designanpassung</li>
@@ -1167,7 +1141,6 @@ nav .headerCta{
             <li>SEO-Grundlagen</li>
             <li>2 Korrekturrunden</li>
           </ul>
-
           <a class="btn primary" href="#anfrage">Business anfragen</a>
         </article>
 
@@ -1175,7 +1148,6 @@ nav .headerCta{
           <h3>Pflegepaket</h3>
           <div class="price">ab 39 €</div>
           <div class="monthly">monatlich · optional</div>
-
           <ul class="features">
             <li>Bis zu 30 Minuten kleine Änderungen</li>
             <li>Texte und Bilder aktualisieren</li>
@@ -1183,24 +1155,20 @@ nav .headerCta{
             <li>Monatlich kündbar</li>
             <li>Website bleibt online</li>
           </ul>
-
           <a class="btn" href="#anfrage">Pflege anfragen</a>
         </article>
-
       </div>
 
       <div class="notice">
         <strong>Hinweis:</strong>
-        Für viele Projekte stehen staatliche Fördermittel zur Verfügung. 
-        Nutzen Sie mögliche Zuschüsse, um Ihre Investitionskosten zu senken. Das entsprechende Antragsformular erhalten Sie bei der zuständigen Förderstelle.
+        Fördermöglichkeiten sind vom jeweiligen Programm, Standort und Unternehmen abhängig.
+        Eine Förderung kann daher nicht garantiert werden.
       </div>
-
     </div>
   </section>
 
   <section class="extras">
     <div class="wrap">
-
       <div class="sectionIntro">
         <span class="eyebrow">Zusatzleistungen</span>
         <h2>Erweiterungen nach Bedarf</h2>
@@ -1215,255 +1183,107 @@ nav .headerCta{
         <div class="extra"><strong>Terminbuchung</strong><strong>ab 79 €</strong></div>
         <div class="extra"><strong>Änderungen ohne Pflegepaket</strong><strong>40 €/Std.</strong></div>
       </div>
-
     </div>
   </section>
 
   <section id="ablauf">
     <div class="wrap">
-
       <div class="sectionIntro">
         <span class="eyebrow">Ablauf</span>
         <h2>So entsteht Ihre Website</h2>
       </div>
 
       <div class="processGrid">
-
-        <article class="step">
-          <div class="stepNo">1</div>
-          <h3>Anfrage</h3>
-          <p>Alle wichtigen Informationen werden bequem über das Projektformular erfasst.
-            </p>
-        </article>
-
-        <article class="step">
-          <div class="stepNo">2</div>
-          <h3>Designauswahl</h3>
-          <p>Wählen Sie die Vorlage, die am besten zu Ihrem Unternehmen passt.</p>
-        </article>
-
-        <article class="step">
-          <div class="stepNo">3</div>
-          <h3>Anzahlung</h3>
-          <p>Nach Prüfung Ihrer Anfrage erhalten Sie eine Zusammenfassung und die Rechnung für die 50 % Anzahlung.</p>
-        </article>
-
-          <article class="step">
-          <div class="stepNo">4</div>
-          <h3>Erstellung</h3>
-          <p>Nach Zahlungseingang beginne ich mit der Erstellung Ihrer Website.</p>
-        </article>
-    
-        <article class="step">
-          <div class="stepNo">5</div>
-          <h3>Vorschau & Freigabe</h3>
-          <p>Sie erhalten eine Vorschau Ihrer Website und können die vereinbarten Korrekturen nutzen.</p>
-        </article>
-
-        <article class="step">
-          <div class="stepNo">6</div>
-          <h3>Restzahlung & Veröffentlichung</h3>
-          <p>Nach Ihrer Freigabe erfolgt die Restzahlung. Anschließend wird Ihre Website veröffentlicht.</p>
-        </article>
-        
+        <article class="step"><div class="stepNo">1</div><h3>Anfrage</h3><p>Alle wichtigen Informationen werden bequem über das Projektformular erfasst.</p></article>
+        <article class="step"><div class="stepNo">2</div><h3>Designauswahl</h3><p>Wählen Sie die Vorlage, die am besten zu Ihrem Unternehmen passt.</p></article>
+        <article class="step"><div class="stepNo">3</div><h3>Anzahlung</h3><p>Nach Prüfung Ihrer Anfrage erhalten Sie eine Zusammenfassung und die Rechnung für die vereinbarte Anzahlung.</p></article>
+        <article class="step"><div class="stepNo">4</div><h3>Erstellung</h3><p>Nach Zahlungseingang beginne ich mit der Erstellung Ihrer Website.</p></article>
+        <article class="step"><div class="stepNo">5</div><h3>Vorschau &amp; Freigabe</h3><p>Sie erhalten eine Vorschau und können die vereinbarten Korrekturen nutzen.</p></article>
+        <article class="step"><div class="stepNo">6</div><h3>Restzahlung &amp; Veröffentlichung</h3><p>Nach Ihrer Freigabe erfolgt die Restzahlung. Anschließend wird die Website veröffentlicht.</p></article>
       </div>
-
     </div>
   </section>
 
   <section class="about" id="ueber">
     <div class="wrap aboutGrid">
-
       <div class="card">
         <span class="eyebrow">Über KlarWeb Design</span>
         <h2>Persönlich, verständlich und ohne unnötige Technik.</h2>
+        <p>Hallo, ich bin Sophie Kruszynski.</p>
+        <p>Mit KlarWeb Design unterstütze ich kleine Unternehmen und Selbstständige dabei, einen modernen und professionellen Online-Auftritt zu erhalten.</p>
+        <p>Mein Fokus liegt auf übersichtlichen Websites, die Vertrauen schaffen, Leistungen verständlich präsentieren und eine einfache Kontaktaufnahme ermöglichen.</p>
+        <p>Jede Website wird passend zum jeweiligen Unternehmen angepasst und abgestimmt.</p>
+      </div>
+    </div>
+  </section>
 
-        <p>
-          Hallo, ich bin Sophie Kruszynski.
-        </p>
-
-        <p>
-          Mit KlarWeb Design unterstütze ich kleine Unternehmen und
-          Selbstständige dabei, einen modernen und professionellen
-          Online-Auftritt zu erhalten.
-        </p>
-
-        <p>
-          Mein Fokus liegt auf übersichtlichen Websites, die Vertrauen
-          schaffen, Leistungen verständlich präsentieren und eine
-          einfache Kontaktaufnahme ermöglichen.
-        </p>
-
-        <p>
-          Jede Website wird passend zum jeweiligen Unternehmen angepasst
-          und abgestimmt.
-        </p>
+  <section id="anfrage">
+    <div class="wrap">
+      <div class="sectionIntro">
+        <span class="eyebrow">Projektanfrage</span>
+        <h2>Alle wichtigen Angaben für Ihre neue Website</h2>
+        <p>Laden Sie das Projektformular herunter und tragen Sie dort alle wichtigen Informationen zu Ihrem Unternehmen und Ihrer gewünschten Website ein.</p>
+        <p>Anschließend speichern Sie das ausgefüllte Formular und senden es mir per E-Mail zurück.</p>
       </div>
 
-    </div>
-      </section>
-<section id="anfrage">
-  <div class="wrap">
-
-    <div class="sectionIntro">
-      <span class="eyebrow">Projektanfrage</span>
-
-      <h2>Alle wichtigen Angaben für Ihre neue Website</h2>
-
-      <p>
-        Laden Sie das Projektformular herunter und tragen Sie dort alle
-        wichtigen Informationen zu Ihrem Unternehmen und Ihrer gewünschten
-        Website ein.
-      </p>
-
-      <p>
-        Anschließend speichern Sie das ausgefüllte Formular und senden es
-        mir per E-Mail zurück. Danach erhalten Sie eine Zusammenfassung Ihrer
-        Angaben, eine transparente Preisübersicht und die Möglichkeit zur
-        Bezahlung.
-      </p>
-    </div>
-
-    <div class="contactGrid">
-
-      <div class="card">
-        <span class="eyebrow">Kontakt</span>
-
-        <h2>In wenigen Schritten zur neuen Website.</h2>
-
-        <p>
-          Das Formular kann bequem am Computer, Tablet oder Smartphone
-          ausgefüllt werden.
-        </p>
-
-        <p>
-          <strong>KlarWeb Design</strong><br>
-          Sophie Kruszynski<br>
-
-          <a href="mailto:Sophie.kzn01@gmail.com">
-            Sophie.kzn01@gmail.com
-          </a><br>
-
-          Deutschlandweit online
-        </p>
-
-        <p class="small">
-          Logo, Bilder und vorhandene Texte können Sie zusätzlich separat
-          per E-Mail senden.
-        </p>
-      </div>
-
-      <div class="card">
-
-        <span class="eyebrow">Projektformular</span>
-
-        <h2>So funktioniert die Anfrage</h2>
-
-        <div class="pdfSteps">
-
-          <div class="pdfStep">
-            <div class="stepNo">1</div>
-            <div>
-              <h3>Formular herunterladen</h3>
-              <p>Laden Sie das ausfüllbare Projektformular als PDF herunter.</p>
-            </div>
-          </div>
-
-          <div class="pdfStep">
-            <div class="stepNo">2</div>
-            <div>
-              <h3>Angaben eintragen</h3>
-              <p>
-                Beantworten Sie die Fragen zu Ihrem Unternehmen und Ihrer
-                gewünschten Website. Stichpunkte genügen.
-              </p>
-            </div>
-          </div>
-
-          <div class="pdfStep">
-            <div class="stepNo">3</div>
-            <div>
-              <h3>PDF speichern</h3>
-              <p>Speichern Sie das ausgefüllte Formular auf Ihrem Gerät.</p>
-            </div>
-          </div>
-
-          <div class="pdfStep">
-            <div class="stepNo">4</div>
-            <div>
-              <h3>Per E-Mail senden</h3>
-              <p>
-                Senden Sie das ausgefüllte PDF anschließend an
-                Sophie.kzn01@gmail.com.
-              </p>
-            </div>
-          </div>
-
+      <div class="contactGrid">
+        <div class="card">
+          <span class="eyebrow">Kontakt</span>
+          <h2>In wenigen Schritten zur neuen Website.</h2>
+          <p>Das Formular kann bequem am Computer, Tablet oder Smartphone ausgefüllt werden.</p>
+          <p>
+            <strong>KlarWeb Design</strong><br>
+            Sophie Kruszynski<br>
+            <a href="mailto:Sophie.kzn01@gmail.com">Sophie.kzn01@gmail.com</a><br>
+            Deutschlandweit online
+          </p>
+          <p class="small">Logo, Bilder und vorhandene Texte können Sie zusätzlich separat per E-Mail senden.</p>
         </div>
 
-    <div class="pdfActions">
+        <div class="card">
+          <span class="eyebrow">Projektformular</span>
+          <h2>So funktioniert die Anfrage</h2>
 
-  <a
-    class="btn primary"
-    href="KlarWeb_Projektformular_ausfuellbar.pdf"
-    download
-  >
-    Projektformular herunterladen
-  </a>
+          <div class="pdfSteps">
+            <div class="pdfStep"><div class="stepNo">1</div><div><h3>Formular herunterladen</h3><p>Laden Sie das ausfüllbare Projektformular als PDF herunter.</p></div></div>
+            <div class="pdfStep"><div class="stepNo">2</div><div><h3>Angaben eintragen</h3><p>Beantworten Sie die Fragen zu Ihrem Unternehmen und Ihrer gewünschten Website. Stichpunkte genügen.</p></div></div>
+            <div class="pdfStep"><div class="stepNo">3</div><div><h3>PDF speichern</h3><p>Speichern Sie das ausgefüllte Formular auf Ihrem Gerät.</p></div></div>
+            <div class="pdfStep"><div class="stepNo">4</div><div><h3>Per E-Mail senden</h3><p>Senden Sie das ausgefüllte PDF anschließend an Sophie.kzn01@gmail.com.</p></div></div>
+          </div>
 
-  <a
-    class="btn"
-    href="KlarWeb_Auftragsbedingungen_Neu(1).pdf"
-    download
-  >
-    Auftragsbedingungen herunterladen
-  </a>
+          <div class="pdfActions">
+            <a class="btn primary" href="KlarWeb_Projektformular_ausfuellbar.pdf" download>Projektformular herunterladen</a>
+            <a class="btn" href="KlarWeb_Auftragsbedingungen_Neu(1).pdf" download>Auftragsbedingungen herunterladen</a>
+          </div>
 
-</div>
-
-        <div class="notice projectNotice">
-          <strong>Wie geht es danach weiter?</strong>
-
-          <p>
-            Nach Eingang des Formulars prüfe ich Ihre Angaben. Sie erhalten
-            anschließend eine Zusammenfassung Ihrer Anfrage, eine transparente
-            Preisübersicht und eine Möglichkeit zur Bezahlung.
-          </p>
-
-          <p>
-            Nach Zahlungseingang beginne ich mit der Erstellung Ihrer Website
-            und sende Ihnen anschließend eine Vorschau zur Prüfung und Freigabe.
-          </p>
+          <div class="notice">
+            <strong>Wie geht es danach weiter?</strong>
+            <p>Nach Eingang des Formulars prüfe ich Ihre Angaben. Sie erhalten anschließend eine Zusammenfassung Ihrer Anfrage und eine transparente Preisübersicht.</p>
+            <p>Nach Zahlungseingang beginne ich mit der Erstellung Ihrer Website und sende Ihnen anschließend eine Vorschau zur Prüfung und Freigabe.</p>
+          </div>
         </div>
-
       </div>
-
     </div>
-  </div>
-</section>
+  </section>
 
 </main>
 
 <footer>
   <div class="wrap foot">
-
     <div>
       <strong>KlarWeb Design</strong><br>
       © <span id="year"></span> Sophie Kruszynski
     </div>
-
     <div>
       <a href="impressum.html">Impressum</a>
       ·
       <a href="datenschutz.html">Datenschutz</a>
     </div>
-
   </div>
-  </footer>
-  
+</footer>
+
 <script>
   const yearElement = document.getElementById("year");
-
   if (yearElement) {
     yearElement.textContent = new Date().getFullYear();
   }
@@ -1474,13 +1294,9 @@ nav .headerCta{
   if (menuToggle && mainNav) {
     menuToggle.addEventListener("click", function () {
       const isOpen = mainNav.classList.toggle("open");
-
       menuToggle.classList.toggle("active", isOpen);
       menuToggle.setAttribute("aria-expanded", String(isOpen));
-      menuToggle.setAttribute(
-        "aria-label",
-        isOpen ? "Menü schließen" : "Menü öffnen"
-      );
+      menuToggle.setAttribute("aria-label", isOpen ? "Menü schließen" : "Menü öffnen");
     });
 
     mainNav.querySelectorAll("a").forEach(function (link) {
@@ -1492,6 +1308,27 @@ nav .headerCta{
       });
     });
   }
+
+  const designTabs = document.querySelectorAll(".designTab");
+  const designPanels = document.querySelectorAll(".designPanel");
+
+  designTabs.forEach(function (tab) {
+    tab.addEventListener("click", function () {
+      const selectedPanelId = tab.dataset.panel;
+
+      designTabs.forEach(function (item) {
+        const isActive = item === tab;
+        item.classList.toggle("active", isActive);
+        item.setAttribute("aria-selected", String(isActive));
+      });
+
+      designPanels.forEach(function (panel) {
+        const isActive = panel.id === selectedPanelId;
+        panel.classList.toggle("active", isActive);
+        panel.hidden = !isActive;
+      });
+    });
+  });
 </script>
 
 </body>
