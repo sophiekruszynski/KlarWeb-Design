@@ -328,10 +328,16 @@ footer{
 }
 
 @media(max-width:620px){
-  nav{display:none}
+  nav{
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+    width:100%;
+  }
 
   .head{
     border-radius:24px;
+    flex-wrap:wrap;
   }
 
   .cards,
@@ -375,11 +381,12 @@ footer{
   <div class="wrap head">
     <strong class="brand">Musterbetrieb Nord</strong>
 
-    <nav aria-label="Hauptnavigation">
-      <a href="#leistungen">Leistungen</a>
-      <a href="#ueber-uns">Über uns</a>
-      <a href="#vorteile">Vorteile</a>
-    </nav>
+<nav aria-label="Hauptnavigation">
+  <a href="leistungen.html">Leistungen</a>
+  <a href="ueber-uns.html">Über uns</a>
+  <a href="referenzen.html">Referenzen</a>
+  <a href="kontakt.html">Kontakt</a>
+</nav>
 
     <a class="btn" href="#projektanfrage">
       Projekt anfragen
