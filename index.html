@@ -21,7 +21,7 @@
       --line:rgba(30,43,34,.12);
       --shadow:0 24px 65px rgba(30,43,34,.12);
       --radius:26px;
-      --max:1180px;
+      --max:1280px;
     }
 
     *{box-sizing:border-box}
@@ -129,8 +129,8 @@
 
     .heroGrid{
       display:grid;
-      grid-template-columns:1.05fr .95fr;
-      gap:34px;
+      grid-template-columns:1.15fr .85fr;
+      gap:48px;
       align-items:center;
     }
 
@@ -150,8 +150,9 @@
     }
 
     h1{
-      font-size:clamp(2.9rem,6.8vw,5.5rem);
-      letter-spacing:-.05em;
+      font-size:clamp(3rem,5vw,4.8rem);
+      letter-spacing:-.04em;
+      max-width: 680px;
     }
 
     h2{
@@ -175,7 +176,7 @@
     }
 
     .heroVisual{
-      min-height:510px;
+      min-height:600px;
       border-radius:34px;
       background:
         radial-gradient(circle at 80% 16%,rgba(223,183,95,.8),transparent 24%),
@@ -811,7 +812,7 @@
     <div class="wrap heroGrid">
       <div>
         <span class="eyebrow">Websites für kleine Unternehmen</span>
-        <h1>Klarer Auftritt.<br>Moderne Website.<br>Einfachere Anfragen.</h1>
+        <h1>Moderne Websites<br>für kleine Unternehmen</h1>
         <p class="lead">
           KlarWeb Design erstellt moderne, mobil optimierte Websites
           für Handwerksbetriebe, Dienstleister, Ferienwohnungen und
@@ -1249,20 +1250,81 @@
   </section>
 
   <section class="about" id="ueber">
-    <div class="wrap aboutGrid">
-      <div class="card">
-        <span class="eyebrow">Über KlarWeb Design</span>
-        <h2>Persönlich, verständlich und ohne unnötige Technik.</h2>
-        <p>Hallo, ich bin Sophie Kruszynski.</p>
-        <p>Mit KlarWeb Design unterstütze ich kleine Unternehmen und Selbstständige dabei, einen modernen und professionellen Online-Auftritt zu erhalten.</p>
-        <p>Mein Fokus liegt auf übersichtlichen Websites, die Vertrauen schaffen, Leistungen verständlich präsentieren und eine einfache Kontaktaufnahme ermöglichen.</p>
-        <p>Jede Website wird passend zum jeweiligen Unternehmen angepasst und abgestimmt.</p>
-          <p>Die Website selbst verursacht keine laufenden Kosten. Zusätzliche Kosten entstehen nur, wenn Sie eine eigene Domain (z. B. www.ihrunternehmen.de) registrieren möchten 
-            oder sich für eines meiner optionalen Pflege- und Wartungspakete entscheiden.</p>
-<p>Die Website kann zunächst kostenfrei über GitHub veröffentlicht werden. In diesem Fall lautet die Webadresse beispielsweise:
+    <div class="wrap">
+      <div class="aboutCard">
 
-sophiekruszynski.github.io/ihr-unternehmen</p>
-<p>Auf Wunsch unterstütze ich Sie bei der Einrichtung Ihrer eigenen Domain und begleite Sie durch den gesamten Prozess.</p>
+       <div class="aboutContent">
+        <span class="eyebrow"> Über KlarWeb Design</span>
+         <h2>Persönlich, verständlich <br> 
+          und ohne unnötige Technik.</h2>
+          <p>Hallo, ich bin <strong> Sophie Kruszynski.</strong>
+          </p>
+           <p>Mit KlarWeb Design unterstütze ich kleine Unternehmen und 
+            Selbstständige dabei, einen modernen und professionellen 
+            Online-Auftritt zu erhalten.
+
+          <ul class="aboutList"> 
+
+          <li>
+            <span class="check">&#10003; </span>
+            <span>
+            Mein Fokus liegt auf übersichtlichen Websites, die Vertrauen schaffen, 
+            Leistungen verständlich präsentieren und eine einfache Kontaktaufnahme ermöglichen.
+            </span>
+          </li>
+
+          <li>
+            <span class="check">&#10003; </span>
+            <span>
+            Jede Website wird passend zum jeweiligen Unternehmen angepasst und abgestimmt.
+            </span>
+          </li>
+
+          <li>
+            <span class="check">&#10003; </span>
+            <span>
+            Die Website selbst verursacht keine laufenden Kosten. 
+            </span>
+          </li> 
+
+          <li>
+            <span class="check">&#10003; </span>
+            <span>
+            Zusätzliche Kosten entstehen nur bei einer eigenen Domain
+            oder durch ein Pflegepaket.
+            </span>
+          </li> 
+
+          <li>
+            <span class="check">&#10003; </span>
+            <span>
+           Die Website kann zunächst kostenfrei über GitHub veröffentlicht werden. 
+            </span>
+          </li> 
+
+          <li>
+            <span class="check">&#10003; </span>
+            <span>
+           Auf Wunsch unterstütze ich Sie bei der Einrichtung Ihrer eigenen Domain und begleite Sie durch den gesamten Prozess.
+            </span>
+          </li> 
+
+
+          
+
+
+
+       </div>
+        
+       
+       
+       
+       
+        
+        
+          
+
+
 Die Website wird technisch über GitHub verwaltet und gehostet. Dadurch bleibt sie zuverlässig, sicher und kostengünstig erreichbar. Gleichzeitig kann ich bei späteren Änderungen, Erweiterungen oder Wartungsarbeiten schnell und unkompliziert unterstützen.
 Selbstverständlich behalten Sie jederzeit Zugriff auf Ihre Website und erhalten alle zugehörigen Dateien als Kopie.</p>
       </div>
@@ -1297,10 +1359,10 @@ Selbstverständlich behalten Sie jederzeit Zugriff auf Ihre Website und erhalten
           <h2>So funktioniert die Anfrage</h2>
 
           <div class="pdfSteps">
-            <div class="pdfStep"><div class="stepNo">1</div><div><h3>Formular herunterladen</h3><p>Laden Sie das ausfüllbare Projektformular als PDF herunter.</p></div></div>
+            <div class="pdfStep"><div class="stepNo">1</div><div><h3>Formular herunterladen</h3><p>Laden Sie das ausfüllbare Projektformular und die Auftragsbedingungen als PDF herunter.</p></div></div>
             <div class="pdfStep"><div class="stepNo">2</div><div><h3>Angaben eintragen</h3><p>Beantworten Sie die Fragen zu Ihrem Unternehmen und Ihrer gewünschten Website. Stichpunkte genügen.</p></div></div>
-            <div class="pdfStep"><div class="stepNo">3</div><div><h3>PDF speichern</h3><p>Speichern Sie das ausgefüllte Formular auf Ihrem Gerät.</p></div></div>
-            <div class="pdfStep"><div class="stepNo">4</div><div><h3>Per E-Mail senden</h3><p>Senden Sie das ausgefüllte PDF anschließend an Sophie.kzn01@gmail.com.</p></div></div>
+            <div class="pdfStep"><div class="stepNo">3</div><div><h3>PDF speichern</h3><p>Speichern Sie die ausgefüllten Formulare auf Ihrem Gerät.</p></div></div>
+            <div class="pdfStep"><div class="stepNo">4</div><div><h3>Per E-Mail senden</h3><p>Senden Sie die Dateien anschließend an Sophie.kzn01@gmail.com.</p></div></div>
           </div>
 
           <div class="pdfActions">
