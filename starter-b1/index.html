@@ -71,7 +71,8 @@ a{
   text-decoration:none;
 }
 
-a:focus-visible{
+a:focus-visible,
+button:focus-visible{
   outline:3px solid var(--gold);
   outline-offset:4px;
 }
@@ -310,6 +311,14 @@ footer{
   color:var(--text);
 }
 
+.menuToggle{
+  display:none;
+}
+
+.mobileCta{
+  display:none;
+}
+
 @media(max-width:850px){
   .heroGrid,
   .split,
@@ -329,8 +338,84 @@ footer{
 }
 
 @media(max-width:620px){
+  .head{
+    min-height:72px;
+    position:relative;
+    gap:14px;
+  }
+
+  .brand{
+    max-width:210px;
+    line-height:1.2;
+  }
+
+  .menuToggle{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    width:46px;
+    height:46px;
+    padding:0;
+    flex:0 0 auto;
+    border:1px solid var(--gold);
+    background:transparent;
+    color:var(--gold);
+    font-size:1.45rem;
+    cursor:pointer;
+  }
+
+  .desktopCta{
+    display:none;
+  }
+
   nav{
     display:none;
+    position:absolute;
+    top:calc(100% + 8px);
+    left:0;
+    right:0;
+    z-index:100;
+    padding:12px;
+    background:#11110f;
+    border:1px solid var(--line);
+    border-radius:16px;
+    box-shadow:0 22px 55px rgba(0,0,0,.45);
+    flex-direction:column;
+    align-items:stretch;
+    gap:6px;
+  }
+
+  nav.open{
+    display:flex;
+  }
+
+  nav a{
+    display:block;
+    padding:13px 14px;
+    border-radius:10px;
+    font-family:Arial,sans-serif;
+    font-weight:800;
+  }
+
+  nav a:hover{
+    background:rgba(255,255,255,.06);
+  }
+
+  nav .mobileCta{
+    display:flex;
+    margin-top:4px;
+    background:var(--gold);
+    color:#111;
+    border:1px solid var(--gold);
+    justify-content:center;
+  }
+
+  .hero{
+    padding:54px 0;
+  }
+
+  h1{
+    font-size:clamp(2.8rem,14vw,4.2rem);
   }
 
   .arch{
@@ -343,6 +428,12 @@ footer{
 
   .service{
     grid-template-columns:50px 1fr;
+  }
+
+  .aboutPanel,
+  .trustPanel,
+  .contactCard{
+    padding:24px;
   }
 
   .footerInner{
@@ -362,15 +453,28 @@ footer{
 
 <header>
   <div class="wrap head">
-    <strong class="brand">Musterbetrieb Nord</strong>
+    <a class="brand" href="#start">Musterbetrieb Nord</a>
 
-    <nav aria-label="Hauptnavigation">
+    <button
+      class="menuToggle"
+      type="button"
+      aria-label="Menü öffnen"
+      aria-expanded="false"
+      aria-controls="mainNav"
+    >
+      ☰
+    </button>
+
+    <nav id="mainNav" aria-label="Hauptnavigation">
       <a href="#leistungen">Leistungen</a>
       <a href="#ueber-uns">Über uns</a>
       <a href="#vorteile">Vorteile</a>
+      <a class="btn primary mobileCta" href="#projektanfrage">
+        Projekt anfragen
+      </a>
     </nav>
 
-    <a class="btn primary" href="#projektanfrage">
+    <a class="btn primary desktopCta" href="#projektanfrage">
       Projekt anfragen
     </a>
   </div>
@@ -602,6 +706,43 @@ const yearElement = document.getElementById("year");
 
 if (yearElement) {
   yearElement.textContent = new Date().getFullYear();
+}
+
+const menuToggle = document.querySelector(".menuToggle");
+const mainNav = document.getElementById("mainNav");
+
+if (menuToggle && mainNav) {
+  const closeMenu = () => {
+    mainNav.classList.remove("open");
+    menuToggle.setAttribute("aria-expanded", "false");
+    menuToggle.setAttribute("aria-label", "Menü öffnen");
+    menuToggle.textContent = "☰";
+  };
+
+  menuToggle.addEventListener("click", () => {
+    const isOpen = mainNav.classList.toggle("open");
+
+    menuToggle.setAttribute("aria-expanded", String(isOpen));
+    menuToggle.setAttribute(
+      "aria-label",
+      isOpen ? "Menü schließen" : "Menü öffnen"
+    );
+    menuToggle.textContent = isOpen ? "✕" : "☰";
+  });
+
+  mainNav.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", closeMenu);
+  });
+
+  document.addEventListener("click", (event) => {
+    if (
+      mainNav.classList.contains("open") &&
+      !mainNav.contains(event.target) &&
+      !menuToggle.contains(event.target)
+    ) {
+      closeMenu();
+    }
+  });
 }
 </script>
 
