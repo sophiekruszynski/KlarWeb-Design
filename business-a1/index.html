@@ -5,14 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="description" content="Musterbetrieb Nord bietet persönliche Beratung, strukturierte Planung und professionelle Umsetzung.">
 <meta name="robots" content="index,follow">
-<title>Musterbetrieb Nord – Moderne Lösungen für starke Ergebnisse</title> <button
-  class="menuToggle"
-  type="button"
-  aria-label="Menü öffnen"
-  aria-expanded="false"
->
-  ☰
-</button>
+<title>Musterbetrieb Nord – Moderne Lösungen für starke Ergebnisse</title> 
   
 <style>
 :root{
@@ -37,12 +30,15 @@ body{
 }
 img{max-width:100%;display:block}
 .wrap{width:min(var(--max),calc(100% - 32px));margin:auto}
-header{
+
+  header{
   position:sticky;top:0;z-index:20;
   background:rgba(255,255,255,.95);
   backdrop-filter:blur(14px);
   border-bottom:1px solid var(--line);
 }
+  
+</header>
 .head{
   min-height:74px;display:flex;justify-content:space-between;
   align-items:center;gap:24px;
@@ -149,7 +145,8 @@ footer{padding:34px 0;background:var(--dark);color:#fff}
 .footerLinks{display:flex;gap:18px;flex-wrap:wrap}
 .footerLinks a{color:#fff}
 .menuToggle{display:none}
-@media(max-width:760px){
+
+  @media(max-width:760px){
   .pageHeroGrid,.contactGrid,.grid2{grid-template-columns:1fr}
   .grid3,.refGrid{grid-template-columns:1fr 1fr}
 }
