@@ -6,6 +6,7 @@
 <meta name="description" content="Erfahren Sie mehr über Musterbetrieb Nord, unsere Arbeitsweise und unsere Werte.">
 <meta name="robots" content="index,follow">
 <title>Über uns – Musterbetrieb Nord</title>
+
 <style>
 :root{
   --navy:#101a2a;
@@ -19,23 +20,39 @@
   --radius:24px;
   --max:1500px;
 }
+
 *{box-sizing:border-box}
-html{scroll-behavior:smooth}
+
+html{
+  scroll-behavior:smooth;
+  overflow-x:hidden;
+}
+
 body{
   margin:0;
   background:var(--cream);
   color:var(--text);
   font-family:Arial,sans-serif;
   line-height:1.65;
+  overflow-x:hidden;
 }
-.wrap{width:min(var(--max),calc(100% - 32px));margin:auto}
+
+.wrap{
+  width:min(var(--max),calc(100% - 32px));
+  margin:auto;
+  min-width:0;
+}
+
 header{
-  position:sticky;top:0;z-index:30;
+  position:sticky;
+  top:0;
+  z-index:30;
   background:rgba(16,26,42,.96);
   backdrop-filter:blur(12px);
   color:#fff;
   border-bottom:1px solid rgba(255,255,255,.1);
 }
+
 .head{
   min-height:76px;
   display:flex;
@@ -44,47 +61,93 @@ header{
   gap:24px;
   position:relative;
 }
-.brand{font-weight:900}
-nav{display:flex;gap:20px;align-items:center}
-a{color:inherit;text-decoration:none;font-weight:800}
-a:focus-visible{outline:3px solid var(--copper);outline-offset:4px;border-radius:8px}
+
+.brand{
+  font-weight:900;
+  min-width:0;
+}
+
+nav{
+  display:flex;
+  gap:20px;
+  align-items:center;
+}
+
+a{
+  color:inherit;
+  text-decoration:none;
+  font-weight:800;
+}
+
+a:focus-visible,
+button:focus-visible{
+  outline:3px solid var(--copper);
+  outline-offset:4px;
+  border-radius:8px;
+}
+
 .btn{
   display:inline-flex;
   align-items:center;
   justify-content:center;
   width:max-content;
+  max-width:100%;
   padding:13px 20px;
   border-radius:999px;
   border:1px solid var(--copper);
   background:var(--copper);
   color:#fff;
   font-weight:900;
+  text-align:center;
   transition:.2s ease;
 }
-.btn:hover{transform:translateY(-2px);background:#ae673b}
-.btn.secondary{background:transparent;color:var(--copper)}
+
+.btn:hover{
+  transform:translateY(-2px);
+  background:#ae673b;
+}
+
+.btn.secondary{
+  background:transparent;
+  color:var(--copper);
+}
+
 main{min-height:65vh}
+
 section{padding:72px 0}
+
 .pageHero{
   background:var(--navy);
   color:#fff;
 }
+
 .heroGrid{
   display:grid;
   grid-template-columns:1fr 1fr;
   min-height:650px;
 }
+
+.heroGrid > *,
+.grid2 > *,
+.grid3 > *{
+  min-width:0;
+}
+
 .heroText{
   padding:90px max(32px,calc((100vw - var(--max))/2));
   display:flex;
   flex-direction:column;
   justify-content:center;
+  min-width:0;
 }
+
 .heroVisual{
   background:linear-gradient(145deg,#d7b18e,#553925);
   position:relative;
   overflow:hidden;
+  min-width:0;
 }
+
 .heroVisual::before{
   content:"";
   position:absolute;
@@ -92,6 +155,7 @@ section{padding:72px 0}
   border:1px solid #ffffff80;
   border-radius:220px 220px 20px 20px;
 }
+
 .heroVisual::after{
   content:"";
   position:absolute;
@@ -102,45 +166,89 @@ section{padding:72px 0}
   right:12%;
   top:12%;
 }
+
 .eyebrow{
   color:var(--copper);
   font-weight:900;
   text-transform:uppercase;
   letter-spacing:.16em;
 }
+
+h1,
+h2,
+h3,
+p,
+li{
+  overflow-wrap:anywhere;
+  hyphens:auto;
+}
+
 h1{
   font-size:clamp(3rem,6vw,5.5rem);
   line-height:1;
   margin:18px 0;
 }
+
 h2{
   font-size:clamp(2rem,4vw,3.3rem);
   line-height:1.1;
   margin:0 0 18px;
 }
-h3{font-size:1.3rem;margin:0 0 10px}
-.lead{font-size:1.17rem;color:#b8c0cc}
-.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:24px}
-.grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px}
-.grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+
+h3{
+  font-size:1.3rem;
+  margin:0 0 10px;
+}
+
+.lead{
+  font-size:1.17rem;
+  color:#b8c0cc;
+}
+
+.actions{
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+  margin-top:24px;
+}
+
+.grid2{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:28px;
+}
+
+.grid3{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:18px;
+}
+
 .card{
   background:#fff;
   border:1px solid var(--line);
   padding:28px;
   border-radius:var(--radius);
+  min-width:0;
+  max-width:100%;
 }
+
 .card p{color:var(--muted)}
+
 .darkCard{
   background:var(--navy);
   color:#fff;
 }
+
 .darkCard p{color:#cbd5e1}
+
 .galleryGrid{
   display:grid;
   grid-template-columns:1.2fr .8fr;
   grid-template-rows:280px 280px;
   gap:18px;
 }
+
 .tile{
   background:var(--navy2);
   color:#fff;
@@ -150,31 +258,79 @@ h3{font-size:1.3rem;margin:0 0 10px}
   justify-content:flex-end;
   border-radius:var(--radius);
 }
-.tile.one{grid-row:1/3;background:linear-gradient(160deg,#243a57,#0e1826)}
+
+.tile.one{
+  grid-row:1/3;
+  background:linear-gradient(160deg,#243a57,#0e1826);
+}
+
 .tile.two{background:linear-gradient(145deg,#d8b99e,#7a4e34)}
 .tile.three{background:linear-gradient(145deg,#c4c7bd,#596354)}
-.tile p{color:#d1d7df;margin-bottom:0}
-.checkList{display:grid;gap:14px;margin:22px 0 0;padding:0;list-style:none}
+
+.tile p{
+  color:#d1d7df;
+  margin-bottom:0;
+}
+
+.checkList{
+  display:grid;
+  gap:14px;
+  margin:22px 0 0;
+  padding:0;
+  list-style:none;
+}
+
 .checkList li{
   padding:14px 0;
   border-bottom:1px solid var(--line);
   font-weight:800;
 }
+
 .checkList li:last-child{border-bottom:0}
-.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:28px}
+
+.stats{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:16px;
+  margin-top:28px;
+}
+
 .stat{
   background:#fff;
   border:1px solid var(--line);
   padding:20px;
   border-radius:18px;
 }
-.stat strong{display:block;color:var(--copper);font-size:2rem}
-.refGrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
-.refCard{background:#fff;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}
-.refVisual{min-height:260px;position:relative;overflow:hidden}
+
+.stat strong{
+  display:block;
+  color:var(--copper);
+  font-size:2rem;
+}
+
+.refGrid{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:18px;
+}
+
+.refCard{
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  overflow:hidden;
+}
+
+.refVisual{
+  min-height:260px;
+  position:relative;
+  overflow:hidden;
+}
+
 .refVisual.one{background:linear-gradient(145deg,#243a57,#0e1826)}
 .refVisual.two{background:linear-gradient(145deg,#d8b99e,#7a4e34)}
 .refVisual.three{background:linear-gradient(145deg,#c4c7bd,#596354)}
+
 .refVisual::before{
   content:"";
   position:absolute;
@@ -182,20 +338,27 @@ h3{font-size:1.3rem;margin:0 0 10px}
   border:1px solid rgba(255,255,255,.55);
   border-radius:170px 170px 20px 20px;
 }
+
 .refVisual::after{
   content:"";
   position:absolute;
-  width:90px;height:90px;border-radius:50%;
+  width:90px;
+  height:90px;
+  border-radius:50%;
   background:rgba(245,240,230,.45);
-  right:26px;top:26px;
+  right:26px;
+  top:26px;
 }
+
 .refContent{padding:22px}
+
 .contactGrid{
   display:grid;
   grid-template-columns:.9fr 1.1fr;
   gap:28px;
   align-items:start;
 }
+
 .downloadBox{
   margin-top:18px;
   padding:22px;
@@ -203,7 +366,13 @@ h3{font-size:1.3rem;margin:0 0 10px}
   border:1px solid var(--line);
   border-radius:18px;
 }
-.contactLinks{display:grid;gap:0;margin-top:18px}
+
+.contactLinks{
+  display:grid;
+  gap:0;
+  margin-top:18px;
+}
+
 .contactItem{
   display:flex;
   justify-content:space-between;
@@ -212,9 +381,16 @@ h3{font-size:1.3rem;margin:0 0 10px}
   padding:15px 0;
   border-bottom:1px solid var(--line);
 }
+
 .contactItem:last-child{border-bottom:0}
 .contactItem span{color:var(--muted)}
-footer{padding:34px 0;background:var(--navy);color:#fff}
+
+footer{
+  padding:34px 0;
+  background:var(--navy);
+  color:#fff;
+}
+
 .footerInner{
   display:flex;
   justify-content:space-between;
@@ -222,50 +398,185 @@ footer{padding:34px 0;background:var(--navy);color:#fff}
   gap:20px;
   flex-wrap:wrap;
 }
-.footerLinks{display:flex;gap:18px;flex-wrap:wrap}
-.footerLinks a{color:#fff}
-.menuToggle{display:none}
-@media(max-width:850px){
-  .heroGrid,.grid2,.contactGrid{grid-template-columns:1fr}
-  .heroVisual{min-height:420px}
-  .galleryGrid{grid-template-columns:1fr;grid-template-rows:auto}
-  .tile.one{grid-row:auto}
-  .grid3,.refGrid{grid-template-columns:1fr 1fr}
+
+.footerLinks{
+  display:flex;
+  gap:18px;
+  flex-wrap:wrap;
 }
+
+.footerLinks a{color:#fff}
+
+.menuToggle{display:none}
+
+@media(max-width:850px){
+  .heroGrid,
+  .grid2,
+  .contactGrid{
+    grid-template-columns:1fr;
+  }
+
+  .heroVisual{min-height:420px}
+
+  .galleryGrid{
+    grid-template-columns:1fr;
+    grid-template-rows:auto;
+  }
+
+  .tile.one{grid-row:auto}
+
+  .grid3,
+  .refGrid{
+    grid-template-columns:1fr 1fr;
+  }
+}
+
 @media(max-width:700px){
+  .wrap{
+    width:min(var(--max),calc(100% - 28px));
+  }
+
+  .head{
+    min-height:72px;
+    gap:14px;
+  }
+
+  .brand{
+    max-width:calc(100% - 62px);
+    line-height:1.2;
+  }
+
   .menuToggle{
-    display:block;
-    width:46px;height:46px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    width:46px;
+    height:46px;
+    padding:0;
+    flex:0 0 auto;
     border:1px solid rgba(255,255,255,.25);
-    background:transparent;color:#fff;
+    background:transparent;
+    color:#fff;
     border-radius:50%;
     font-size:1.2rem;
+    cursor:pointer;
   }
+
   nav{
     display:none;
     position:absolute;
     top:calc(100% + 10px);
-    left:0;right:0;
-    padding:16px;
+    left:0;
+    right:0;
+    z-index:100;
+    padding:14px;
     background:var(--navy2);
     border:1px solid rgba(255,255,255,.12);
+    border-radius:16px;
+    box-shadow:0 22px 55px rgba(16,26,42,.42);
+    gap:6px;
   }
+
   nav.open{display:grid}
-  .grid3,.refGrid,.stats{grid-template-columns:1fr}
-  .heroText{padding:72px 24px}
-  .heroVisual{min-height:340px}
-  section{padding:56px 0}
-  .footerInner{align-items:flex-start;flex-direction:column}
+
+  nav a{
+    display:block;
+    padding:12px 14px;
+    border-radius:10px;
+  }
+
+  nav a:hover{
+    background:rgba(255,255,255,.08);
+  }
+
+  nav .btn{
+    width:100%;
+    margin-top:4px;
+  }
+
+  .grid3,
+  .refGrid,
+  .stats{
+    grid-template-columns:1fr;
+  }
+
+  .heroGrid{
+    min-height:auto;
+  }
+
+  .heroText{
+    padding:64px 22px;
+  }
+
+  .heroText h1{
+    font-size:clamp(2.55rem,12vw,4rem);
+    line-height:1.02;
+    max-width:100%;
+  }
+
+  .heroVisual{
+    min-height:320px;
+  }
+
+  section{
+    padding:56px 0;
+  }
+
+  .card{
+    padding:22px;
+  }
+
+  .grid2{
+    gap:18px;
+  }
+
+  .footerInner{
+    align-items:flex-start;
+    flex-direction:column;
+  }
 }
-@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn{transition:none}}
+
+@media(max-width:380px){
+  .wrap{
+    width:min(var(--max),calc(100% - 22px));
+  }
+
+  .heroText{
+    padding:54px 18px;
+  }
+
+  .heroText h1{
+    font-size:2.35rem;
+  }
+
+  .card{
+    padding:18px;
+  }
+}
+
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .btn{transition:none}
+}
 </style>
 </head>
+
 <body>
 
 <header>
   <div class="wrap head">
     <a class="brand" href="index.html">Musterbetrieb Nord</a>
-    <button class="menuToggle" type="button" aria-label="Menü öffnen" aria-expanded="false">☰</button>
+
+    <button
+      class="menuToggle"
+      type="button"
+      aria-label="Menü öffnen"
+      aria-expanded="false"
+      aria-controls="mainNav"
+    >
+      ☰
+    </button>
+
     <nav id="mainNav" aria-label="Hauptnavigation">
       <a href="index.html">Startseite</a>
       <a href="leistungen.html">Leistungen</a>
@@ -283,8 +594,12 @@ footer{padding:34px 0;background:var(--navy);color:#fff}
     <div class="heroText">
       <div class="eyebrow">Über uns</div>
       <h1>Verlässliche Zusammenarbeit auf Augenhöhe.</h1>
-      <p class="lead">Wir verbinden Erfahrung, klare Kommunikation und hohe Qualitätsansprüche mit persönlicher Betreuung.</p>
+      <p class="lead">
+        Wir verbinden Erfahrung, klare Kommunikation und hohe Qualitätsansprüche
+        mit persönlicher Betreuung.
+      </p>
     </div>
+
     <div class="heroVisual" aria-hidden="true"></div>
   </div>
 </section>
@@ -293,8 +608,12 @@ footer{padding:34px 0;background:var(--navy);color:#fff}
   <div class="wrap grid2">
     <article class="card darkCard">
       <h2>Unser Unternehmen</h2>
-      <p>Musterbetrieb Nord unterstützt Privat- und Geschäftskunden bei anspruchsvollen Projekten.</p>
+      <p>
+        Musterbetrieb Nord unterstützt Privat- und Geschäftskunden
+        bei anspruchsvollen Projekten.
+      </p>
     </article>
+
     <article class="card">
       <h2>Unsere Arbeitsweise</h2>
       <ul class="checkList">
@@ -311,10 +630,22 @@ footer{padding:34px 0;background:var(--navy);color:#fff}
   <div class="wrap">
     <div class="eyebrow">Unsere Werte</div>
     <h2>Darauf bauen wir.</h2>
+
     <div class="grid3">
-      <article class="card"><h3>Zuverlässigkeit</h3><p>Absprachen und Termine haben Bestand.</p></article>
-      <article class="card"><h3>Qualität</h3><p>Sorgfältige Arbeit mit hohem Anspruch.</p></article>
-      <article class="card"><h3>Persönlichkeit</h3><p>Direkter Kontakt und individuelle Betreuung.</p></article>
+      <article class="card">
+        <h3>Zuverlässigkeit</h3>
+        <p>Absprachen und Termine haben Bestand.</p>
+      </article>
+
+      <article class="card">
+        <h3>Qualität</h3>
+        <p>Sorgfältige Arbeit mit hohem Anspruch.</p>
+      </article>
+
+      <article class="card">
+        <h3>Persönlichkeit</h3>
+        <p>Direkter Kontakt und individuelle Betreuung.</p>
+      </article>
     </div>
   </div>
 </section>
@@ -324,6 +655,7 @@ footer{padding:34px 0;background:var(--navy);color:#fff}
 <footer>
   <div class="wrap footerInner">
     <div>© <span id="year"></span> Musterbetrieb Nord</div>
+
     <div class="footerLinks">
       <a href="../index.html">Zurück zu KlarWeb Design</a>
       <a href="../impressum.html">Impressum</a>
@@ -331,16 +663,48 @@ footer{padding:34px 0;background:var(--navy);color:#fff}
     </div>
   </div>
 </footer>
+
 <script>
-const yearElement=document.getElementById("year");
-if(yearElement) yearElement.textContent=new Date().getFullYear();
-const menuToggle=document.querySelector(".menuToggle");
-const mainNav=document.getElementById("mainNav");
-if(menuToggle&&mainNav){
-  menuToggle.addEventListener("click",()=>{
-    const open=mainNav.classList.toggle("open");
-    menuToggle.setAttribute("aria-expanded",String(open));
-    menuToggle.textContent=open?"✕":"☰";
+const yearElement = document.getElementById("year");
+
+if (yearElement) {
+  yearElement.textContent = new Date().getFullYear();
+}
+
+const menuToggle = document.querySelector(".menuToggle");
+const mainNav = document.getElementById("mainNav");
+
+if (menuToggle && mainNav) {
+  const closeMenu = () => {
+    mainNav.classList.remove("open");
+    menuToggle.setAttribute("aria-expanded", "false");
+    menuToggle.setAttribute("aria-label", "Menü öffnen");
+    menuToggle.textContent = "☰";
+  };
+
+  menuToggle.addEventListener("click", () => {
+    const open = mainNav.classList.toggle("open");
+
+    menuToggle.setAttribute("aria-expanded", String(open));
+    menuToggle.setAttribute(
+      "aria-label",
+      open ? "Menü schließen" : "Menü öffnen"
+    );
+    menuToggle.textContent = open ? "✕" : "☰";
+  });
+
+  mainNav.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", closeMenu);
+  });
+
+  document.addEventListener("click", (event) => {
+    if (
+      mainNav.classList.contains("open") &&
+      !mainNav.contains(event.target) &&
+      !menuToggle.contains(event.target)
+    ) {
+      closeMenu();
+    }
   });
 }
 </script>
