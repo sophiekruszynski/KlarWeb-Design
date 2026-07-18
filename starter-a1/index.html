@@ -1,663 +1,703 @@
 <!doctype html>
 <html lang="de">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<meta
-  name="description"
-  content="Musterbetrieb Nord – persönliche Beratung, zuverlässige Planung und professionelle Umsetzung."
->
-<title>Musterbetrieb Nord – A1 Modern</title>
-
-<style>
-:root{
-  --bg:#f5f8fc;
-  --white:#fff;
-  --dark:#11213a;
-  --blue:#2e6cf6;
-  --cyan:#6ee7f9;
-  --muted:#65738a;
-  --line:#dfe6f0;
-  --radius:26px;
-  --max:1400px;
-}
-
-*{box-sizing:border-box}
-
-html{
-  scroll-behavior:smooth;
-}
-
-body{
-  margin:0;
-  background:var(--bg);
-  color:var(--dark);
-  font-family:Arial,sans-serif;
-  line-height:1.6;
-}
-
-.wrap{
-  width:min(1500px,calc(100% - 32px));
-  margin:auto;
-}
-
-header{
-  position:sticky;
-  top:0;
-  z-index:20;
-  background:#fffffff2;
-  backdrop-filter:blur(14px);
-  border-bottom:1px solid var(--line);
-}
-
-.head{
-  min-height:74px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  gap:24px;
-}
-
-.brand{
-  font-size:1.08rem;
-  font-weight:900;
-}
-
-nav{
-  display:flex;
-  gap:20px;
-  align-items:center;
-}
-
-a{
-  color:inherit;
-  text-decoration:none;
-  font-weight:800;
-}
-
-a:focus-visible{
-  outline:3px solid var(--cyan);
-  outline-offset:4px;
-  border-radius:8px;
-}
-
-.btn{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  padding:12px 18px;
-  border-radius:12px;
-  border:1px solid var(--line);
-  background:#fff;
-  font-weight:900;
-  transition:
-    transform .2s ease,
-    box-shadow .2s ease,
-    background-color .2s ease;
-}
-
-.btn:hover{
-  transform:translateY(-2px);
-  box-shadow:0 10px 25px rgba(17,33,58,.15);
-}
-
-.primary{
-  background:var(--blue);
-  color:#fff;
-  border-color:var(--blue);
-}
-
-.primary:hover{
-  background:#245edb;
-}
-
-section{
-  padding:66px 0;
-  scroll-margin-top:90px;
-}
-
-.hero{
-  padding:70px 0 50px;
-}
-
-.heroGrid{
-  display:grid;
-  grid-template-columns:1.05fr .95fr;
-  gap:26px;
-  align-items:center;
-}
-
-.kicker{
-  display:inline-flex;
-  padding:8px 12px;
-  border-radius:999px;
-  background:#eaf0ff;
-  color:var(--blue);
-  font-weight:900;
-}
-
-h1{
-  font-size:clamp(3rem,6.5vw,5.6rem);
-  line-height:.98;
-  margin:20px 0;
-  letter-spacing:-.05em;
-}
-
-h2{
-  font-size:clamp(2rem,4vw,3.3rem);
-  line-height:1.1;
-  margin:16px 0;
-}
-
-h3{
-  font-size:1.3rem;
-  margin-top:0;
-}
-
-.heroTagline{
-  margin:16px 0 -8px;
-  color:var(--blue);
-  font-weight:900;
-  letter-spacing:.02em;
-}
-
-.lead{
-  font-size:1.18rem;
-  color:var(--muted);
-}
-
-.actions{
-  display:flex;
-  gap:12px;
-  flex-wrap:wrap;
-  margin-top:24px;
-}
-
-.visualWrap{
-  position:relative;
-  min-height:520px;
-}
-
-.visualMain{
-  position:absolute;
-  inset:0 0 45px 65px;
-  border-radius:34px;
-  background:linear-gradient(145deg,#dce8ff,#7aa1ff);
-  overflow:hidden;
-}
-
-.visualMain::before{
-  content:"";
-  position:absolute;
-  width:260px;
-  height:260px;
-  border-radius:50%;
-  background:#fff8;
-  top:35px;
-  right:25px;
-}
-
-.visualMain::after{
-  content:"";
-  position:absolute;
-  width:180px;
-  height:350px;
-  border-radius:90px;
-  background:#1c4bb8;
-  left:55px;
-  bottom:-70px;
-  transform:rotate(-20deg);
-}
-
-.floatCard{
-  position:absolute;
-  left:0;
-  bottom:0;
-  width:240px;
-  padding:20px;
-  border-radius:22px;
-  background:#fff;
-  box-shadow:0 24px 60px rgba(17,33,58,.18);
-}
-
-.floatCard strong{
-  display:block;
-  font-size:1.8rem;
-}
-
-.floatCard a{
-  display:inline-block;
-  margin-top:4px;
-}
-
-.sectionIntro{
-  max-width:760px;
-  margin-bottom:28px;
-}
-
-.serviceGrid,
-.benefitGrid{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:18px;
-}
-
-.card{
-  background:#fff;
-  border:1px solid var(--line);
-  padding:26px;
-  border-radius:var(--radius);
-}
-
-.card p{
-  color:var(--muted);
-  margin-bottom:0;
-}
-
-.serviceGrid .card:first-child{
-  background:linear-gradient(160deg,#11213a,#2f5da9);
-  color:#fff;
-}
-
-.serviceGrid .card:first-child p{
-  color:#cfd9ea;
-}
-
-.aboutGrid{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:24px;
-  align-items:stretch;
-}
-
-.aboutPanel{
-  background:linear-gradient(160deg,#11213a,#2f5da9);
-  color:#fff;
-  padding:32px;
-  border-radius:var(--radius);
-}
-
-.aboutPanel p{
-  color:#d6dfed;
-}
-
-.trustList{
-  display:grid;
-  gap:14px;
-  margin:22px 0 0;
-  padding:0;
-  list-style:none;
-}
-
-.trustList li{
-  background:#fff;
-  border:1px solid var(--line);
-  border-radius:18px;
-  padding:18px 20px;
-  font-weight:800;
-}
-
-.contact{
-  display:grid;
-  grid-template-columns:.8fr 1.2fr;
-  gap:24px;
-  align-items:start;
-}
-
-.contactCard{
-  background:#fff;
-  border:1px solid var(--line);
-  padding:28px;
-  border-radius:var(--radius);
-}
-
-.contactLinks{
-  display:grid;
-  gap:14px;
-  margin-top:22px;
-}
-
-.contactItem{
-  display:flex;
-  justify-content:space-between;
-  gap:18px;
-  padding:16px 0;
-  border-bottom:1px solid var(--line);
-  flex-wrap:wrap;
-}
-
-.contactItem:last-child{
-  border-bottom:0;
-}
-
-.contactItem span{
-  color:var(--muted);
-}
-
-.contactItem a{
-  overflow-wrap:anywhere;
-}
-
-.downloadBox{
-  margin-top:22px;
-  padding:20px;
-  border-radius:18px;
-  background:#eef3ff;
-}
-
-footer{
-  padding:34px 0;
-  background:var(--dark);
-  color:#fff;
-}
-
-.footerInner{
-  display:flex;
-  justify-content:space-between;
-  gap:24px;
-  align-items:center;
-  flex-wrap:wrap;
-}
-
-.footerLinks{
-  display:flex;
-  gap:18px;
-  flex-wrap:wrap;
-}
-
-.footerLinks a{
-  color:#fff;
-}
-
-@media(max-width:900px){
-  .heroGrid,
-  .contact,
-  .aboutGrid{
-    grid-template-columns:1fr;
-  }
-
-  .serviceGrid,
-  .benefitGrid{
-    grid-template-columns:1fr 1fr;
-  }
-}
-
-@media(max-width:70ß0px){
-  .head{
-    min-height:68px;
-  }
-
-  nav a:not(.btn){
-    display:none;
-  }
-
-  .hero{
-    padding:45px 0 35px;
-  }
-
-  h1{
-    font-size:clamp(2.6rem,13vw,3.5rem);
-  }
-
-  .serviceGrid,
-  .benefitGrid{
-    grid-template-columns:1fr;
-  }
-
-  .visualWrap{
-    min-height:390px;
-  }
-
-  .visualMain{
-    inset:0 0 35px 25px;
-  }
-
-  .floatCard{
-    width:min(240px,85%);
-  }
-
-  .contactCard{
-    padding:22px;
-  }
-
-  .footerInner{
-    align-items:flex-start;
-    flex-direction:column;
-  }
-}
-
-@media(prefers-reduced-motion:reduce){
-  html{
-    scroll-behavior:auto;
-  }
-
-  .btn{
-    transition:none;
-  }
-}
-</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta
+    name="description"
+    content="Musterbetrieb Nord – persönliche Beratung, zuverlässige Planung und professionelle Umsetzung."
+  >
+  <title>Musterbetrieb Nord – A1 Modern</title>
+
+  <style>
+    :root{
+      --bg:#f5f8fc;
+      --white:#fff;
+      --dark:#11213a;
+      --blue:#2e6cf6;
+      --cyan:#6ee7f9;
+      --muted:#65738a;
+      --line:#dfe6f0;
+      --radius:26px;
+      --max:1400px;
+    }
+
+    *{box-sizing:border-box}
+
+    html{scroll-behavior:smooth}
+
+    body{
+      margin:0;
+      background:var(--bg);
+      color:var(--dark);
+      font-family:Arial,sans-serif;
+      line-height:1.6;
+    }
+
+    .wrap{
+      width:min(1500px,calc(100% - 32px));
+      margin:auto;
+    }
+
+    header{
+      position:sticky;
+      top:0;
+      z-index:20;
+      background:rgba(255,255,255,.95);
+      backdrop-filter:blur(14px);
+      border-bottom:1px solid var(--line);
+    }
+
+    .head{
+      min-height:74px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:24px;
+    }
+
+    .brand{
+      font-size:1.08rem;
+      font-weight:900;
+    }
+
+    nav{
+      display:flex;
+      gap:20px;
+      align-items:center;
+    }
+
+    a{
+      color:inherit;
+      text-decoration:none;
+      font-weight:800;
+    }
+
+    a:focus-visible,
+    button:focus-visible{
+      outline:3px solid var(--cyan);
+      outline-offset:4px;
+      border-radius:8px;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:12px 18px;
+      border-radius:12px;
+      border:1px solid var(--line);
+      background:#fff;
+      font-weight:900;
+      transition:transform .2s ease,box-shadow .2s ease,background-color .2s ease;
+    }
+
+    .btn:hover{
+      transform:translateY(-2px);
+      box-shadow:0 10px 25px rgba(17,33,58,.15);
+    }
+
+    .primary{
+      background:var(--blue);
+      color:#fff;
+      border-color:var(--blue);
+    }
+
+    .primary:hover{background:#245edb}
+
+    section{
+      padding:66px 0;
+      scroll-margin-top:90px;
+    }
+
+    .hero{padding:70px 0 50px}
+
+    .heroGrid{
+      display:grid;
+      grid-template-columns:1.05fr .95fr;
+      gap:26px;
+      align-items:center;
+    }
+
+    .kicker{
+      display:inline-flex;
+      padding:8px 12px;
+      border-radius:999px;
+      background:#eaf0ff;
+      color:var(--blue);
+      font-weight:900;
+    }
+
+    h1{
+      font-size:clamp(3rem,6.5vw,5.6rem);
+      line-height:.98;
+      margin:20px 0;
+      letter-spacing:-.05em;
+    }
+
+    h2{
+      font-size:clamp(2rem,4vw,3.3rem);
+      line-height:1.1;
+      margin:16px 0;
+    }
+
+    h3{
+      font-size:1.3rem;
+      margin-top:0;
+    }
+
+    .heroTagline{
+      margin:16px 0 -8px;
+      color:var(--blue);
+      font-weight:900;
+      letter-spacing:.02em;
+    }
+
+    .lead{
+      font-size:1.18rem;
+      color:var(--muted);
+    }
+
+    .actions{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+      margin-top:24px;
+    }
+
+    .visualWrap{
+      position:relative;
+      min-height:520px;
+    }
+
+    .visualMain{
+      position:absolute;
+      inset:0 0 45px 65px;
+      border-radius:34px;
+      background:linear-gradient(145deg,#dce8ff,#7aa1ff);
+      overflow:hidden;
+    }
+
+    .visualMain::before{
+      content:"";
+      position:absolute;
+      width:260px;
+      height:260px;
+      border-radius:50%;
+      background:#fff8;
+      top:35px;
+      right:25px;
+    }
+
+    .visualMain::after{
+      content:"";
+      position:absolute;
+      width:180px;
+      height:350px;
+      border-radius:90px;
+      background:#1c4bb8;
+      left:55px;
+      bottom:-70px;
+      transform:rotate(-20deg);
+    }
+
+    .floatCard{
+      position:absolute;
+      left:0;
+      bottom:0;
+      width:240px;
+      padding:20px;
+      border-radius:22px;
+      background:#fff;
+      box-shadow:0 24px 60px rgba(17,33,58,.18);
+    }
+
+    .floatCard strong{
+      display:block;
+      font-size:1.8rem;
+    }
+
+    .floatCard a{
+      display:inline-block;
+      margin-top:4px;
+    }
+
+    .sectionIntro{
+      max-width:760px;
+      margin-bottom:28px;
+    }
+
+    .serviceGrid,
+    .benefitGrid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:18px;
+    }
+
+    .card{
+      background:#fff;
+      border:1px solid var(--line);
+      padding:26px;
+      border-radius:var(--radius);
+    }
+
+    .card p{
+      color:var(--muted);
+      margin-bottom:0;
+    }
+
+    .serviceGrid .card:first-child{
+      background:linear-gradient(160deg,#11213a,#2f5da9);
+      color:#fff;
+    }
+
+    .serviceGrid .card:first-child p{color:#cfd9ea}
+
+    .aboutGrid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:24px;
+      align-items:stretch;
+    }
+
+    .aboutPanel{
+      background:linear-gradient(160deg,#11213a,#2f5da9);
+      color:#fff;
+      padding:32px;
+      border-radius:var(--radius);
+    }
+
+    .aboutPanel p{color:#d6dfed}
+
+    .trustList{
+      display:grid;
+      gap:14px;
+      margin:22px 0 0;
+      padding:0;
+      list-style:none;
+    }
+
+    .trustList li{
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:18px;
+      padding:18px 20px;
+      font-weight:800;
+    }
+
+    .contact{
+      display:grid;
+      grid-template-columns:.8fr 1.2fr;
+      gap:24px;
+      align-items:start;
+    }
+
+    .contactCard{
+      background:#fff;
+      border:1px solid var(--line);
+      padding:28px;
+      border-radius:var(--radius);
+    }
+
+    .contactLinks{
+      display:grid;
+      gap:14px;
+      margin-top:22px;
+    }
+
+    .contactItem{
+      display:flex;
+      justify-content:space-between;
+      gap:18px;
+      padding:16px 0;
+      border-bottom:1px solid var(--line);
+      flex-wrap:wrap;
+    }
+
+    .contactItem:last-child{border-bottom:0}
+    .contactItem span{color:var(--muted)}
+    .contactItem a{overflow-wrap:anywhere}
+
+    .downloadBox{
+      margin-top:22px;
+      padding:20px;
+      border-radius:18px;
+      background:#eef3ff;
+    }
+
+    footer{
+      padding:34px 0;
+      background:var(--dark);
+      color:#fff;
+    }
+
+    .footerInner{
+      display:flex;
+      justify-content:space-between;
+      gap:24px;
+      align-items:center;
+      flex-wrap:wrap;
+    }
+
+    .footerLinks{
+      display:flex;
+      gap:18px;
+      flex-wrap:wrap;
+    }
+
+    .footerLinks a{color:#fff}
+
+    .menuToggle{display:none}
+
+    @media(max-width:900px){
+      .heroGrid,
+      .contact,
+      .aboutGrid{
+        grid-template-columns:1fr;
+      }
+
+      .serviceGrid,
+      .benefitGrid{
+        grid-template-columns:1fr 1fr;
+      }
+    }
+
+    @media(max-width:700px){
+      .head{
+        min-height:68px;
+        padding:10px 0;
+        position:relative;
+      }
+
+      .brand{
+        max-width:210px;
+        line-height:1.2;
+      }
+
+      .menuToggle{
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        width:46px;
+        height:46px;
+        padding:0;
+        flex:0 0 auto;
+        border:1px solid var(--line);
+        border-radius:12px;
+        background:#fff;
+        color:var(--dark);
+        font-size:1.45rem;
+        cursor:pointer;
+      }
+
+      nav{
+        display:none;
+        position:absolute;
+        top:calc(100% + 8px);
+        left:0;
+        right:0;
+        z-index:100;
+        padding:12px;
+        background:#fff;
+        border:1px solid var(--line);
+        border-radius:16px;
+        box-shadow:0 20px 50px rgba(17,33,58,.16);
+      }
+
+      nav.open{
+        display:grid;
+        gap:6px;
+      }
+
+      nav a{
+        display:block;
+        padding:12px 14px;
+        border-radius:10px;
+      }
+
+      nav a:hover{background:#eef3ff}
+
+      nav .btn{
+        width:100%;
+        margin-top:4px;
+      }
+
+      .hero{padding:45px 0 35px}
+
+      h1{
+        font-size:clamp(2.6rem,13vw,3.5rem);
+      }
+
+      .serviceGrid,
+      .benefitGrid{
+        grid-template-columns:1fr;
+      }
+
+      .visualWrap{min-height:390px}
+
+      .visualMain{inset:0 0 35px 25px}
+
+      .floatCard{width:min(240px,85%)}
+
+      .contactCard{padding:22px}
+
+      .footerInner{
+        align-items:flex-start;
+        flex-direction:column;
+      }
+    }
+
+    @media(prefers-reduced-motion:reduce){
+      html{scroll-behavior:auto}
+      .btn{transition:none}
+    }
+  </style>
 </head>
 
 <body>
 
-<header>
-  <div class="wrap head">
-    <strong class="brand">Musterbetrieb Nord</strong>
+  <header>
+    <div class="wrap head">
+      <a class="brand" href="#start">Musterbetrieb Nord</a>
 
-    <nav aria-label="Hauptnavigation">
-      <a href="#leistungen">Leistungen</a>
-      <a href="#ueber-uns">Über uns</a>
-      <a href="#vorteile">Vorteile</a>
-      <a class="btn primary" href="#projektanfrage">Projekt anfragen</a>
-    </nav>
-  </div>
-</header>
+      <button
+        class="menuToggle"
+        type="button"
+        aria-label="Menü öffnen"
+        aria-expanded="false"
+        aria-controls="mainNav"
+      >
+        ☰
+      </button>
 
-<main>
-
-  <section class="hero" id="start">
-    <div class="wrap heroGrid">
-      <div>
-        <span class="kicker">Musterbetrieb Nord</span>
-        <p class="heroTagline">Modernes Unternehmensdesign</p>
-
-        <h1>Klare Lösungen für starke Ergebnisse.</h1>
-
-        <p class="lead">
-          Wir begleiten Ihr Projekt persönlich, zuverlässig und mit einem klaren Blick
-          für Qualität, Termine und nachhaltige Ergebnisse.
-        </p>
-
-        <div class="actions">
-          <a class="btn primary" href="#projektanfrage">Projekt anfragen</a>
-          <a class="btn" href="#leistungen">Leistungen ansehen</a>
-        </div>
-      </div>
-
-<div class="visualWrap">
-        <div class="visualMain"></div>
-
-        <div class="floatCard">
-          <small>Direkt erreichbar</small>
-          <strong>
-            <a href="tel:+491234567890">01234 567890</a>
-          </strong>
-        </div>
-      </div>
+      <nav id="mainNav" aria-label="Hauptnavigation">
+        <a href="#leistungen">Leistungen</a>
+        <a href="#ueber-uns">Über uns</a>
+        <a href="#vorteile">Vorteile</a>
+        <a class="btn primary" href="#projektanfrage">Projekt anfragen</a>
+      </nav>
     </div>
-  </section>
+  </header>
 
-  <section id="leistungen">
-    <div class="wrap">
-      <div class="sectionIntro">
-        <span class="kicker">Leistungen</span>
-        <h2>Alles, was Ihr Projekt voranbringt.</h2>
+  <main>
 
-        <p class="lead">
-          Von der ersten Idee bis zur fertigen Umsetzung erhalten Sie alle wichtigen
-          Schritte aus einer Hand.
-        </p>
-      </div>
+    <section class="hero" id="start">
+      <div class="wrap heroGrid">
+        <div>
+          <span class="kicker">Musterbetrieb Nord</span>
+          <p class="heroTagline">Modernes Unternehmensdesign</p>
 
-      <div class="serviceGrid">
-        <article class="card">
-          <h3>Beratung</h3>
-          <p>
-            Wir analysieren Ihren Bedarf und entwickeln eine individuelle,
-            verständliche Lösung für Ihr Vorhaben.
-          </p>
-        </article>
+          <h1>Klare Lösungen für starke Ergebnisse.</h1>
 
-        <article class="card">
-          <h3>Planung</h3>
-          <p>
-            Wir strukturieren Abläufe, Termine und Anforderungen sorgfältig,
-            damit Ihr Projekt sicher umgesetzt werden kann.
-          </p>
-        </article>
-
-        <article class="card">
-          <h3>Umsetzung</h3>
-          <p>
-            Wir realisieren Ihr Projekt sauber, zuverlässig und termingerecht
-            mit einem festen Ansprechpartner.
-          </p>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <section id="ueber-uns">
-    <div class="wrap aboutGrid">
-      <div class="aboutPanel">
-        <span class="kicker">Über uns</span>
-        <h2>Persönlich. Erfahren. Verlässlich.</h2>
-
-        <p>
-          Musterbetrieb Nord steht für professionelle Arbeit, klare Kommunikation
-          und individuelle Betreuung. Wir unterstützen Privat- und Geschäftskunden
-          bei der Planung und Umsetzung passender Lösungen.
-        </p>
-
-        <p>
-          Unser Anspruch ist es, jedes Projekt transparent, sorgfältig und
-          auf Augenhöhe zu begleiten.
-        </p>
-      </div>
-
-      <div>
-        <h2>Vertrauen entsteht durch klare Zusammenarbeit.</h2>
-
-        <p class="lead">
-          Sie wissen jederzeit, wie der aktuelle Stand ist, wer Ihr Ansprechpartner
-          ist und welche nächsten Schritte folgen.
-        </p>
-
-        <ul class="trustList">
-          <li>Persönlicher Ansprechpartner während des gesamten Projekts</li>
-          <li>Transparente Absprachen und nachvollziehbare Abläufe</li>
-          <li>Qualitätsorientierte und termingerechte Ausführung</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <section id="vorteile">
-    <div class="wrap">
-      <div class="sectionIntro">
-        <span class="kicker">Ihre Vorteile</span>
-        <h2>Darauf können Sie sich verlassen.</h2>
-      </div>
-
-      <div class="benefitGrid">
-        <article class="card">
-          <h3>Zuverlässig</h3>
-          <p>
-            Verbindliche Absprachen, sorgfältige Arbeit und eine termingerechte Umsetzung.
-          </p>
-        </article>
-
-        <article class="card">
-          <h3>Schnell</h3>
-          <p>
-            Kurze Reaktionszeiten, direkte Kommunikation und zügige Bearbeitung Ihrer Anfrage.
-          </p>
-        </article>
-
-        <article class="card">
-          <h3>Persönlich</h3>
-          <p>
-            Individuelle Beratung und ein fester Ansprechpartner für Ihr gesamtes Projekt.
-          </p>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <section id="projektanfrage">
-    <div class="wrap contact">
-      <div>
-        <span class="kicker">Projektanfrage</span>
-        <h2>Starten wir Ihr Projekt.</h2>
-
-        <p class="lead">
-          Laden Sie das Projektformular als PDF herunter und senden Sie es uns
-          ausgefüllt per E-Mail zurück. Alternativ erreichen Sie uns telefonisch.
-        </p>
-      </div>
-
-      <div class="contactCard">
-        <h3>Ihre Kontaktmöglichkeiten</h3>
-
-        <div class="downloadBox">
-          <strong>Projektformular als PDF</strong>
-
-          <p>
-            Formular herunterladen, ausfüllen und bequem zurücksenden.
+          <p class="lead">
+            Wir begleiten Ihr Projekt persönlich, zuverlässig und mit einem klaren Blick
+            für Qualität, Termine und nachhaltige Ergebnisse.
           </p>
 
-          <a
-            class="btn primary"
-            href="Projektformular.pdf"
-            download
-          >
-            PDF herunterladen
-          </a>
-        </div>
-
-        <div class="contactLinks">
-          <div class="contactItem">
-            <span>E-Mail</span>
-            <a href="mailto:info@firma.de">info@firma.de</a>
+          <div class="actions">
+            <a class="btn primary" href="#projektanfrage">Projekt anfragen</a>
+            <a class="btn" href="#leistungen">Leistungen ansehen</a>
           </div>
+        </div>
 
-          <div class="contactItem">
-            <span>Telefon</span>
-            <a href="tel:+491234567890">01234 567890</a>
+        <div class="visualWrap">
+          <div class="visualMain"></div>
+
+          <div class="floatCard">
+            <small>Direkt erreichbar</small>
+            <strong>
+              <a href="tel:+491234567890">01234 567890</a>
+            </strong>
           </div>
         </div>
       </div>
+    </section>
+
+    <section id="leistungen">
+      <div class="wrap">
+        <div class="sectionIntro">
+          <span class="kicker">Leistungen</span>
+          <h2>Alles, was Ihr Projekt voranbringt.</h2>
+
+          <p class="lead">
+            Von der ersten Idee bis zur fertigen Umsetzung erhalten Sie alle wichtigen
+            Schritte aus einer Hand.
+          </p>
+        </div>
+
+        <div class="serviceGrid">
+          <article class="card">
+            <h3>Beratung</h3>
+            <p>
+              Wir analysieren Ihren Bedarf und entwickeln eine individuelle,
+              verständliche Lösung für Ihr Vorhaben.
+            </p>
+          </article>
+
+          <article class="card">
+            <h3>Planung</h3>
+            <p>
+              Wir strukturieren Abläufe, Termine und Anforderungen sorgfältig,
+              damit Ihr Projekt sicher umgesetzt werden kann.
+            </p>
+          </article>
+
+          <article class="card">
+            <h3>Umsetzung</h3>
+            <p>
+              Wir realisieren Ihr Projekt sauber, zuverlässig und termingerecht
+              mit einem festen Ansprechpartner.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="ueber-uns">
+      <div class="wrap aboutGrid">
+        <div class="aboutPanel">
+          <span class="kicker">Über uns</span>
+          <h2>Persönlich. Erfahren. Verlässlich.</h2>
+
+          <p>
+            Musterbetrieb Nord steht für professionelle Arbeit, klare Kommunikation
+            und individuelle Betreuung. Wir unterstützen Privat- und Geschäftskunden
+            bei der Planung und Umsetzung passender Lösungen.
+          </p>
+
+          <p>
+            Unser Anspruch ist es, jedes Projekt transparent, sorgfältig und
+            auf Augenhöhe zu begleiten.
+          </p>
+        </div>
+
+        <div>
+          <h2>Vertrauen entsteht durch klare Zusammenarbeit.</h2>
+
+          <p class="lead">
+            Sie wissen jederzeit, wie der aktuelle Stand ist, wer Ihr Ansprechpartner
+            ist und welche nächsten Schritte folgen.
+          </p>
+
+          <ul class="trustList">
+            <li>Persönlicher Ansprechpartner während des gesamten Projekts</li>
+            <li>Transparente Absprachen und nachvollziehbare Abläufe</li>
+            <li>Qualitätsorientierte und termingerechte Ausführung</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="vorteile">
+      <div class="wrap">
+        <div class="sectionIntro">
+          <span class="kicker">Ihre Vorteile</span>
+          <h2>Darauf können Sie sich verlassen.</h2>
+        </div>
+
+        <div class="benefitGrid">
+          <article class="card">
+            <h3>Zuverlässig</h3>
+            <p>Verbindliche Absprachen, sorgfältige Arbeit und eine termingerechte Umsetzung.</p>
+          </article>
+
+          <article class="card">
+            <h3>Schnell</h3>
+            <p>Kurze Reaktionszeiten, direkte Kommunikation und zügige Bearbeitung Ihrer Anfrage.</p>
+          </article>
+
+          <article class="card">
+            <h3>Persönlich</h3>
+            <p>Individuelle Beratung und ein fester Ansprechpartner für Ihr gesamtes Projekt.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="projektanfrage">
+      <div class="wrap contact">
+        <div>
+          <span class="kicker">Projektanfrage</span>
+          <h2>Starten wir Ihr Projekt.</h2>
+
+          <p class="lead">
+            Laden Sie das Projektformular als PDF herunter und senden Sie es uns
+            ausgefüllt per E-Mail zurück. Alternativ erreichen Sie uns telefonisch.
+          </p>
+        </div>
+
+        <div class="contactCard">
+          <h3>Ihre Kontaktmöglichkeiten</h3>
+
+          <div class="downloadBox">
+            <strong>Projektformular als PDF</strong>
+
+            <p>Formular herunterladen, ausfüllen und bequem zurücksenden.</p>
+
+            <a class="btn primary" href="Projektformular.pdf" download>
+              PDF herunterladen
+            </a>
+          </div>
+
+          <div class="contactLinks">
+            <div class="contactItem">
+              <span>E-Mail</span>
+              <a href="mailto:info@firma.de">info@firma.de</a>
+            </div>
+
+            <div class="contactItem">
+              <span>Telefon</span>
+              <a href="tel:+491234567890">01234 567890</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="wrap footerInner">
+      <div>© <span id="year"></span> Musterbetrieb Nord</div>
+
+      <div class="footerLinks">
+        <a href="../impressum.html">Impressum</a>
+        <a href="../datenschutz.html">Datenschutz</a>
+      </div>
     </div>
-  </section>
+  </footer>
 
-</main>
+  <script>
+    const yearElement = document.getElementById("year");
+    if (yearElement) {
+      yearElement.textContent = new Date().getFullYear();
+    }
 
-<footer>
-  <div class="wrap footerInner">
-    <div>
-      © <span id="year"></span> Musterbetrieb Nord
-    </div>
+    const menuToggle = document.querySelector(".menuToggle");
+    const mainNav = document.getElementById("mainNav");
 
-    <div class="footerLinks">
-  <a href="../impressum.html">Impressum</a>
-  <a href="../datenschutz.html">Datenschutz</a>
-</div>
-  </div>
-</footer>
+    if (menuToggle && mainNav) {
+      menuToggle.addEventListener("click", () => {
+        const isOpen = mainNav.classList.toggle("open");
 
-<script>
-document.getElementById("year").textContent = new Date().getFullYear();
-</script>
+        menuToggle.setAttribute("aria-expanded", String(isOpen));
+        menuToggle.setAttribute(
+          "aria-label",
+          isOpen ? "Menü schließen" : "Menü öffnen"
+        );
+        menuToggle.textContent = isOpen ? "✕" : "☰";
+      });
+
+      mainNav.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", () => {
+          mainNav.classList.remove("open");
+          menuToggle.setAttribute("aria-expanded", "false");
+          menuToggle.setAttribute("aria-label", "Menü öffnen");
+          menuToggle.textContent = "☰";
+        });
+      });
+    }
+  </script>
 
 </body>
 </html>
