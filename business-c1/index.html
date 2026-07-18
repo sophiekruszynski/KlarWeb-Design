@@ -20,12 +20,15 @@
   --muted:#70786c;
   --line:rgba(46,60,44,.14);
   --radius:34px;
-   --max:1500px;
+  --max:1500px;
 }
 
 *{box-sizing:border-box}
 
-html{scroll-behavior:smooth}
+html{
+  scroll-behavior:smooth;
+  overflow-x:hidden;
+}
 
 body{
   margin:0;
@@ -33,11 +36,13 @@ body{
   color:var(--dark);
   font-family:Arial,sans-serif;
   line-height:1.7;
+  overflow-x:hidden;
 }
 
 .wrap{
-  width:min(1500px,calc(100% - 32px));
+  width:min(var(--max),calc(100% - 32px));
   margin:auto;
+  min-width:0;
 }
 
 header{
@@ -58,9 +63,13 @@ header{
   padding:14px 18px;
   border-radius:999px;
   border:1px solid var(--line);
+  position:relative;
 }
 
-.brand{font-weight:900}
+.brand{
+  font-weight:900;
+  min-width:0;
+}
 
 nav{
   display:flex;
@@ -74,7 +83,8 @@ a{
   font-weight:800;
 }
 
-a:focus-visible{
+a:focus-visible,
+button:focus-visible{
   outline:3px solid var(--sand);
   outline-offset:4px;
   border-radius:10px;
@@ -89,6 +99,7 @@ a:focus-visible{
   background:var(--green);
   color:#fff;
   font-weight:900;
+  text-align:center;
   transition:transform .2s ease,box-shadow .2s ease,background-color .2s ease;
 }
 
@@ -120,12 +131,27 @@ section{
   align-items:center;
 }
 
+.heroGrid > *,
+.aboutGrid > *,
+.contact > *{
+  min-width:0;
+}
+
 .tag{
   display:inline-flex;
   background:var(--sage);
   padding:8px 13px;
   border-radius:999px;
   font-weight:900;
+}
+
+h1,
+h2,
+h3,
+p,
+li{
+  overflow-wrap:anywhere;
+  hyphens:auto;
 }
 
 h1{
@@ -187,6 +213,7 @@ h3{
   padding:20px;
   border-radius:24px;
   width:240px;
+  max-width:85%;
   box-shadow:0 20px 45px rgba(46,60,44,.14);
 }
 
@@ -208,6 +235,7 @@ h3{
   padding:26px;
   border-radius:var(--radius);
   border:1px solid var(--line);
+  min-width:0;
 }
 
 .cards .card:nth-child(2){
@@ -244,6 +272,7 @@ h3{
   padding:30px;
   border-radius:var(--radius);
   border:1px solid var(--line);
+  min-width:0;
 }
 
 .trustList{
@@ -284,9 +313,7 @@ h3{
 }
 
 .contactItem:last-child{border-bottom:0}
-
 .contactItem span{color:var(--muted)}
-
 .contactItem a{overflow-wrap:anywhere}
 
 footer{
@@ -311,6 +338,9 @@ footer{
 
 .footerLinks a{color:#fff}
 
+.menuToggle{display:none}
+.mobileCta{display:none}
+
 @media(max-width:850px){
   .heroGrid,
   .aboutGrid,
@@ -329,16 +359,92 @@ footer{
 }
 
 @media(max-width:620px){
-  nav{
-    display:flex;
-    gap:10px;
-    flex-wrap:wrap;
-    width:100%;
+  .wrap{
+    width:min(var(--max),calc(100% - 28px));
   }
 
   .head{
+    min-height:70px;
     border-radius:24px;
-    flex-wrap:wrap;
+    flex-wrap:nowrap;
+    gap:14px;
+  }
+
+  .brand{
+    max-width:calc(100% - 62px);
+    line-height:1.2;
+  }
+
+  .menuToggle{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    width:46px;
+    height:46px;
+    padding:0;
+    flex:0 0 auto;
+    border:1px solid var(--line);
+    border-radius:14px;
+    background:var(--cream);
+    color:var(--dark);
+    font-size:1.45rem;
+    cursor:pointer;
+  }
+
+  .desktopCta{
+    display:none;
+  }
+
+  nav{
+    display:none;
+    position:absolute;
+    top:calc(100% + 10px);
+    left:0;
+    right:0;
+    z-index:100;
+    padding:12px;
+    background:var(--cream);
+    border:1px solid var(--line);
+    border-radius:20px;
+    box-shadow:0 22px 50px rgba(46,60,44,.18);
+    flex-direction:column;
+    align-items:stretch;
+    gap:6px;
+  }
+
+  nav.open{
+    display:flex;
+  }
+
+  nav a{
+    display:block;
+    padding:13px 14px;
+    border-radius:12px;
+  }
+
+  nav a:hover{
+    background:#f1eadc;
+  }
+
+  nav .mobileCta{
+    display:flex;
+    width:100%;
+    justify-content:center;
+    margin-top:4px;
+    background:var(--green);
+    color:#fff;
+  }
+
+  .hero{
+    padding:42px 0 62px;
+  }
+
+  h1{
+    font-size:clamp(2.65rem,13vw,4rem);
+  }
+
+  h2{
+    font-size:clamp(1.9rem,9vw,2.7rem);
   }
 
   .cards,
@@ -359,6 +465,8 @@ footer{
     width:min(240px,85%);
   }
 
+  .aboutPanel,
+  .trustPanel,
   .contactCard{
     padding:22px;
   }
@@ -366,6 +474,26 @@ footer{
   .footerInner{
     align-items:flex-start;
     flex-direction:column;
+  }
+}
+
+@media(max-width:380px){
+  .wrap{
+    width:min(var(--max),calc(100% - 22px));
+  }
+
+  h1{
+    font-size:2.4rem;
+  }
+
+  h2{
+    font-size:1.85rem;
+  }
+
+  .aboutPanel,
+  .trustPanel,
+  .contactCard{
+    padding:18px;
   }
 }
 
@@ -380,16 +508,27 @@ footer{
 
 <header>
   <div class="wrap head">
-    <strong class="brand">Musterbetrieb Nord</strong>
+    <a class="brand" href="#start">Musterbetrieb Nord</a>
 
-<nav aria-label="Hauptnavigation">
-  <a href="leistungen.html">Leistungen</a>
-  <a href="ueber-uns.html">Über uns</a>
-  <a href="referenzen.html">Referenzen</a>
-  <a href="kontakt.html">Kontakt</a>
-</nav>
+    <button
+      class="menuToggle"
+      type="button"
+      aria-label="Menü öffnen"
+      aria-expanded="false"
+      aria-controls="mainNav"
+    >
+      ☰
+    </button>
 
-    <a class="btn" href="#projektanfrage">
+    <nav id="mainNav" aria-label="Hauptnavigation">
+      <a href="leistungen.html">Leistungen</a>
+      <a href="ueber-uns.html">Über uns</a>
+      <a href="referenzen.html">Referenzen</a>
+      <a href="kontakt.html">Kontakt</a>
+      <a class="btn mobileCta" href="#projektanfrage">Projekt anfragen</a>
+    </nav>
+
+    <a class="btn desktopCta" href="#projektanfrage">
       Projekt anfragen
     </a>
   </div>
@@ -621,6 +760,56 @@ const yearElement = document.getElementById("year");
 
 if (yearElement) {
   yearElement.textContent = new Date().getFullYear();
+}
+
+const menuToggle = document.querySelector(".menuToggle");
+const mainNav = document.getElementById("mainNav");
+
+if (menuToggle && mainNav) {
+  const closeMenu = () => {
+    mainNav.classList.remove("open");
+    menuToggle.setAttribute("aria-expanded", "false");
+    menuToggle.setAttribute("aria-label", "Menü öffnen");
+    menuToggle.textContent = "☰";
+  };
+
+  menuToggle.addEventListener("click", () => {
+    const open = mainNav.classList.toggle("open");
+
+    menuToggle.setAttribute("aria-expanded", String(open));
+    menuToggle.setAttribute(
+      "aria-label",
+      open ? "Menü schließen" : "Menü öffnen"
+    );
+    menuToggle.textContent = open ? "✕" : "☰";
+  });
+
+  mainNav.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", closeMenu);
+  });
+
+  document.addEventListener("click", (event) => {
+    if (
+      mainNav.classList.contains("open") &&
+      !mainNav.contains(event.target) &&
+      !menuToggle.contains(event.target)
+    ) {
+      closeMenu();
+    }
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
+      closeMenu();
+      menuToggle.focus();
+    }
+  });
+
+  window.addEventListener("resize", () => {
+    if (window.innerWidth > 620) {
+      closeMenu();
+    }
+  });
 }
 </script>
 
