@@ -253,6 +253,108 @@
   background:#66b76a;
 }
 
+.heroSlider{
+  position:relative;
+  width:100%;
+  aspect-ratio:16 / 10;
+  overflow:hidden;
+  background:#fff;
+}
+
+.heroSlide{
+  position:absolute;
+  inset:0;
+  display:block;
+  opacity:0;
+  transform:scale(1.04);
+  pointer-events:none;
+  transition:
+    opacity .8s ease,
+    transform 1.2s ease;
+}
+
+.heroSlide.active{
+  opacity:1;
+  transform:scale(1);
+  pointer-events:auto;
+  z-index:2;
+}
+
+.heroSlide img{
+  width:100%;
+  height:100%;
+  display:block;
+  object-fit:cover;
+  object-position:top center;
+}
+
+.heroSliderOverlay{
+  position:absolute;
+  z-index:5;
+  left:18px;
+  right:18px;
+  bottom:18px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
+  padding:14px 16px;
+  border:1px solid rgba(255,255,255,.3);
+  border-radius:16px;
+  background:rgba(22,33,26,.78);
+  color:#fff;
+  backdrop-filter:blur(10px);
+  pointer-events:none;
+}
+
+.heroSliderOverlay strong,
+.heroSliderOverlay span{
+  display:block;
+}
+
+.heroSliderOverlay strong{
+  margin-bottom:2px;
+  font-size:1rem;
+}
+
+.heroSliderOverlay div > span{
+  color:rgba(255,255,255,.72);
+  font-size:.85rem;
+}
+
+.heroSliderLink{
+  flex:0 0 auto;
+  font-size:.86rem;
+  font-weight:900;
+}
+
+.heroDots{
+  display:flex;
+  justify-content:center;
+  gap:9px;
+  margin-top:20px;
+}
+
+.heroDot{
+  width:10px;
+  height:10px;
+  padding:0;
+  border:0;
+  border-radius:50%;
+  background:rgba(255,255,255,.45);
+  cursor:pointer;
+  transition:
+    width .25s ease,
+    background-color .25s ease;
+}
+
+.heroDot.active{
+  width:30px;
+  border-radius:999px;
+  background:#fff;
+}
+
+
 .browserContent{
   min-height:390px;
   padding:44px 38px 32px;
@@ -1036,46 +1138,118 @@
       </div>
     </div>
 
-    <div class="heroShowcase" aria-hidden="true">
-      <div class="browserMockup">
-        <div class="browserTop">
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
+<div class="heroShowcase">
 
-        <div class="browserContent">
-          <small>Beispielunternehmen</small>
-
-          <h3>
-            Qualität, auf die Sie sich verlassen können.
-          </h3>
-
-          <p>
-            Persönlicher Service, klare Leistungen und eine einfache Anfrage.
-          </p>
-
-          <span class="browserButton">Kontakt aufnehmen</span>
-
-          <div class="browserCards">
-            <div></div>
-            <div></div>
-            <div></div>
-          </div>
-        </div>
-      </div>
-
-      <div class="floatingCard">
-        <span class="floatingIcon">📱</span>
-        <div>
-          <strong>Responsive Design</strong>
-          <span>Optimiert für Smartphone, Tablet und PC</span>
-        </div>
-      </div>
+  <div class="browserMockup">
+    <div class="browserTop">
+      <span></span>
+      <span></span>
+      <span></span>
     </div>
 
+    <div class="heroSlider" id="heroSlider">
+
+      <a
+        class="heroSlide active"
+        href="starter-a1/"
+        target="_blank"
+        rel="noopener"
+        aria-label="Demo Starter A1 öffnen"
+      >
+        <img
+          src="images/Demo A.png"
+          alt="Vorschau Starter Design A1"
+        >
+      </a>
+
+      <a
+        class="heroSlide"
+        href="starter-a2/"
+        target="_blank"
+        rel="noopener"
+        aria-label="Demo Starter A2 öffnen"
+      >
+        <img
+          src="images/Demo A4.png"
+          alt="Vorschau Starter Design A2"
+        >
+      </a>
+
+      <a
+        class="heroSlide"
+        href="starter-b1/"
+        target="_blank"
+        rel="noopener"
+        aria-label="Demo Starter B1 öffnen"
+      >
+        <img
+          src="images/Demo B.png"
+          alt="Vorschau Starter Design B1"
+        >
+      </a>
+
+      <a
+        class="heroSlide"
+        href="starter-b2/"
+        target="_blank"
+        rel="noopener"
+        aria-label="Demo Starter B2 öffnen"
+      >
+        <img
+          src="images/Demob2.png"
+          alt="Vorschau Starter Design B2"
+        >
+      </a>
+
+      <a
+        class="heroSlide"
+        href="starter-c1/"
+        target="_blank"
+        rel="noopener"
+        aria-label="Demo Starter C1 öffnen"
+      >
+        <img
+          src="images/Democ4.png"
+          alt="Vorschau Starter Design C1"
+        >
+      </a>
+
+      <a
+        class="heroSlide"
+        href="starter-c2/"
+        target="_blank"
+        rel="noopener"
+        aria-label="Demo Starter C2 öffnen"
+      >
+        <img
+          src="images/Demo C.png"
+          alt="Vorschau Starter Design C2"
+        >
+      </a>
+
+      <div class="heroSliderOverlay">
+        <div>
+          <strong id="heroSlideTitle">Starter A1</strong>
+          <span id="heroSlideText">Modern und klar</span>
+        </div>
+
+        <span class="heroSliderLink">Demo öffnen ↗</span>
+      </div>
+
+    </div>
   </div>
-</section>
+
+  <div class="heroDots" aria-label="Design auswählen">
+    <button class="heroDot active" type="button" aria-label="Design 1 anzeigen"></button>
+    <button class="heroDot" type="button" aria-label="Design 2 anzeigen"></button>
+    <button class="heroDot" type="button" aria-label="Design 3 anzeigen"></button>
+    <button class="heroDot" type="button" aria-label="Design 4 anzeigen"></button>
+    <button class="heroDot" type="button" aria-label="Design 5 anzeigen"></button>
+    <button class="heroDot" type="button" aria-label="Design 6 anzeigen"></button>
+  </div>
+
+</div>
+
 
   <section id="leistungen">
     <div class="wrap">
@@ -1606,6 +1780,93 @@
 </footer>
 
 <script>
+
+const heroSlider = document.getElementById("heroSlider");
+const heroSlides = document.querySelectorAll(".heroSlide");
+const heroDots = document.querySelectorAll(".heroDot");
+const heroSlideTitle = document.getElementById("heroSlideTitle");
+const heroSlideText = document.getElementById("heroSlideText");
+
+const heroSlideData = [
+  {
+    title: "Starter A1",
+    text: "Modern und klar"
+  },
+  {
+    title: "Starter A2",
+    text: "Editorial und auffällig"
+  },
+  {
+    title: "Starter B1",
+    text: "Dunkel und hochwertig"
+  },
+  {
+    title: "Starter B2",
+    text: "Elegant und großzügig"
+  },
+  {
+    title: "Starter C1",
+    text: "Natürlich und persönlich"
+  },
+  {
+    title: "Starter C2",
+    text: "Ruhig und redaktionell"
+  }
+];
+
+let currentHeroSlide = 0;
+let heroSliderInterval;
+
+function showHeroSlide(index) {
+  currentHeroSlide = index;
+
+  heroSlides.forEach(function (slide, slideIndex) {
+    slide.classList.toggle("active", slideIndex === index);
+  });
+
+  heroDots.forEach(function (dot, dotIndex) {
+    dot.classList.toggle("active", dotIndex === index);
+  });
+
+  if (heroSlideData[index]) {
+    heroSlideTitle.textContent = heroSlideData[index].title;
+    heroSlideText.textContent = heroSlideData[index].text;
+  }
+}
+
+function startHeroSlider() {
+  clearInterval(heroSliderInterval);
+
+  heroSliderInterval = setInterval(function () {
+    const nextSlide =
+      (currentHeroSlide + 1) % heroSlides.length;
+
+    showHeroSlide(nextSlide);
+  }, 4000);
+}
+
+heroDots.forEach(function (dot, index) {
+  dot.addEventListener("click", function () {
+    showHeroSlide(index);
+    startHeroSlider();
+  });
+});
+
+if (heroSlider && heroSlides.length > 1) {
+  heroSlider.addEventListener("mouseenter", function () {
+    clearInterval(heroSliderInterval);
+  });
+
+  heroSlider.addEventListener("mouseleave", function () {
+    startHeroSlider();
+  });
+
+  showHeroSlide(0);
+  startHeroSlider();
+}
+
+
+
   const yearElement = document.getElementById("year");
   if (yearElement) {
     yearElement.textContent = new Date().getFullYear();
