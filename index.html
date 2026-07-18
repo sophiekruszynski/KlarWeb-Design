@@ -894,6 +894,45 @@
     .menuToggle.active span:nth-child(2){opacity:0}
     .menuToggle.active span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
 
+.businessTicker{
+  overflow:hidden;
+  width:100%;
+}
+
+.businessTickerTrack{
+  display:flex;
+  gap:24px;
+  width:max-content;
+  animation:businessTicker 35s linear infinite;
+}
+
+.businessTickerCard{
+  flex:0 0 420px;
+  display:block;
+}
+
+.businessTickerCard img{
+  width:100%;
+  border-radius:20px;
+  display:block;
+}
+
+.businessTickerCard span{
+  display:block;
+  margin-top:12px;
+  text-align:center;
+  font-weight:700;
+}
+
+@keyframes businessTicker{
+  from{
+    transform:translateX(0);
+  }
+  to{
+    transform:translateX(-50%);
+  }
+}
+    
 @media(max-width:1100px) and (min-width:981px){
   .industryGroups{
     grid-template-columns:repeat(2,minmax(0,1fr));
