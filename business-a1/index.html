@@ -5,7 +5,15 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="description" content="Musterbetrieb Nord bietet persönliche Beratung, strukturierte Planung und professionelle Umsetzung.">
 <meta name="robots" content="index,follow">
-<title>Musterbetrieb Nord – Moderne Lösungen für starke Ergebnisse</title>
+<title>Musterbetrieb Nord – Moderne Lösungen für starke Ergebnisse</title> <button
+  class="menuToggle"
+  type="button"
+  aria-label="Menü öffnen"
+  aria-expanded="false"
+>
+  ☰
+</button>
+  
 <style>
 :root{
   --bg:#f5f8fc;
@@ -145,23 +153,69 @@ footer{padding:34px 0;background:var(--dark);color:#fff}
   .pageHeroGrid,.contactGrid,.grid2{grid-template-columns:1fr}
   .grid3,.refGrid{grid-template-columns:1fr 1fr}
 }
+
 @media(max-width:700px){
-  .head{position:relative}
+
+  .head{
+    min-height:68px;
+    padding:10px 0;
+    position:relative;
+    flex-wrap:nowrap;
+  }
+
+  .brand{
+    font-size:1.05rem;
+    max-width:180px;
+    line-height:1.2;
+  }
+
   .menuToggle{
-    display:block;width:46px;height:46px;border:1px solid var(--line);
-    border-radius:12px;background:#fff;font-size:1.3rem;
+    display:block;
+    flex:0 0 auto;
+    width:46px;
+    height:46px;
+    border:1px solid var(--line);
+    border-radius:12px;
+    background:#fff;
+    font-size:1.3rem;
+    cursor:pointer;
   }
+
   nav{
-    display:none;position:absolute;top:calc(100% + 10px);left:0;right:0;
-    padding:14px;background:#fff;border:1px solid var(--line);
-    border-radius:18px;box-shadow:0 20px 50px rgba(17,33,58,.14);
+    display:none;
+    position:absolute;
+    top:calc(100% + 8px);
+    left:0;
+    right:0;
+    z-index:100;
+
+    padding:12px;
+    background:#fff;
+    border:1px solid var(--line);
+    border-radius:16px;
+    box-shadow:0 20px 50px rgba(17,33,58,.16);
   }
-  nav.open{display:grid}
-  nav a{padding:10px 12px}
-  .grid3,.refGrid,.stats{grid-template-columns:1fr}
-  .visual{min-height:340px}
-  section{padding:52px 0}
-  .footerInner{align-items:flex-start;flex-direction:column}
+
+  nav.open{
+    display:grid;
+    gap:6px;
+  }
+
+  nav a{
+    display:block;
+    padding:12px 14px;
+    border-radius:10px;
+    font-size:1rem;
+  }
+
+  nav a:hover{
+    background:#eef3ff;
+  }
+
+  nav .btn{
+    width:100%;
+    margin-top:4px;
+  }
 }
 @media(prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
