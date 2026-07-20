@@ -2,16 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
   <url>
-    <loc>https://klarweb-design.de/</loc>
+    <loc>http://klarweb-design.de/</loc>
     <priority>1.0</priority>
   </url>
 
   <url>
-    <loc>https://klarweb-design.de/impressum.html</loc>
+    <loc>http://klarweb-design.de/impressum.html</loc>
   </url>
 
   <url>
-    <loc>https://klarweb-design.de/datenschutz.html</loc>
+    <loc>http://klarweb-design.de/datenschutz.html</loc>
   </url>
 
 </urlset>
