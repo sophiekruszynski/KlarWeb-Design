@@ -1123,6 +1123,52 @@
       .extra{flex-direction:column}
     }
 
+/* Gleichmäßige Vorschaugröße */
+.businessTickerCard img{
+  width:100%;
+  aspect-ratio:16 / 10;
+  object-fit:cover;
+  object-position:top center;
+  border-radius:20px;
+  display:block;
+}
+
+/* Mobile Swipe-Galerie */
+@media (max-width:700px){
+
+  .businessTicker{
+    width:100%;
+    overflow-x:auto;
+    overflow-y:hidden;
+    scroll-snap-type:x mandatory;
+    scroll-behavior:smooth;
+    -webkit-overflow-scrolling:touch;
+    touch-action:pan-x;
+    padding-bottom:12px;
+  }
+
+  .businessTickerTrack{
+    width:max-content;
+    gap:16px;
+    animation:none;
+    transform:none;
+    padding:0 16px;
+  }
+
+  .businessTickerCard{
+    flex:0 0 min(82vw, 350px);
+    scroll-snap-align:center;
+  }
+
+  .businessTicker::-webkit-scrollbar{
+    display:none;
+  }
+
+  .businessTicker{
+    scrollbar-width:none;
+  }
+}
+    
     @media(prefers-reduced-motion:reduce){
       html{scroll-behavior:auto}
       *,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}
