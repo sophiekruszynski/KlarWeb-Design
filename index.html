@@ -1168,11 +1168,13 @@
     scrollbar-width:none;
   }
 }
-.businessDots{
-  display:none;
-  justify-content:center;
-  gap:10px;
-  margin-top:20px;
+.businessDots span{
+  width:10px;
+  height:10px;
+  border-radius:50%;
+  background:#cfd8d1;
+  cursor:pointer;
+  transition:width .2s ease, background-color .2s ease;
 }
 
 .businessDots span{
@@ -1469,7 +1471,7 @@
     </div>
 </div>
 
-<div class="businessDots">
+<div class="businessDots" aria-label="Business-Design auswählen">
   <span class="active"></span>
   <span></span>
   <span></span>
@@ -2143,6 +2145,60 @@ if (heroSlider && heroSlides.length > 1) {
       });
     });
   });
+
+const businessTicker = document.querySelector(".businessTicker");
+const businessCards = document.querySelectorAll(
+  ".businessTickerTrack .businessTickerCard"
+);
+const businessDots = document.querySelectorAll(".businessDots span");
+
+function getBusinessCardWidth() {
+  if (!businessCards.length) return 0;
+
+  const cardWidth = businessCards[0].getBoundingClientRect().width;
+  const trackStyles = getComputedStyle(
+    document.querySelector(".businessTickerTrack")
+  );
+  const gap = parseFloat(trackStyles.gap) || 0;
+
+  return cardWidth + gap;
+}
+
+function updateBusinessDots() {
+  if (!businessTicker || !businessDots.length) return;
+
+  const cardWidth = getBusinessCardWidth();
+  if (!cardWidth) return;
+
+  const rawIndex = Math.round(businessTicker.scrollLeft / cardWidth);
+
+  // Nur 6 unterschiedliche Designs, obwohl die Karten doppelt vorhanden sind
+  const activeIndex = rawIndex % businessDots.length;
+
+  businessDots.forEach(function (dot, index) {
+    dot.classList.toggle("active", index === activeIndex);
+  });
+}
+
+if (businessTicker && businessDots.length) {
+  businessTicker.addEventListener("scroll", function () {
+    window.requestAnimationFrame(updateBusinessDots);
+  });
+
+  businessDots.forEach(function (dot, index) {
+    dot.addEventListener("click", function () {
+      const cardWidth = getBusinessCardWidth();
+
+      businessTicker.scrollTo({
+        left: index * cardWidth,
+        behavior: "smooth"
+      });
+    });
+  });
+
+  updateBusinessDots();
+}
+  
 </script>
 
 </body>
